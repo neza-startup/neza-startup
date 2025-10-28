@@ -1,11 +1,10 @@
-import './App.css'
-import Hero from './components/Hero.jsx'
+import AppRouter from './routes/AppRouter.jsx'
 
 function App() {
 
   return (
     <>
-      <Hero />
+      <AppRouter />
     </>
   )
 }

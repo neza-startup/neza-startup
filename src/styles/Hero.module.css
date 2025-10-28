@@ -1,5 +1,12 @@
 /* (mobile first) */
 section.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh;
+  width: 100vw; */
+
   img.icon {
     max-width: 10rem;
   }
@@ -8,7 +15,7 @@ section.hero {
     font-weight: 800;
     font-size: 1.5rem;
     width: 24ch;
-    /* text-align: center; */
+    text-align: center;
     /* text-wrap: pretty; */
     /* overflow-wrap: break-word; */
   }
@@ -18,6 +25,10 @@ section.hero {
     font-size: 1.2rem !important;
     /* width: 32ch; */
   }
+
+  /* span {
+    text-align: center;
+  } */
 }
 
 /* responsive design */
