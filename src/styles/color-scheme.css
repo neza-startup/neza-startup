@@ -3,6 +3,7 @@
   --vartest2: #F5F5F5;
   --github: #0d1117 #010409 */
   --primary-color: #000000;
+  --secondary-color: #FFFFFF;
   /* background-color: var(--primary-color); */
   color-scheme: light dark;
 }
