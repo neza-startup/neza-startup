@@ -1,15 +1,15 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faFile, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Icon from '../assets/icon.svg';
+import icon from '../assets/icon.svg';
 
 import styles from '../styles/LinkInBio.module.css';
 
-function LinkIBio() {
+function LinkInBio() {
   return (
     <div className={styles.linkInBio}>
       <header>
-        <img src={Icon} alt="Icon" className={styles.icon} />
+        <img src={icon} alt="Icon" className={styles.icon} />
       </header>
       <div className={styles.content}>
         {/* <span>#OpenToWork</span> */}
@@ -42,4 +42,4 @@ function LinkIBio() {
   )
 }
 
-export default LinkIBio
+export default LinkInBio
