@@ -1,6 +1,7 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faFile, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+/* import banner from '../assets/banner.svg'; */
 import icon from '../assets/icon.svg';
 
 import styles from '../styles/LinkInBio.module.css';
@@ -9,6 +10,7 @@ function LinkInBio() {
   return (
     <div className={styles.linkInBio}>
       <header>
+        {/* <img src={banner} alt="Banner" className={styles.banner} /> */}
         <img src={icon} alt="Icon" className={styles.icon} />
       </header>
       <div className={styles.content}>
