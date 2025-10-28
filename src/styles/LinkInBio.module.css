@@ -19,6 +19,7 @@ div.linkInBio {
         /* 80% */
       ;
       border-radius: 50%;
+      aspect-ratio: 1/1;
     }
   }
 
