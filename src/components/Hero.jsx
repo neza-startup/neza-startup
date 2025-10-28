@@ -1,4 +1,4 @@
-import icon from '../assets/Icon.svg'
+import icon from '../assets/icon.svg'
 import styles from '../styles/Hero.module.css'
 const Hero = () => {
   return (
