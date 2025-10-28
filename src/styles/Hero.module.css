@@ -1,0 +1,30 @@
+/* (mobile first) */
+section.hero {
+  img.icon {
+    max-width: 10rem;
+  }
+
+  p {
+    font-weight: 800;
+    font-size: 1.5rem;
+    width: 24ch;
+    /* text-align: center; */
+    /* text-wrap: pretty; */
+    /* overflow-wrap: break-word; */
+  }
+
+  p:last-of-type {
+    font-weight: 500;
+    font-size: 1.2rem !important;
+    /* width: 32ch; */
+  }
+}
+
+/* responsive design */
+@media only screen and (min-width: 768px) {
+  section.hero {
+    img.icon {
+      max-width: 14rem;
+    }
+  }
+}
