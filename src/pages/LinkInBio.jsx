@@ -1,4 +1,4 @@
-import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCalendar, faEnvelope, faFile, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /* import banner from '../assets/banner.svg'; */
@@ -12,6 +12,7 @@ function LinkInBio() {
       <header>
         {/* <img src={banner} alt="Banner" className={styles.banner} /> */}
         <img src={icon} alt="Icon" className={styles.icon} />
+        <h1>The Star Marketing & Software Startup</h1>
       </header>
       <div className={styles.content}>
         {/* <span>#OpenToWork</span> */}
@@ -38,6 +39,9 @@ function LinkInBio() {
         </a>
         <a href="mailto:contact@nezastartup.com" className={styles.link}>
           <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />&nbsp;contact@nezastartup.com
+        </a>
+        <a href='https://github.com/neza-startup' className={styles.link}>
+          <FontAwesomeIcon icon={faGithub} className={styles.icon} />&nbsp;github.com/neza-startup
         </a>
       </div>
       <footer>
