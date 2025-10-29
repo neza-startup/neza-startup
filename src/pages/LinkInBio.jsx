@@ -1,5 +1,5 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faFile, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faEnvelope, faFile, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /* import banner from '../assets/banner.svg'; */
 import icon from '../assets/icon.svg';
@@ -19,7 +19,10 @@ function LinkInBio() {
           <FontAwesomeIcon icon={faLocationDot} className={styles.icon} />&nbsp;Ubicaci&oacute;n
         </a>
         <a href="https://forms.gle/N1qUj644W3iNb6V66" target="_blank" rel="noopener noreferrer" className={styles.link}>
-          <FontAwesomeIcon icon={faFile} className={styles.icon} />&nbsp;Formulario
+          <FontAwesomeIcon icon={faFile} className={styles.icon} />&nbsp;Formulario interesados
+        </a>
+        <a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer" className={styles.link}>
+          <FontAwesomeIcon icon={faCalendar} className={styles.icon} />&nbsp;Agendar reuni&oacute;n
         </a>
         <a href='https://www.instagram.com/neza.startup/' target="_blank" rel="noopener noreferrer" className={styles.link}>
           <FontAwesomeIcon icon={faInstagram} className={styles.icon} />&nbsp;&#64;neza.startup
