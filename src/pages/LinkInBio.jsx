@@ -45,7 +45,7 @@ function LinkInBio() {
         </a>
       </div>
       <footer>
-        <p>&copy; 2025 Neza Startup. All rights reserved.</p>
+        <p>&copy; 2026 Neza Startup. All rights reserved.</p>
       </footer>
     </div>
   )
