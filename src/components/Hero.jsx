@@ -1,4 +1,4 @@
-import { /* faAngleDown, */ /* faAngleRight, */ faCheck, faClone, faEnvelope, faMobile, faStar } from '@fortawesome/free-solid-svg-icons';
+import { /* faAngleDown, */ faAngleRight, faCheck, faClone, faEnvelope, faMobile, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import icon from '../assets/icon.svg';
@@ -41,7 +41,7 @@ const Hero = () => {
       <h1>Neza Startup</h1>
       <h2>The Star Marketing & Software Startup</h2>
       <div className={styles.ctaContainer}>
-        {/* <a href="#contact" className={styles.cta}>View services <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> </a> */}
+        <a href="https://drive.google.com/file/d/1bE1chIYiese2pCK1QOwGCmaivCRo6kPy/view?usp=sharing"/* "#contact" */ className={styles.cta}>View services <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> </a>
         <a href="/link-in-bio" className={styles.ctaAux}>Contact us</a>
       </div>
       <div className={styles.ratingContainer}>
