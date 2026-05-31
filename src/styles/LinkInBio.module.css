@@ -54,8 +54,12 @@ div.linkInBio {
       font-size: 1.1rem;
       /* margin: 0.5rem 0; */
       padding: 0.5rem 1rem;
-      border: 2px solid #ffffff;
-      background-color: hsla(0, 0%, 100%, 0.25);
+      /* border: 2px solid #ffffff;
+      background-color: hsla(0, 0%, 100%, 0.25); */
+      color: hsl(0, 0%, 100%);
+      background-color: hsl(240, 3%, 8%);
+      color: hsl(0, 0%, 70%);
+      border: 2px solid hsl(0, 0%, 12%);
       border-radius: 2rem;
     }
   }
