@@ -1,0 +1,50 @@
+div.socialPath {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid
+    /* light-dark(hsl(0, 0%, 12%),  */
+    #1E1E1E
+    /* ) */
+  ;
+  background-color:
+    /* light-dark(hsla(0, 0%, 98%, 0.8), */
+    hsla(240, 2%, 8%, 0.8)
+    /* ) */
+  ;
+  backdrop-filter: blur(8px);
+  gap: 1rem;
+  z-index: 9;
+
+  a .icon,
+  span .icon {
+    font-size: 1.5rem;
+    color:
+      /* light-dark(#24292e, #c9d1d9) */
+      white !important;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.socialPath {
+    right: 5%;
+    padding: 0.5rem 1rem;
+
+    a:is(:nth-of-type(4), :nth-of-type(7), :last-of-type) {
+      display: none;
+    }
+  }
+}
