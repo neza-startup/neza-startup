@@ -42,7 +42,7 @@ const Hero = () => {
       <h2>The Star Marketing & Software Startup</h2>
       <div className={styles.ctaContainer}>
         <a href="https://drive.google.com/file/d/1bE1chIYiese2pCK1QOwGCmaivCRo6kPy/view?usp=sharing"/* "#contact" */ className={styles.cta}>View services <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> </a>
-        <a href="/link-in-bio" className={styles.ctaAux}>Contact us</a>
+        <a href="/link-in-bio" className={styles.ctaAux}>Contact us <FontAwesomeIcon icon={faStar} /></a>
       </div>
       <div className={styles.ratingContainer}>
         <span className={styles.rating}>4.5/5{/*  Customer Satisfaction */}</span>
