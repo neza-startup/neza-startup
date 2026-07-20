@@ -7,70 +7,27 @@ div.socialPath {
   top: 50%;
   right: 4%;
   transform: translateY(-50%);
-  /* border: 1px solid #000; */
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid light-dark(#1e1e1e, #1e1e1e);
-  background-color: light-dark(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8));
+  border: 2px solid
+    /* light-dark(hsl(0, 0%, 12%),  */
+    #1E1E1E
+    /* ) */
+  ;
+  background-color:
+    /* light-dark(hsla(0, 0%, 98%, 0.8), */
+    hsla(240, 2%, 8%, 0.8)
+    /* ) */
+  ;
   backdrop-filter: blur(8px);
   gap: 1rem;
-  /* box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.05); */
   z-index: 9;
 
-  /* &:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 2em #007bffc9);
-
-  } */
-
-  a {
-    /* text-decoration: none; */
-    /* color: #0070f3; */
-    /* color: hsl(0, 0%, 100%);
-    background-color: hsl(240, 3%, 8%);
-    text-decoration: none;
-    border: 2px solid */
-    /* #1E1E1E  */
-    /* hsl(0, 0%, 100%); */
-    /* #0070f3 */
-    /* ; */
-
-    /* background-color: white;
-    color: #000;
-    border-radius: 1.5rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease; */
-
-    /* &:hover {
-        background-color: #0070f3;
-        color: white;
-      } */
-
-    /* &:hover {
-        background-color: hsl(0, 0%, 100%);
-        background-color: hsl(240, 3%, 8%);
-        color: #000;
-      } */
-
-    /* &:hover {
-        background-color: transparent; */
-    /* color: #0070f3; */
-    /* color: hsl(0, 0%, 100%);
-        background-color: hsl(240, 3%, 8%); */
-    /* background-color: white; */
-    /* color: #000; */
-    /* } */
-
-    color: light-dark(white, black
-        /* #24292e, #c9d1d9 */
-      );
+  a .icon {
     font-size: 1.5rem;
-  }
-
-  .icon {
-    font-size: 1.8rem;
-    color: light-dark(#24292e, #c9d1d9);
-    color: white !important;
+    color:
+      /* light-dark(#24292e, #c9d1d9) */
+      white !important;
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -78,81 +35,11 @@ div.socialPath {
       }
     }
   }
-
-  a:first-of-type .icon {
-    color: var(--details);
-  }
-
-  a:nth-of-type(2) .icon {
-    color: light-dark(#0e76a8, #0e76a8);
-  }
-
-  a:nth-of-type(4) .icon {
-    color: light-dark(#0e9f0e, #0e9f0e);
-  }
-
-  a:is(:nth-of-type(5), :nth-of-type(5), :nth-of-type(6), :nth-of-type(8)) .icon {
-    color: var(--details);
-  }
-
-  a:nth-of-type(7) .icon {
-    color: light-dark(rgb(169, 134, 63), rgb(217, 180, 100));
-  }
-
-  /* calendar/calendly */
-  a:is(:last-of-type) .icon {
-    color: light-dark(#4d90fe, #4d90fe);
-    /* red */
-    /* color: light-dark(#d14836, #d14836); */
-    /* apple maps red color */
-    /* color: light-dark(#ff3b30, #ff453a); */
-  }
 }
 
-/* div.container::before {
-  background-image: url('./bg.jpg');
-  background-size: cover;
-  background-position: center;
-  backdrop-filter: blur(8px);
-} */
-
 @media only screen and (max-width: 768px) {
-  /* div.container {
-    top: auto;
-    bottom: 2%;
-    right: 50%;
-    left: auto;
-    transform: translateX(50%);
-    flex-direction: row;
-    padding: 0.5rem 1rem;
-  } */
-
   div.socialPath {
     right: 5%;
     padding: 0.5rem 1rem;
-
-    /* a {
-      .icon {
-        font-size: 1.8rem;
-      }
-    } */
-
-    a:is(:nth-of-type(6), :nth-of-type(7), :last-of-type) {
-      display: none;
-    }
   }
-
-  /* body:has(ul.sidebarContainer.isSidebarActive) {
-    div.container {
-      display: none !important;
-    }
-  } */
-
-  /* div.container {
-    top: auto;
-    bottom: 2%;
-    right: 50%;
-    transform: translateX(50%);
-    flex-direction: row;
-  } */
 }

@@ -58,7 +58,7 @@ const Hero = () => {
 
       <div className={styles.contactInfo}>
 
-        <div className={styles.phone}>
+        <div className={styles.phone} onClick={() => window.open("tel:+527771411554", "_self")}>
           <FontAwesomeIcon icon={faMobile} className={styles.icon} />
 
           <a href="tel:+527771411554" ref={phoneRef}>
@@ -84,7 +84,6 @@ const Hero = () => {
               <FontAwesomeIcon icon={faClone} className={styles.copyIcon} onClick={() => handleCopy('contact@nezastartup.com', 'email')} />
           }
         </div>
-
       </div>
 
       {/* <div className={styles.testimonial}>
@@ -102,6 +101,10 @@ const Hero = () => {
       <a href="#contact" className={styles.ctaAux}>
         Contact us
       </a> */}
+      <div className={styles.workStatusContainer}>
+        <span className={styles.workStatus}>#OpenForBusiness</span>
+        <span className={styles.workStatus}>#WeAreHiring</span>
+      </div>
     </section>
   )
 }
