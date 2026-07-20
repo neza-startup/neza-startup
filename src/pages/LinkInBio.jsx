@@ -32,11 +32,11 @@ function LinkInBio() {
         <a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer" className={styles.link}>
           <FontAwesomeIcon icon={faCalendar} className={styles.icon} />&nbsp;Agendar reuni&oacute;n
         </a>
-        <a href='https://www.instagram.com/neza.startup/' target="_blank" rel="noopener noreferrer" className={styles.link}>
-          <FontAwesomeIcon icon={faInstagram} className={styles.icon} />&nbsp;&#64;neza.startup
-        </a>
         <a href="https://wa.me/527771411554?text=Hola,%20me%20interesan%20sus%20servicios" target="_blank" rel="noopener noreferrer" className={styles.link}>
           <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />&nbsp;+52 777 141 1554
+        </a>
+        <a href='https://www.instagram.com/neza.startup/' target="_blank" rel="noopener noreferrer" className={styles.link}>
+          <FontAwesomeIcon icon={faInstagram} className={styles.icon} />&nbsp;&#64;neza.startup
         </a>
         <a href='https://www.facebook.com/neza.startup/' target="_blank" rel="noopener noreferrer" className={styles.link}>
           <FontAwesomeIcon icon={faFacebook} className={styles.icon} />&nbsp;&#47;neza.startup
