@@ -58,7 +58,7 @@ const Hero = () => {
 
       <div className={styles.contactInfo}>
 
-        <div className={styles.phone} onClick={() => window.open("tel:+527771411554", "_self")}>
+        <div className={styles.phone} /* onClick={() => window.open("tel:+527771411554", "_self")} */>
           <FontAwesomeIcon icon={faMobile} className={styles.icon} />
 
           <a href="tel:+527771411554" ref={phoneRef}>

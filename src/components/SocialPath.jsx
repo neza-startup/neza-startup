@@ -22,7 +22,7 @@ const SocialPath = () => {
 
   return (
     <div className={styles.socialPath}>
-      <a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+      <a href="https://www.nezastartup.com/link-in-bio" target="_self" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faLink} className={styles.icon} />
       </a>
       <a href="https://wa.me/527771411554" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
