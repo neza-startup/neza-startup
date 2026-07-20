@@ -3,7 +3,6 @@ import { faCalendar, faEnvelope, faFile, faGlobe, faLocationDot, faPhone } from 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /* import banner from '../assets/banner.svg'; */
 import icon from '../assets/icon.svg';
-
 import styles from '../styles/LinkInBio.module.css';
 
 function LinkInBio() {
