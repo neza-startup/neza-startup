@@ -1,7 +1,6 @@
 import { faFacebook, faGithub, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendar, faEnvelope, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import styles from '../styles/SocialPath.module.css';
 
 const SocialPath = () => {
@@ -46,6 +45,9 @@ const SocialPath = () => {
       </a>
       <a href="https://github.com/neza-startup" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faGithub} className={styles.icon} />
+      </a>
+      <a href="https://forms.gle/N1qUj644W3iNb6V66" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+        <FontAwesomeIcon icon={faFile} className={styles.icon} />
       </a>
       <span onClick={handleShare} className={styles.socialLink}>
         <FontAwesomeIcon icon={faShare} className={styles.icon} />

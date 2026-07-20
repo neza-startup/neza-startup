@@ -43,7 +43,7 @@ div.socialPath {
     right: 5%;
     padding: 0.5rem 1rem;
 
-    a:is(:nth-of-type(4), :nth-of-type(7), :last-of-type) {
+    a:is(:nth-of-type(4), :nth-of-type(7), :nth-of-type(8), :last-of-type) {
       display: none;
     }
   }
