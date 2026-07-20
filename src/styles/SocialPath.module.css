@@ -23,7 +23,8 @@ div.socialPath {
   gap: 1rem;
   z-index: 9;
 
-  a .icon {
+  a .icon,
+  span .icon {
     font-size: 1.5rem;
     color:
       /* light-dark(#24292e, #c9d1d9) */
@@ -41,5 +42,9 @@ div.socialPath {
   div.socialPath {
     right: 5%;
     padding: 0.5rem 1rem;
+
+    a:is(:nth-of-type(4), :nth-of-type(7), :last-of-type) {
+      display: none;
+    }
   }
 }
