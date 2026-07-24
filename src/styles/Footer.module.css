@@ -21,8 +21,8 @@ footer.footer {
   font-size: 0.875rem; */
 
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
 }
 
 /* responsive design */
