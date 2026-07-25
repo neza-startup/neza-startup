@@ -29,14 +29,38 @@ const QnA = () => {
       answer: "You can contact us through our website's contact form, email, social platforms, or by calling our customer service line."
     },
     {
+      question: "Where is Neza Startup located?",
+      answer: "Neza Startup was founded in Monterrey N.L., Mexico. However, we are currently based in Mexico City, Mexico and we serve clients from various locations and offer remote services."
+    },
+    {
+      question: "Why choose Neza Startup over other companies?",
+      answer: "Neza Startup stands out due to our innovative approach, commitment to quality, and personalized service. We prioritize understanding our clients' unique needs and delivering solutions that drive results."
+    }/* ,
+    {
       question: "What is the typical timeline for a project with Neza Startup?",
       answer: "The typical timeline for a project with Neza Startup varies depending on the complexity and scope of the project. We work closely with our clients to establish realistic timelines and ensure timely delivery."
-    }
+    } *//* ,
+    {
+      question: "Do you offer support after project completion?",
+      answer: "Yes, we offer ongoing support and maintenance services to ensure that our clients' projects continue to run smoothly after completion."
+    } */
+    /* {
+      question: "Can Neza Startup help with branding and design?",
+      answer: "Absolutely! We have a team of creative professionals who specialize in branding and design to help businesses establish a strong visual identity."
+    },
+    {
+      question: "What industries does Neza Startup serve?",
+      answer: "Neza Startup serves a wide range of industries including technology, healthcare, retail, education, and more. We tailor our services to meet the unique needs of each industry."
+    },
+    {
+      question: "How do I get started with Neza Startup?",
+      answer: "To get started, simply reach out to us through our contact form or email, and one of our representatives will guide you through the process."
+    } */
   ];
 
   const canExpand = questions.length > DEFAULT_VISIBLE_QUESTIONS;
   return (
-    <section className={styles.qna}>
+    <section className={styles.qna} id="qna">
       <header className={styles.header}>
         <h1>Q&A</h1>
         <h2>Star Questions, Clear Answers</h2>
