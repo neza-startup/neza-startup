@@ -129,6 +129,14 @@ section.qna {
     /* justify-content: space-between; */
     width: 100%;
 
+    /* span { */
+    /* font-size: 0.8rem;
+      color: var(--text-aux-color);
+      max-width: 32ch;
+      text-align: center; */
+    /* font-weight: 500;
+    } */
+
     a {
       text-decoration: none;
       color: var(--accent-color);
@@ -173,13 +181,6 @@ section.qna {
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
-
-    /* span {
-      font-size: 0.8rem;
-      color: var(--text-aux-color);
-      max-width: 32ch;
-      text-align: center;
-    } */
   }
 }
 
