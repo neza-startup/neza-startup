@@ -1,4 +1,5 @@
 import BusinessSlider from '../components/BusinessSlider.jsx'
+/* import Contact from '../components/Contact.jsx' */
 import Footer from '../components/Footer.jsx'
 import Hero from '../components/Hero.jsx'
 import Navbar from '../components/Navbar.jsx'
@@ -13,6 +14,7 @@ function Landing() {
       <Navbar />
       <Hero />
       <BusinessSlider />
+      {/* <Contact /> */}
       <QnA />
       <Footer />
     </div>

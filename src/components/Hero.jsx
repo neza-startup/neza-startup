@@ -1,4 +1,4 @@
-import { /* faAngleDown, */ faAngleRight, faCheck, faClone, faEnvelope, faMobile, faStar } from '@fortawesome/free-solid-svg-icons';
+import { /* faAngleDown, */ faAngleRight, faBriefcase, faCheck, faClone, faEnvelope, faIdBadge, faMobile, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import icon from '../assets/icon.svg';
@@ -102,8 +102,8 @@ const Hero = () => {
         Contact us
       </a> */}
       <div className={styles.workStatusContainer}>
-        <span className={styles.workStatus}>#OpenForBusiness</span>
-        <span className={styles.workStatus}>#WeAreHiring</span>
+        <span className={styles.workStatus}>#OpenForBusiness <FontAwesomeIcon icon={faBriefcase} /></span>
+        <span className={styles.workStatus}>#WeAreHiring <FontAwesomeIcon icon={faIdBadge} /></span>
       </div>
     </section>
   )
