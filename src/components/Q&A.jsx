@@ -12,7 +12,7 @@ const QnA = () => {
       answer: "Neza Startup offers a range of services including digital marketing, web development, and software solutions tailored to meet the needs of businesses."
     },
     {
-      question: "How can I contact Neza Startup?",
+      question: "How can we contact Neza Startup?",
       answer: "You can contact Neza Startup through our website's contact form, email, or by calling our customer service line."
     }
   ];
