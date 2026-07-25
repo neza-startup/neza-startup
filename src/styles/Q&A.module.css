@@ -109,6 +109,77 @@ section.qna {
     [open]::details-content {
       height: auto;
     }
+
+    details.questionItem.visible {
+      display: block;
+    }
+
+    details.questionItem.hidden {
+      display: none;
+    }
+  }
+
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    width: 100%;
+
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      margin-left: 0.5rem;
+
+      padding: 0.5rem 1rem;
+      border: 2px solid black;
+      border-radius: 5rem;
+      background-color: white;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+
+      background-color:
+        /* light-dark(hsla(0, 0%, 98%, 0.8), */
+        hsla(240, 2%, 8%, 0.8)
+        /* ) */
+      ;
+
+      /* @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--primary-color);
+        }
+      } */
+    }
+
+    button.viewAllButton {
+      margin-left: auto;
+      padding: 0.5rem 1rem;
+      border: 2px solid black;
+      border-radius: 5rem;
+      background-color: white;
+      color: black;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* span {
+      font-size: 0.8rem;
+      color: var(--text-aux-color);
+      max-width: 32ch;
+      text-align: center;
+    } */
   }
 }
 
@@ -135,6 +206,32 @@ section.qna {
             }
           }
         }
+      }
+
+    }
+
+    footer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0rem;
+
+      span {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        order: 2;
+      }
+
+      a {
+        margin-left: 0;
+        order: 3;
+      }
+
+      button.viewAllButton {
+        margin-left: 0;
+        order: 1;
       }
     }
   }

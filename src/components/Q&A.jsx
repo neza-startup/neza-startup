@@ -1,6 +1,11 @@
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import styles from '../styles/Q&A.module.css';
 
 const QnA = () => {
+  const DEFAULT_VISIBLE_QUESTIONS = 5;
+  const [showAll, setShowAll] = useState(false);
 
   const questions = [
     {
@@ -19,16 +24,17 @@ const QnA = () => {
       question: "How much does your services cost?",
       answer: "The cost of our services varies depending on the specific needs and requirements of each project. We provide customized quotes based on the scope and complexity of the work."
     },
-    /* {
-      question: "What is the typical timeline for a project with Neza Startup?",
-      answer: "The typical timeline for a project with Neza Startup varies depending on the complexity and scope of the project. We work closely with our clients to establish realistic timelines and ensure timely delivery."
-    }, */
     {
       question: "How can we contact Neza Startup?",
       answer: "You can contact us through our website's contact form, email, social platforms, or by calling our customer service line."
+    },
+    {
+      question: "What is the typical timeline for a project with Neza Startup?",
+      answer: "The typical timeline for a project with Neza Startup varies depending on the complexity and scope of the project. We work closely with our clients to establish realistic timelines and ensure timely delivery."
     }
   ];
 
+  const canExpand = questions.length > DEFAULT_VISIBLE_QUESTIONS;
   return (
     <section className={styles.qna}>
       <header className={styles.header}>
@@ -37,12 +43,27 @@ const QnA = () => {
       </header>
       <div className={styles.questions}>
         {questions.map((q, index) => (
-          <details key={index} name="accordion">
+          <details
+            key={index}
+            name="accordion"
+            className={`${styles.questionItem} ${index < DEFAULT_VISIBLE_QUESTIONS || showAll ? styles.visible : styles.hidden}`}
+          >
             <summary>{q.question}</summary>
             <p>{q.answer}</p>
           </details>
         ))}
       </div>
+      <footer className={styles.footer}>
+        <span>Have any other questions?</span>
+        <a href="mailto:contact@nezastartup.com">Let us know!</a>
+        {canExpand ? (
+          <button onClick={() => setShowAll((prev) => !prev)} className={styles.viewAllButton}>
+            {showAll ? 'View less' : 'View all'}
+            &nbsp;
+            {showAll ? <FontAwesomeIcon icon={faMinus} /> : <FontAwesomeIcon icon={faPlus} />}
+          </button>
+        ) : null}
+      </footer>
     </section>
   );
 };
