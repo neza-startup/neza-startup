@@ -13,6 +13,7 @@ section.qna {
     justify-content: center;
     align-items: center;
     width: 64ch;
+    text-align: center;
 
     /* h2 {
       font-size: 1rem;
@@ -107,6 +108,34 @@ section.qna {
 
     [open]::details-content {
       height: auto;
+    }
+  }
+}
+
+/* responsive design (mobile first) */
+
+@media only screen and (max-width: 768px) {
+  section.qna {
+    text-align: center;
+
+    header.header {
+      max-width: 32ch;
+    }
+
+    div.questions {
+      gap: 0.5rem;
+
+      details {
+        max-width: 32ch;
+
+        summary {
+          @media(hover: hover) and (pointer: fine) {
+            &:hover {
+              color: var(--accent-color);
+            }
+          }
+        }
+      }
     }
   }
 }
