@@ -12,8 +12,20 @@ const QnA = () => {
       answer: "Neza Startup offers a range of services including digital marketing, web development, and software solutions tailored to meet the needs of businesses."
     },
     {
+      question: "Which are your work modalities?",
+      answer: "We offer flexible work modalities including remote, on-site, and hybrid options to accommodate the preferences and needs of our clients."
+    },
+    {
+      question: "How much does your services cost?",
+      answer: "The cost of our services varies depending on the specific needs and requirements of each project. We provide customized quotes based on the scope and complexity of the work."
+    },
+    /* {
+      question: "What is the typical timeline for a project with Neza Startup?",
+      answer: "The typical timeline for a project with Neza Startup varies depending on the complexity and scope of the project. We work closely with our clients to establish realistic timelines and ensure timely delivery."
+    }, */
+    {
       question: "How can we contact Neza Startup?",
-      answer: "You can contact Neza Startup through our website's contact form, email, or by calling our customer service line."
+      answer: "You can contact us through our website's contact form, email, social platforms, or by calling our customer service line."
     }
   ];
 
