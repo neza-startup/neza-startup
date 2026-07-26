@@ -168,11 +168,19 @@ section.hero {
       padding: 0.5rem 1rem;
       border-radius: 1.5rem;
       border: 2px solid #1E1E1E;
+      border: 1px solid #1E1E1E;
+      background-color:
+        /* light-dark(hsla(0, 0%, 98%, 0.8), */
+        hsla(240, 2%, 8%, 0.8)
+        /* ) */
+      ;
 
       a {
         font-weight: 500;
         font-size: 1rem;
-        color: hsl(0, 0%, 70%);
+        color: white
+          /* hsl(0, 0%, 70%) */
+        ;
         text-decoration: none;
 
         &:hover {
