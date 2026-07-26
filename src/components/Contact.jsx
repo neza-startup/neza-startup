@@ -1,10 +1,25 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendar, faEnvelope, faLink, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../styles/Contact.module.css";
 
 
 const Contact = () => {
+  const handleShare = () => {
+    const shareData = {
+      title: 'Neza Startup',
+      text: 'Check out Neza Startup!',
+      url: 'https://www.nezastartup.com',
+    };
+
+    if (navigator.share) {
+      navigator.share(shareData)
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      alert('Sharing is not supported in this browser.');
+    }
+  };
   return (
     <section className={styles.contact} id="contact">
       <header>
@@ -25,6 +40,11 @@ const Contact = () => {
           <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /> Facebook &#8599;</a></li>
           {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
           <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCalendar} /> Calendly &#8599;</a></li>
+          <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Form &#8599;</a></li>
+          <li>
+            <span onClick={handleShare} className={styles.socialLink}>
+              Share <FontAwesomeIcon icon={faShare} />
+            </span></li>
           {/* <li>Live Chat: Available on our website during business hours</li>
         <li>Support Ticket System: Submit a ticket through our website for assistance</li>
         <li>Technical Support: Get help with technical issues related to our products and services</li> */}
