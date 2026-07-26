@@ -1,4 +1,8 @@
+import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faCalendar, faEnvelope, faLink, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../styles/Contact.module.css";
+
 
 const Contact = () => {
   return (
@@ -12,15 +16,15 @@ const Contact = () => {
           Other ways to connect:
         </span>
         <ul className={styles.contactList}>
-          <li><a href="mailto:info@neza.com">Chat with our sales team{/* a sales man, an agent, representative */}</a></li>
-          <li><a href="tel:+1234567890">+1 (234) 567-8900</a></li>
-          <li><a href="mailto:info@neza.com">info@neza.com</a></li>
-          <li><a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer">Link in bio</a></li>
-          <li><a href="https://www.instagram.com/neza.startup/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://wa.me/527771411554" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-          <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-          <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer">Calendly</a></li>
+          <li><a href="mailto:info@neza.com">Chat with our sales team &#8599;{/* a sales man, an agent, representative */}</a></li>
+          <li><a href="tel:+527774447232"><FontAwesomeIcon icon={faPhone} /> +52 777 444 7232 &#8599;</a></li>
+          <li><a href="mailto:contact@nezastartup.com"><FontAwesomeIcon icon={faEnvelope} /> contact@nezastartup.com &#8599;</a></li>
+          <li><a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /> Link in bio &#8599;</a></li>
+          <li><a href="https://www.instagram.com/neza.startup/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /> Instagram &#8599;</a></li>
+          <li><a href="https://wa.me/527771411554" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} /> WhatsApp &#8599;</a></li>
+          <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /> Facebook &#8599;</a></li>
+          {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
+          <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCalendar} /> Calendly &#8599;</a></li>
           {/* <li>Live Chat: Available on our website during business hours</li>
         <li>Support Ticket System: Submit a ticket through our website for assistance</li>
         <li>Technical Support: Get help with technical issues related to our products and services</li> */}

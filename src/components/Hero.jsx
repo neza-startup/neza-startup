@@ -62,7 +62,7 @@ const Hero = () => {
           <FontAwesomeIcon icon={faMobile} className={styles.icon} />
 
           <a href="tel:+527771411554" ref={phoneRef}>
-            +52 777 141 1554
+            +52 777 141 1554 &#8599;
           </a>
 
           {
@@ -75,7 +75,7 @@ const Hero = () => {
         <div className={styles.email}>
           <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
           <a href="mailto:contact@nezastartup.com" ref={emailRef}>
-            contact@nezastartup.com
+            contact@nezastartup.com &#8599;
           </a>
 
           {
