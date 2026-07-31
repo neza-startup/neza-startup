@@ -25,26 +25,23 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 })
 
-app.post("/api/contact", async (req, res) => {
-  const { subject, name, email, phone, message } = req.body;
+const sendEmail = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
+  const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
+  });
 
-  try {
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: SMTP_FROM,
-      to: NOTIFY_EMAIL,
-      replyTo: email,
-      subject,
-      html: `
+  return transporter.sendMail({
+    from: SMTP_FROM,
+    to: NOTIFY_EMAIL,
+    replyTo: email,
+    subject,
+    html: `
         <span>Hello Elviro:</span>
         <br/><br/>
         <span>I'm</span> <b>${name}</b>,
@@ -56,63 +53,74 @@ app.post("/api/contact", async (req, res) => {
         <span>Phone: <b>${phone}</b></span>
         <br/><br/>
         <span>Sent from Portfolio</span>`,
-    });
+  });
+};
 
-    const payload = {
-      messaging_product: "whatsapp",
-      to: WHATSAPP_PHONE_NUMBER,
+const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
+  const payload = {
+    messaging_product: "whatsapp",
+    to: WHATSAPP_PHONE_NUMBER,
 
-      /* contact_form_submission */
+    /* contact_form_submission */
 
-      type: 'template',
-      template: {
-        name: "portfolio_lead",
-        language: {
-          code: "en"
-        },
-        components: [
-          {
-            type: "body",
-            parameters: [
-
-              {
-                type: "text",
-                text: subject
-              },
-              {
-                type: "text",
-                text: name
-              },
-              {
-                type: "text",
-                text: email
-              },
-              {
-                type: "text",
-                text: phone
-              },
-              {
-                type: "text",
-                text: message
-              }
-            ]
-          }
-        ]
-      }
-    }
-
-    const response = await fetch(WHATSAPP_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${WHATSAPP_BEARER_TOKEN}`,
+    type: 'template',
+    template: {
+      name: "portfolio_lead",
+      language: {
+        code: "en"
       },
-      body: JSON.stringify(payload)
-    });
+      components: [
+        {
+          type: "body",
+          parameters: [
 
-    const data = await response.json();
+            {
+              type: "text",
+              text: subject
+            },
+            {
+              type: "text",
+              text: name
+            },
+            {
+              type: "text",
+              text: email
+            },
+            {
+              type: "text",
+              text: phone
+            },
+            {
+              type: "text",
+              text: message
+            }
+          ]
+        }
+      ]
+    }
+  }
 
-    res.status(200).json({ message: "Email and WhatsApp message sent successfully", data });
+  return fetch(WHATSAPP_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${WHATSAPP_BEARER_TOKEN}`,
+    },
+    body: JSON.stringify(payload)
+  });
+};
+
+app.post("/api/contact", async (req, res) => {
+  const { subject, name, email, phone, message } = req.body;
+
+  try {
+    await sendEmail(subject, name, email, phone, message);
+    /* const response =  */
+    await sendWhatsAppMessage(subject, name, email, phone, message);
+
+    /* const data = await response.json(); */
+
+    res.status(200).json({ message: "Email and WhatsApp message sent successfully"/* , data  */ });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Error sending email" });
