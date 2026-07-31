@@ -40,7 +40,7 @@ const Contact = () => {
           <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /> Facebook &#8599;</a></li>
           {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
           <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCalendar} /> Calendly &#8599;</a></li>
-          <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Form &#8599;</a></li>
+          <li><a href="https://forms.gle/N1qUj644W3iNb6V66" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Form &#8599;</a></li>
           <li>
             <span onClick={handleShare} className={styles.socialLink}>
               Share <FontAwesomeIcon icon={faShare} />
