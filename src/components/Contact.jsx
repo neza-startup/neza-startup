@@ -1,10 +1,28 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useRef /* , useState  */ } from "react";
 import styles from "../styles/Contact.module.css";
 
-
 const Contact = () => {
+
+  const formRef = useRef(null);
+  /* const [isActive, setIsActive] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isCheckedWhatsapp, setIsCheckedWhatsapp] = useState(false);
+
+  const toggleStatus = () => {
+    setIsActive(!isActive);
+  }
+
+  const toggleCheckbox = () => {
+    setIsChecked(!isChecked);
+  }
+
+  const toggleChecked = () => {
+    setIsCheckedWhatsapp(!isCheckedWhatsapp);
+  } */
+
   const handleShare = () => {
     const shareData = {
       title: 'Neza Startup',
@@ -20,12 +38,71 @@ const Contact = () => {
       alert('Sharing is not supported in this browser.');
     }
   };
+
   return (
     <section className={styles.contact} id="contact">
       <header>
         <h1>Contact Us</h1>
         <h2>Everything starts here</h2>
       </header>
+
+      <form className={styles.contactForm} ref={formRef}>
+
+        {/* <fieldset className={styles.fieldset}>
+          <label htmlFor="status" className={styles.statusLabelName}>Send via {isActive ? 'WhatsApp' : 'Email'}:&nbsp;
+            <input type="checkbox" id="status" name="status" onChange={toggleStatus} checked={isActive} className={styles.statusCheckbox} />
+            <label htmlFor="status" className={styles.statusLabel}></label>
+          </label>
+
+          {
+            !isActive ? (
+              <label htmlFor="client" className={styles.checkboxLabelName}>({isChecked ? 'Desktop App' : 'Web Client'})&nbsp;
+                <input type="checkbox" id="client" name="client" onChange={toggleCheckbox} checked={isChecked} className={styles.checkbox} />
+                <label htmlFor="client" className={styles.checkboxLabel}></label>
+              </label>
+            ) : (
+              <label htmlFor="client" className={styles.checkboxLabelName}>({isCheckedWhatsapp ? 'URL Link' : 'Cloud API'})&nbsp;
+                <input type="checkbox" id="client" name="client" onChange={toggleChecked} checked={isCheckedWhatsapp} className={styles.checkbox} />
+                <label htmlFor="client" className={`${styles.checkboxLabel} ${styles.whatsapp}`}></label>
+              </label>
+            )
+          }
+        </fieldset> */}
+
+        <legend>Type your personal or business information in the contact form to get in touch with us.</legend>
+
+        <fieldset>
+          <label htmlFor="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" placeholder="Requesting services" />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="john.doe@example.com" />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" placeholder="+52 777 444 7232" />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message here..."></textarea>
+        </fieldset>
+
+        <div className={styles.formActions}>
+          <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and Privacy Policy&#8599;.</span>
+          <button type="submit">Send Email</button>
+        </div>
+
+      </form>
+
       <div className={styles.contactInfo}>
         <span>
           Other ways to connect:
