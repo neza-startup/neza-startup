@@ -39,6 +39,39 @@ const Contact = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const sendEmailAndWhatsApp = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            subject: formRef.current.subject.value,
+            name: formRef.current.name.value,
+            email: formRef.current.email.value,
+            phone: formRef.current.phone.value,
+            message: formRef.current.message.value,
+          }),
+        });
+
+        if (response.ok) {
+          alert('Email sent successfully!');
+          formRef.current.reset();
+        }/*  else {
+          alert('Error sending email. Please try again later.');
+        } */
+      } catch (error) {
+        alert(error);
+      }
+    }
+
+    sendEmailAndWhatsApp();
+  }
+
   return (
     <section className={styles.contact} id="contact">
       <header>
@@ -46,7 +79,7 @@ const Contact = () => {
         <h2>Everything starts here</h2>
       </header>
 
-      <form className={styles.contactForm} ref={formRef}>
+      <form className={styles.contactForm} ref={formRef} onSubmit={handleSubmit}>
 
         {/* <fieldset className={styles.fieldset}>
           <label htmlFor="status" className={styles.statusLabelName}>Send via {isActive ? 'WhatsApp' : 'Email'}:&nbsp;
@@ -69,7 +102,7 @@ const Contact = () => {
           }
         </fieldset> */}
 
-        <legend>Type your personal or business information in the contact form to get in touch with us.</legend>
+        <legend>Type your <span>personal</span> or <span>business</span> information in the contact form to get in touch with us.</legend>
 
         <fieldset>
           <label htmlFor="subject">Subject:</label>
@@ -82,13 +115,13 @@ const Contact = () => {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="john.doe@example.com" />
+          <label htmlFor="email">Email: (Required)</label>
+          <input type="email" id="email" name="email" placeholder="john.doe@example.com" autoComplete='email' required />
         </fieldset>
 
         <fieldset>
           <label htmlFor="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" placeholder="+52 777 444 7232" />
+          <input type="tel" id="phone" name="phone" placeholder="+52 777 444 7232" autoComplete='tel' />
         </fieldset>
 
         <fieldset>
@@ -97,7 +130,7 @@ const Contact = () => {
         </fieldset>
 
         <div className={styles.formActions}>
-          <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and Privacy Policy&#8599;.</span>
+          <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
           <button type="submit">Send Email</button>
         </div>
 

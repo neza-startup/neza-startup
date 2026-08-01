@@ -27,13 +27,17 @@ section.contact {
     align-items: center;
     gap: 1.5rem;
     width: 100%;
-    max-width: 32rem;
+    max-width: 40rem;
 
     legend {
       /* font-size: 1.5rem;
       font-weight: 600; */
       text-align: left;
       align-self: flex-start;
+
+      span {
+        font-weight: 600;
+      }
     }
 
     fieldset {
@@ -69,6 +73,7 @@ section.contact {
         border: 1px solid var(--border-color);
         background-color: hsla(240, 2%, 8%, 0.8);
         font-size: 1rem;
+        color: white;
 
         &:focus {
           outline: #0070f3 auto 1px;
@@ -306,6 +311,17 @@ section.contact {
 
     form.contactForm {
       align-items: stretch;
+
+      fieldset {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0rem;
+
+        label {
+          flex: 0 0 0;
+        }
+      }
 
       div.formActions {
         padding-left: 0;
