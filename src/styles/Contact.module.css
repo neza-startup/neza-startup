@@ -27,7 +27,7 @@ section.contact {
     align-items: center;
     gap: 1.5rem;
     width: 100%;
-    max-width: 40rem;
+    max-width: 36rem;
 
     legend {
       /* font-size: 1.5rem;
@@ -57,7 +57,7 @@ section.contact {
       width: 100%;
       border: none;
 
-      label {
+      &:not(.fieldset)>label {
         font-weight: 600;
         text-align: left;
         flex: 0 0 8ch;

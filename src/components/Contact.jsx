@@ -1,13 +1,13 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRef /* , useState  */ } from "react";
+import { useRef, useState } from "react";
 import styles from "../styles/Contact.module.css";
 
 const Contact = () => {
 
   const formRef = useRef(null);
-  /* const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isCheckedWhatsapp, setIsCheckedWhatsapp] = useState(false);
 
@@ -21,7 +21,7 @@ const Contact = () => {
 
   const toggleChecked = () => {
     setIsCheckedWhatsapp(!isCheckedWhatsapp);
-  } */
+  }
 
   const handleShare = () => {
     const shareData = {
@@ -81,8 +81,8 @@ const Contact = () => {
 
       <form className={styles.contactForm} ref={formRef} onSubmit={handleSubmit}>
 
-        {/* <fieldset className={styles.fieldset}>
-          <label htmlFor="status" className={styles.statusLabelName}>Send via {isActive ? 'WhatsApp' : 'Email'}:&nbsp;
+        <fieldset className={styles.fieldset}>
+          <label htmlFor="status" className={styles.statusLabelName}>Send through {isActive ? 'WhatsApp' : 'Email'}:&nbsp;
             <input type="checkbox" id="status" name="status" onChange={toggleStatus} checked={isActive} className={styles.statusCheckbox} />
             <label htmlFor="status" className={styles.statusLabel}></label>
           </label>
@@ -100,7 +100,7 @@ const Contact = () => {
               </label>
             )
           }
-        </fieldset> */}
+        </fieldset>
 
         <legend>Type your <span>personal</span> or <span>business</span> information in the contact form to get in touch with us.</legend>
 
