@@ -56,11 +56,12 @@ const Contact = () => {
 
     const { subject, name, email, phone, message } = formData;
 
-    if (isWhatsAppActive) {
+    if (isWhatsAppActive && isCheckedWhatsappLink) {
       const whatsappMessage = `Hello, I would like to get in touch with you. My name is ${name}, and my email is ${email}. My phone number is ${phone}. I would like to discuss the following subject: ${subject}. Here is my message: ${message}`;
-      const whatsappURL = `https://wa.me/+527774447232?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappURL = `https://wa.me/527774447232?text=${encodeURIComponent(whatsappMessage)}`;
 
       window.open(whatsappURL, '_blank');
+      setIsLoading(false);
     } else if (isCheckedDesktopEmail) {
       const emailBody = `Hello, I would like to get in touch with you. My name is ${name}, and my email is ${email}. My phone number is ${phone}. I would like to discuss the following subject: ${subject}. Here is my message: ${message}`;
       const mailtoLink = `mailto:contact@nezastartup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;

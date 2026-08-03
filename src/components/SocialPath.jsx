@@ -25,7 +25,7 @@ const SocialPath = () => {
       <a href="https://www.nezastartup.com/link-in-bio" target="_self" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faLink} className={styles.icon} />
       </a>
-      <a href="https://wa.me/527771411554" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+      <a href="https://wa.me/527774447232" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />
       </a>
       <a href="https://www.instagram.com/neza.startup/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
@@ -37,7 +37,7 @@ const SocialPath = () => {
       <a href="mailto:contact@nezastartup.com" className={styles.socialLink}>
         <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
       </a>
-      <a href="tel:+527771411554" className={styles.socialLink}>
+      <a href="tel:+527774447232" className={styles.socialLink}>
         <FontAwesomeIcon icon={faPhone} className={styles.icon} />
       </a>
       <a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
