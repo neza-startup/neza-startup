@@ -3,10 +3,12 @@ import { faCalendar, faEnvelope, faFile, faLink, faPaperPlane, faPhone, faShare 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/Contact.module.css";
+import Modal from "./Modal";
 
 const Contact = () => {
 
   const formRef = useRef(null);
+  const modalRef = useRef(null);
   const [isWhatsAppActive, setIsWhatsAppActive] = useState(false);
   const [isCheckedDesktopEmail, setIsCheckedDesktopEmail] = useState(false);
   const [isCheckedWhatsappLink, setIsCheckedWhatsappLink] = useState(false);
@@ -76,8 +78,10 @@ const Contact = () => {
           });
 
           if (response.ok) {
-            alert('Email sent successfully!');
+            /* alert('Email sent successfully!'); */
             /* formRef.current.reset(); */
+
+            modalRef.current.open('Email sent successfully!', 'Your email has been sent successfully. We will get back to you shortly.', 'Close');
 
             setFormData({
               subject: 'Requesting services',
@@ -86,6 +90,12 @@ const Contact = () => {
               phone: '',
               message: 'Hello! I am interested in your services.'
             });
+
+            /* Close modal automatically after 3 seconds */
+            setTimeout(() => {
+              modalRef.current.close();
+            }, 3000);
+
           }/*  else {
             alert('Error sending email. Please try again later.');
           } */
@@ -172,6 +182,8 @@ const Contact = () => {
           <label htmlFor="message">Message:</label>
           <textarea id="message" name="message" rows="5" placeholder="Your message here..." value={formData.message} onChange={handleInputChange}></textarea>
         </fieldset>
+
+        <Modal ref={modalRef} />
 
         <div className={styles.formActions}>
           <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
