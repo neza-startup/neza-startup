@@ -4,8 +4,10 @@ dialog.modal:modal {
   transform: translate(-50%, -50%);
   border: none;
   border-radius: .5rem;
-  padding: 1rem;
-  width: max-content;
+  /* padding: 1rem; */
+  width: 32rem
+    /* max-content */
+  ;
   padding: 2rem;
 
   /* width: 100%;
@@ -16,6 +18,8 @@ dialog.modal:modal {
   border: 1px solid #1E1E1E;
   background-color:
     black;
+  color: white;
+  outline: none;
 }
 
 dialog.modal::backdrop {
@@ -27,7 +31,31 @@ dialog.modal::backdrop {
   padding: 2rem;
 } */
 
-button.closeModalBtn {
+.closeModalXBtn {
+  /* margin-top: 1rem; */
+  padding:
+    /* 0.75rem  */
+    1rem;
+  cursor: pointer;
+  /* border-radius: 5rem */
+  /* 0.5rem */
+  /* ; */
+  border: none;
+  /* background: white; */
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+
+  /* margin-top: auto; */
+  align-self: flex-end;
+
+
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+/* button.closeModalBtn {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
   cursor: pointer;
@@ -39,7 +67,7 @@ button.closeModalBtn {
 
   margin-top: auto;
   align-self: flex-end;
-}
+} */
 
 /* @keyframes fade-in {
   from {
