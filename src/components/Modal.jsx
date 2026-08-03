@@ -1,5 +1,8 @@
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import styles from "../styles/Modal.module.css";
+'@fortawesome/free-brands-svg-icons';
 
 const Modal = forwardRef((_, ref) => {
   const modalRef = useRef(null);
@@ -46,13 +49,13 @@ const Modal = forwardRef((_, ref) => {
 
   return (
     <dialog ref={modalRef} className={styles.modal} onClick={handleBackdropOutsideClick}>
+      <FontAwesomeIcon icon={faCircleXmark} className={styles.closeModalXBtn} onClick={() => modalRef.current?.close()} />
       <h2>{content.title}</h2>
       <p>{content.message}</p>
-      {/* TODO: HEADER, BODY AND FOOTER */}
-
-      <button className={styles.closeModalBtn} onClick={() => modalRef.current?.close()}>
+      {/* <button className={styles.closeModalBtn} onClick={() => modalRef.current?.close()}>
         {content.btn || "Close"}
-      </button>
+      </button> */}
+      {/* TODO: HEADER, BODY AND FOOTER */}
     </dialog>
   )
 });

@@ -70,7 +70,7 @@ const Contact = () => {
     } else {
       const sendEmailAndWhatsApp = async () => {
         try {
-          const response = await fetch('http://localhost:3000/api/contact', {
+          const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -82,7 +82,11 @@ const Contact = () => {
             /* alert('Email sent successfully!'); */
             /* formRef.current.reset(); */
 
-            modalRef.current.open('Email sent successfully!', 'Your email has been sent successfully. We will get back to you shortly.', 'Close');
+            modalRef.current.open(
+              isWhatsAppActive ? 'WhatsApp sent successfully!' : 'Email sent successfully!',
+              isWhatsAppActive ? 'Your WhatsApp message has been sent successfully. We will get back to you shortly.' : 'Your email has been sent successfully. We will get back to you shortly.',
+              'Close'
+            );
 
             setFormData({
               subject: 'Requesting services',
@@ -95,7 +99,7 @@ const Contact = () => {
             /* Close modal automatically after 3 seconds */
             setTimeout(() => {
               modalRef.current.close();
-            }, 3000);
+            }, 4000);
 
           }/*  else {
             alert('Error sending email. Please try again later.');
