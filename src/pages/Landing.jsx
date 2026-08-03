@@ -2,7 +2,9 @@ import BusinessSlider from '../components/BusinessSlider.jsx'
 import Contact from '../components/Contact.jsx'
 import Footer from '../components/Footer.jsx'
 import Hero from '../components/Hero.jsx'
+import LastCTA from '../components/LastCTA.jsx'
 import Navbar from '../components/Navbar.jsx'
+import Newsletter from '../components/Newsletter.jsx'
 import QnA from '../components/Q&A.jsx'
 import SocialPath from '../components/SocialPath.jsx'
 import styles from '../styles/Landing.module.css'
@@ -16,6 +18,8 @@ function Landing() {
       <BusinessSlider />
       <Contact />
       <QnA />
+      <Newsletter />
+      <LastCTA />
       <Footer />
     </div>
   )

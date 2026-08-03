@@ -1,0 +1,78 @@
+section.lastCTA {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  /* padding: 4rem 2rem; */
+
+  /* h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  } */
+
+
+  div.lastCTAContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    /* max-width: 48rem; */
+    /*  margin: 0 auto; */
+    padding: 2rem;
+
+    a {
+      background-color: white;
+      color: var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+
+      /* &:hover {
+        background-color: var(--primary-color-dark);
+        color: white;
+      } */
+    }
+
+    a:first-of-type {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+
+      /* border: 1px solid #1E1E1E;
+      background-color: */
+      /* light-dark(hsla(0, 0%, 98%, 0.8), */
+      /* hsla(240, 2%, 8%, 0.8) */
+      /* ) */
+      /* ; */
+
+      /* &:hover {
+        background-color: white;
+        color: var(--primary-color);
+      } */
+    }
+  }
+
+  /* button {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &:hover {
+      background-color: var(--primary-color-dark);
+      color: white;
+    }
+  } */
+}
