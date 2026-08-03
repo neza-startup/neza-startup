@@ -52,7 +52,7 @@ const sendEmail = async (subject = "not provided (optional)", name = "not provid
         <br/>
         <span>Phone: <b>${phone}</b></span>
         <br/><br/>
-        <span>Sent from Portfolio</span>`,
+        <span>Sent from Landing Page</span>`,
   });
 };
 

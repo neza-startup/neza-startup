@@ -62,13 +62,13 @@ const Hero = () => {
           <FontAwesomeIcon icon={faMobile} className={styles.icon} />
 
           <a href="tel:+527771411554" ref={phoneRef}>
-            +52 777 141 1554 &#8599;
+            +52 777 444 7232 &#8599;
           </a>
 
           {
             copied.phone ?
               <FontAwesomeIcon icon={faCheck} className={styles.copiedIcon} /> :
-              <FontAwesomeIcon icon={faClone} className={styles.copyIcon} onClick={() => handleCopy('+52 777 141 1554', 'phone')} />
+              <FontAwesomeIcon icon={faClone} className={styles.copyIcon} onClick={() => handleCopy('+52 777 444 7232', 'phone')} />
           }
         </div>
 

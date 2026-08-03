@@ -1,26 +1,114 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faEnvelope, faFile, faLink, faPaperPlane, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../styles/Contact.module.css";
+import Modal from "./Modal";
 
 const Contact = () => {
 
   const formRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-  const [isCheckedWhatsapp, setIsCheckedWhatsapp] = useState(false);
+  const modalRef = useRef(null);
+  const [isWhatsAppActive, setIsWhatsAppActive] = useState(false);
+  const [isCheckedDesktopEmail, setIsCheckedDesktopEmail] = useState(false);
+  const [isCheckedWhatsappLink, setIsCheckedWhatsappLink] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const [formData, setFormData] = useState({
+    subject: 'Requesting services',
+    name: '',
+    email: '',
+    phone: '',
+    message: 'Hello! I am interested in your services.'
+  });
 
   const toggleStatus = () => {
-    setIsActive(!isActive);
+    setIsWhatsAppActive(!isWhatsAppActive);
   }
 
   const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
+    setIsCheckedDesktopEmail(!isCheckedDesktopEmail);
   }
 
   const toggleChecked = () => {
-    setIsCheckedWhatsapp(!isCheckedWhatsapp);
+    setIsCheckedWhatsappLink(!isCheckedWhatsappLink);
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  }
+
+  useEffect(() => {
+    if (formRef.current) {
+      setIsFormValid(formRef.current.checkValidity());
+    }
+  }, [formData, isWhatsAppActive, isCheckedDesktopEmail, isCheckedWhatsappLink]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    setIsLoading(true);
+
+    const { subject, name, email, phone, message } = formData;
+
+    if (isWhatsAppActive && isCheckedWhatsappLink) {
+      const whatsappMessage = `Hello, I would like to get in touch with you. My name is ${name}, and my email is ${email}. My phone number is ${phone}. I would like to discuss the following subject: ${subject}. Here is my message: ${message}`;
+      const whatsappURL = `https://wa.me/527774447232?text=${encodeURIComponent(whatsappMessage)}`;
+
+      window.open(whatsappURL, '_blank');
+      setIsLoading(false);
+    } else if (isCheckedDesktopEmail) {
+      const emailBody = `Hello, I would like to get in touch with you. My name is ${name}, and my email is ${email}. My phone number is ${phone}. I would like to discuss the following subject: ${subject}. Here is my message: ${message}`;
+      const mailtoLink = `mailto:contact@nezastartup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+      window.open(mailtoLink, '_blank');
+    } else {
+      const sendEmailAndWhatsApp = async () => {
+        try {
+          const response = await fetch('http://localhost:3000/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (response.ok) {
+            /* alert('Email sent successfully!'); */
+            /* formRef.current.reset(); */
+
+            modalRef.current.open('Email sent successfully!', 'Your email has been sent successfully. We will get back to you shortly.', 'Close');
+
+            setFormData({
+              subject: 'Requesting services',
+              name: '',
+              email: '',
+              phone: '',
+              message: 'Hello! I am interested in your services.'
+            });
+
+            /* Close modal automatically after 3 seconds */
+            setTimeout(() => {
+              modalRef.current.close();
+            }, 3000);
+
+          }/*  else {
+            alert('Error sending email. Please try again later.');
+          } */
+        } catch (error) {
+          alert(error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+
+      sendEmailAndWhatsApp();
+    }
   }
 
   const handleShare = () => {
@@ -39,39 +127,6 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    const sendEmailAndWhatsApp = async () => {
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            subject: formRef.current.subject.value,
-            name: formRef.current.name.value,
-            email: formRef.current.email.value,
-            phone: formRef.current.phone.value,
-            message: formRef.current.message.value,
-          }),
-        });
-
-        if (response.ok) {
-          alert('Email sent successfully!');
-          formRef.current.reset();
-        }/*  else {
-          alert('Error sending email. Please try again later.');
-        } */
-      } catch (error) {
-        alert(error);
-      }
-    }
-
-    sendEmailAndWhatsApp();
-  }
-
   return (
     <section className={styles.contact} id="contact">
       <header>
@@ -82,20 +137,20 @@ const Contact = () => {
       <form className={styles.contactForm} ref={formRef} onSubmit={handleSubmit}>
 
         <fieldset className={styles.fieldset}>
-          <label htmlFor="status" className={styles.statusLabelName}>Send through {isActive ? 'WhatsApp' : 'Email'}:&nbsp;
-            <input type="checkbox" id="status" name="status" onChange={toggleStatus} checked={isActive} className={styles.statusCheckbox} />
+          <label htmlFor="status" className={styles.statusLabelName}>Send through {isWhatsAppActive ? 'WhatsApp' : 'Email'}:&nbsp;
+            <input type="checkbox" id="status" name="status" onChange={toggleStatus} checked={isWhatsAppActive} className={styles.statusCheckbox} />
             <label htmlFor="status" className={styles.statusLabel}></label>
           </label>
 
           {
-            !isActive ? (
-              <label htmlFor="client" className={styles.checkboxLabelName}>({isChecked ? 'Desktop App' : 'Web Client'})&nbsp;
-                <input type="checkbox" id="client" name="client" onChange={toggleCheckbox} checked={isChecked} className={styles.checkbox} />
+            !isWhatsAppActive ? (
+              <label htmlFor="client" className={styles.checkboxLabelName}>({isCheckedDesktopEmail ? 'Desktop App' : 'Web Client'})&nbsp;
+                <input type="checkbox" id="client" name="client" onChange={toggleCheckbox} checked={isCheckedDesktopEmail} className={styles.checkbox} />
                 <label htmlFor="client" className={styles.checkboxLabel}></label>
               </label>
             ) : (
-              <label htmlFor="client" className={styles.checkboxLabelName}>({isCheckedWhatsapp ? 'URL Link' : 'Cloud API'})&nbsp;
-                <input type="checkbox" id="client" name="client" onChange={toggleChecked} checked={isCheckedWhatsapp} className={styles.checkbox} />
+              <label htmlFor="client" className={styles.checkboxLabelName}>({isCheckedWhatsappLink ? 'URL Link' : 'Cloud API'})&nbsp;
+                <input type="checkbox" id="client" name="client" onChange={toggleChecked} checked={isCheckedWhatsappLink} className={styles.checkbox} />
                 <label htmlFor="client" className={`${styles.checkboxLabel} ${styles.whatsapp}`}></label>
               </label>
             )
@@ -106,32 +161,47 @@ const Contact = () => {
 
         <fieldset>
           <label htmlFor="subject">Subject:</label>
-          <input type="text" id="subject" name="subject" placeholder="Requesting services" />
+          <input type="text" id="subject" name="subject" placeholder="Requesting services" value={formData.subject} onChange={handleInputChange} />
         </fieldset>
 
         <fieldset>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" placeholder="John Doe" />
+          <input type="text" id="name" name="name" placeholder="Nevan Starton" value={formData.name} onChange={handleInputChange} />
         </fieldset>
 
         <fieldset>
-          <label htmlFor="email">Email: (Required)</label>
-          <input type="email" id="email" name="email" placeholder="john.doe@example.com" autoComplete='email' required />
+          <label htmlFor="email">Email: {!isWhatsAppActive && <span>&#40;Required&#41;</span>}</label>
+          <input type="email" id="email" name="email" placeholder="nevan.starton@example.com" autoComplete='email' required={!isWhatsAppActive} value={formData.email} onChange={handleInputChange} />
         </fieldset>
 
         <fieldset>
-          <label htmlFor="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" placeholder="+52 777 444 7232" autoComplete='tel' />
+          <label htmlFor="phone">Phone: {isWhatsAppActive && <span>&#40;Required&#41;</span>}</label>
+          <input type="tel" id="phone" name="phone" placeholder="+52 123 456 7890" autoComplete='tel' required={isWhatsAppActive} value={formData.phone} onChange={handleInputChange} />
         </fieldset>
 
         <fieldset>
           <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" rows="5" placeholder="Your message here..."></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Your message here..." value={formData.message} onChange={handleInputChange}></textarea>
         </fieldset>
+
+        <Modal ref={modalRef} />
 
         <div className={styles.formActions}>
           <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
-          <button type="submit">Send Email</button>
+          <button type="submit" disabled={!isFormValid || isLoading} className={`${styles.submitButton} ${isWhatsAppActive ? styles.whatsapp : styles.email}`}>
+            {
+              isLoading ? (
+                <>
+                  <span>Sending {isWhatsAppActive ? 'WhatsApp' : 'Email'}...</span>
+                  <span className={styles.loadingSpinner}></span>
+                </>
+              ) : (
+                <>
+                  Send {isWhatsAppActive ? 'WhatsApp' : 'Email'}&nbsp;<FontAwesomeIcon icon={isWhatsAppActive ? faWhatsapp : faPaperPlane} className={styles.icon} />
+                </>
+              )
+            }
+          </button>
         </div>
 
       </form>
@@ -146,7 +216,7 @@ const Contact = () => {
           <li><a href="mailto:contact@nezastartup.com"><FontAwesomeIcon icon={faEnvelope} /> contact@nezastartup.com &#8599;</a></li>
           <li><a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /> Link in bio &#8599;</a></li>
           <li><a href="https://www.instagram.com/neza.startup/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /> Instagram &#8599;</a></li>
-          <li><a href="https://wa.me/527771411554" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} /> WhatsApp &#8599;</a></li>
+          <li><a href="https://wa.me/527774447232" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} /> WhatsApp &#8599;</a></li>
           <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /> Facebook &#8599;</a></li>
           {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
           <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCalendar} /> Calendly &#8599;</a></li>
