@@ -65,7 +65,7 @@ const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "
 
     type: 'template',
     template: {
-      name: "portfolio_lead",
+      name: "lead",
       language: {
         code: "en"
       },
