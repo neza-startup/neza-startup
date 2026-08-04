@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "neza-startup-backend.vercel.app/api/$1"
+      "destination": "https://neza-startup-backend.vercel.app/api/$1"
     },
     {
       "source": "/(.*)",
