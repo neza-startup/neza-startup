@@ -3,7 +3,9 @@ import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import nodemailer from "nodemailer";
+import twilio from "twilio";
 
+/* EMAIL */
 const SMTP_HOST = process.env.SMTP_HOST || 'smtp.mail.me.com';
 const SMTP_PORT = process.env.SMTP_PORT || 587;
 const SMTP_USER = process.env.SMTP_USER;
@@ -11,10 +13,16 @@ const SMTP_PASS = process.env.SMTP_PASS;
 const SMTP_FROM = process.env.SMTP_FROM;
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || process.env.SMTP_USER;
 
+/* WhatsApp */
 const WHATSAPP_BOT_ID = process.env.WHATSAPP_BOT_ID;
 const WHATSAPP_PHONE_NUMBER = process.env.WHATSAPP_PHONE_NUMBER;
 const WHATSAPP_BEARER_TOKEN = process.env.WHATSAPP_BEARER_TOKEN;
 const WHATSAPP_API_URL = `https://graph.facebook.com/v22.0/${WHATSAPP_BOT_ID}/messages`;
+
+/* SMS */
+const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
+const NOTIFY_PHONE_NUMBER = process.env.NOTIFY_PHONE_NUMBER;
 
 const app = express();
 app.use(cors());
@@ -110,6 +118,16 @@ const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "
   });
 };
 
+const postSMS = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
+  const smsMessage = `New contact form submission:\n\nSubject: ${subject}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+
+  return twilioClient.messages.create({
+    body: smsMessage,
+    from: TWILIO_PHONE_NUMBER,
+    to: NOTIFY_PHONE_NUMBER
+  });
+};
+
 app.post("/api/contact", async (req, res) => {
   const { subject, name, email, phone, message } = req.body;
 
@@ -118,9 +136,11 @@ app.post("/api/contact", async (req, res) => {
     /* const response =  */
     await sendWhatsAppMessage(subject, name, email, phone, message);
 
+    await postSMS(subject, name, email, phone, message);
+
     /* const data = await response.json(); */
 
-    res.status(200).json({ message: "Email and WhatsApp message sent successfully"/* , data  */ });
+    res.status(200).json({ message: "Email, WhatsApp and SMS messages sent successfully"/* , data  */ });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Error sending email" });
