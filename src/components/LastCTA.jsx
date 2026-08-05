@@ -12,8 +12,8 @@ const LastCTA = () => {
 
       <div className={styles.lastCTAContent}>
         {/* <a href="/services" className={styles.servicesButton}>Explore Our Services</a> */}
-        <a href="/contact" className={styles.contactButton}>Contact Us Now</a>
-        <a href="/services" className={styles.servicesButton}>Get custom price <FontAwesomeIcon icon={faStar} /></a>
+        <a href="#contact" className={styles.contactButton}>Contact Us Now</a>
+        <a href="#services" className={styles.servicesButton}>Get custom price <FontAwesomeIcon icon={faStar} /></a>
       </div>
     </section>
   );
