@@ -1,19 +1,22 @@
 section.qna {
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   /* gap: 2rem; */
+  gap: 1rem;
+  /* background-color: blue; */
 
   header.header {
     /* margin-bottom: 0.5rem; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     width: 64ch;
     text-align: center;
+    /* background-color: red; */
 
     /* h2 {
       font-size: 1rem;
@@ -43,7 +46,13 @@ section.qna {
       text-wrap: pretty;
       overflow-wrap: break-word;
       text-align: left;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease-in-out;
+      border: 1px solid #1E1E1E;
+      /* background-color: */
+      /* light-dark(hsla(0, 0%, 98%, 0.8), */
+      /* hsla(240, 2%, 8%, 0.8) */
+      /* ) */
+      /* ; */
 
       summary {
         display: flex;
@@ -65,7 +74,7 @@ section.qna {
 
           &:focus,
           &:hover {
-            color: var(--accent-color);
+            color: hsl(0, 0%, 98%, 0.8);
 
             /* &::after {
                 color: var(--primary-color);
@@ -78,19 +87,20 @@ section.qna {
         /* font-size: 0.6em; */
         /* font-weight: 400; */
         margin-top: 1rem;
-        color: var(--text-aux-color);
+        /* color: var(--text-aux-color); */
+        /* max-width: 64ch; */
       }
 
       &[open] {
 
         summary {
-          color: var(--accent-color);
+          color: hsl(0, 0%, 98%, 0.8);
           transition: color 0.3s ease;
         }
 
         summary::after {
           content: "⌃";
-          color: var(--accent-color);
+          color: hsl(0, 0%, 98%, 0.8);
         }
       }
 
@@ -120,12 +130,12 @@ section.qna {
   }
 
   footer {
-    margin-top: 1rem;
     text-align: center;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     /* justify-content: space-between; */
     width: 100%;
 
@@ -137,25 +147,24 @@ section.qna {
     /* font-weight: 500;
     } */
 
-    a {
-      text-decoration: none;
-      color: var(--accent-color);
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-      margin-left: 0.5rem;
+    a,
+    button.viewAllButton {
+      display: inline-flex;
+      line-height: 1;
 
+      border: none;
+      text-decoration: none;
+      /* color: var(--accent-color); */
+      font-weight: 500;
+      font-size: 1rem;
       padding: 0.5rem 1rem;
-      /* border: 2px solid black; */
       border-radius: 5rem;
-      background-color: white;
-      color: white;
-      font-weight: 600;
-      font-size: 0.875rem;
+
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
-
+      color: white;
+      /* border: 1px solid #1E1E1E; */
       background-color:
         /* light-dark(hsla(0, 0%, 98%, 0.8), */
         hsla(240, 2%, 8%, 0.8)
@@ -169,18 +178,14 @@ section.qna {
       } */
     }
 
+    a {
+      margin-left: 0.5rem;
+    }
+
     button.viewAllButton {
       margin-left: auto;
-      padding: 0.5rem 1rem;
-      /* border: 2px solid black; */
-      border: transparent;
-      border-radius: 5rem;
       background-color: white;
       color: black;
-      font-weight: 600;
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
     }
   }
 }
@@ -189,28 +194,28 @@ section.qna {
 
 @media only screen and (max-width: 768px) {
   section.qna {
-    text-align: center;
+    /* text-align: center; */
 
     header.header {
       max-width: 32ch;
     }
 
-    div.questions {
-      gap: 0.5rem;
+    /* div.questions {
+      gap: 0.5rem; */
 
-      details {
-        max-width: 32ch;
+    details {
+      max-width: 32ch;
 
-        summary {
-          @media(hover: hover) and (pointer: fine) {
-            &:hover {
-              color: var(--accent-color);
-            }
+      summary {
+        @media(hover: hover) and (pointer: fine) {
+          &:hover {
+            color: var(--accent-color);
           }
         }
       }
-
     }
+
+    /* } */
 
     footer {
       flex-direction: column;
