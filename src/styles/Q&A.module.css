@@ -7,6 +7,7 @@ section.qna {
   /* gap: 2rem; */
   gap: 1rem;
   /* background-color: blue; */
+  width: 100%;
 
   header.header {
     /* margin-bottom: 0.5rem; */
@@ -95,7 +96,7 @@ section.qna {
 
         summary {
           color: hsl(0, 0%, 98%, 0.8);
-          transition: color 0.3s ease;
+          transition: color 0.3s ease-in-out;
         }
 
         summary::after {
@@ -130,6 +131,8 @@ section.qna {
   }
 
   footer {
+    width: 64ch;
+    /* max-width: 32ch; */
     text-align: center;
 
     display: flex;
@@ -137,7 +140,7 @@ section.qna {
     align-items: center;
     justify-content: center;
     /* justify-content: space-between; */
-    width: 100%;
+    /* width: 100%; */
 
     /* span { */
     /* font-size: 0.8rem;
@@ -198,13 +201,15 @@ section.qna {
 
     header.header {
       max-width: 32ch;
+      /* width: 32ch; */
     }
 
     /* div.questions {
       gap: 0.5rem; */
 
     details {
-      max-width: 32ch;
+      /* max-width: 32ch; */
+      max-width: 24ch;
 
       summary {
         @media(hover: hover) and (pointer: fine) {
@@ -223,6 +228,7 @@ section.qna {
       justify-content: center;
       gap: 0.5rem;
       margin-top: 0rem;
+      /* background-color: green; */
 
       span {
         margin: 0;
