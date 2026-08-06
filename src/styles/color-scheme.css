@@ -6,4 +6,5 @@
   --secondary-color: #FFFFFF;
   /* background-color: var(--primary-color); */
   color-scheme: light dark;
+  interpolate-size: allow-keywords;
 }

@@ -128,6 +128,8 @@ const postSMS = async (subject = "not provided (optional)", name = "not provided
   });
 };
 
+/* TODO: notify the user of the successful submission also by email, WhatsApp, and SMS */
+
 app.post("/api/contact", async (req, res) => {
   const { subject, name, email, phone, message } = req.body;
 

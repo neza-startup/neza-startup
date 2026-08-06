@@ -63,7 +63,7 @@ const QnA = () => {
     <section className={styles.qna} id="qna">
       <header className={styles.header}>
         <h1>Q&A</h1>
-        <h2>Star Questions, Clear Answers</h2>
+        <span>Star Questions, Clear Answers</span>
       </header>
       <div className={styles.questions}>
         {questions.map((q, index) => (
