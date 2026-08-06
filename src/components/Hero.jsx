@@ -36,7 +36,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="hero">
       <img src={icon} alt="Neza Startup Logo" className={styles.icon} />
       <h1>Neza Startup</h1>
       <h2>The Star Marketing & Software Startup</h2>
