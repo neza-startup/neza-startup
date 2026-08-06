@@ -8,7 +8,7 @@ const Newsletter = () => {
         <h2>Get our latest {/* promotions,  */}offers, updates and news from us{/* Get the latest updates and offers from Neza Startup. */}{/*  Stay updated with the latest news and offers from Neza Startup. */}</h2>
       </header>
 
-      <div className={styles.newsletterContent}>
+      <div className={styles.newsletterContainer}>
         <div>
           <h3>Newsletter</h3>
           <span>Subscribe to our newsletter</span>
