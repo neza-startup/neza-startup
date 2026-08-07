@@ -416,6 +416,7 @@ section.contact {
     form.contactForm {
       /* align-items: stretch; */
       width: 100%;
+      gap: 1rem;
 
       fieldset.fieldset:first-of-type {
         flex-direction: column;
