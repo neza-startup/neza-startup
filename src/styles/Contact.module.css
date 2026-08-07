@@ -30,7 +30,8 @@ section.contact {
     gap: 1.5rem;
     width: 100%;
     max-width: 36rem;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
+    /* background-color: red; */
 
     legend {
       /* font-size: 1.5rem;
@@ -71,17 +72,23 @@ section.contact {
         flex: 1 1 auto;
         min-width: 0;
         width: auto;
+
+        width: 100%;
         padding: 0.75rem 1rem;
+        border: none
+          /* 1px solid var(--border-color) */
+        ;
         border-radius: 0.5rem;
-        border: 1px solid var(--border-color);
-        background-color: hsla(240, 2%, 8%, 0.8);
         font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+
         color: white;
+        background-color: hsla(240, 2%, 8%, 0.8);
 
         &:focus {
           outline: #0070f3 auto 1px;
-          border-color: var(--accent-color);
-          box-shadow: 0 0 0 2px var(--accent-color);
+          /* border-color: var(--accent-color); */
+          /* box-shadow: 0 0 0 2px var(--accent-color); */
         }
       }
 
@@ -185,20 +192,19 @@ section.contact {
 
     div.formActions {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 1rem;
       width: 100%;
       /* padding-left: calc(8ch + 0.5rem); */
 
       span.disclaimer {
         display: inline-flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         /* max-width: 32ch; */
         font-size: 0.8rem;
         text-align: left;
-
         color: hsla(0, 0%, 100%, 0.5);
       }
 
@@ -220,12 +226,17 @@ section.contact {
       }
 
       button.submitButton {
-        display: flex;
+        /* display: flex;
+        align-items: center; */
+
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
         /* gap: 0.5rem; */
         /* padding: 0.75rem 1.5rem; */
-        padding: 0.5rem 1rem;
-        font-size: 1.1rem;
+        /* padding: 0.5rem 1rem; */
+        padding: 0.75rem 1.5rem;
+        font-size: 1.2rem;
         font-weight: 500;
         color: #fff;
         /* background-color: #18181b; */
@@ -233,18 +244,15 @@ section.contact {
         border: none;
         border-radius: 5rem;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease-in-out;
 
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
         /* gap: 0.5rem; */
 
-        @media (hover: hover) and (pointer: fine) {
+        /* @media (hover: hover) and (pointer: fine) {
           &:hover {
             background-color: #333;
           }
-        }
+        } */
 
         &:disabled {
           cursor: not-allowed;
@@ -252,9 +260,9 @@ section.contact {
           transition: none;
         }
 
-        .icon {
+        /* .icon {
           font-size: 1.2rem;
-        }
+        } */
 
         .loadingSpinner {
           width: 1rem;
@@ -343,8 +351,8 @@ section.contact {
 
     ul.contactList {
       list-style: none;
-      padding: 0;
-      margin: 0;
+      /* padding: 0;
+      margin: 0; */
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
@@ -378,14 +386,16 @@ section.contact {
             /* ) */
           ;
 
-          &:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+          @media(hover: hover) and (pointer: fine) {
+            &:hover {
+              /*color: var(--accent-color);*/
+              text-decoration: underline;
+            }
           }
         }
 
         span {
-          border: none;
+          /* border: none; */
           cursor: pointer;
         }
 
@@ -402,7 +412,6 @@ section.contact {
 /* responsive design */
 @media only screen and (max-width: 768px) {
   section.contact {
-    padding: 1rem;
 
     form.contactForm {
       /* align-items: stretch; */
@@ -427,10 +436,10 @@ section.contact {
           flex: 0 0 0;
         }
 
-        input,
+        /* input,
         textarea {
           width: 100%;
-        }
+        } */
       }
 
       div.formActions {
@@ -452,8 +461,9 @@ section.contact {
 
     div.contactInfo {
       max-width: 100% !important;
-      width: 100% !important;
+      /* width: 100% !important; */
       gap: 0.5rem;
+      /* background-color: red; */
 
       span {
         align-self: center;
@@ -465,24 +475,24 @@ section.contact {
       }
 
       ul.contactList {
-        display: flex;
+        /* display: flex; */
         /* flex-direction: column; */
         justify-content: center;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         gap: 0.5rem;
         /* width: 100%; */
 
-        li {
-          /* width: 100%; */
-          display: flex;
-          /* align-items: center; */
+        /* li { */
+        /* width: 100%; */
+        /* display: flex; */
+        /* align-items: center; */
 
-          a {
-            /* justify-content: center; */
-            white-space: nowrap;
-            /* width: 100%; */
-          }
-        }
+        /* a { */
+        /* justify-content: center; */
+        /* white-space: nowrap; */
+        /* width: 100%; */
+        /* } */
+        /* } */
       }
     }
   }

@@ -79,7 +79,7 @@ const QnA = () => {
       </div>
       <footer className={styles.footer}>
         <span>Have any other questions?</span>
-        <a href="mailto:contact@nezastartup.com">Let us know!</a>
+        <a href="#contact">Let us know!</a>
         {canExpand ? (
           <button onClick={() => setShowAll((prev) => !prev)} className={styles.viewAllButton}>
             {showAll ? 'View less' : 'View all'}

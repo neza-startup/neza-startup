@@ -166,13 +166,15 @@ section.qna {
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
-      color: white;
       /* border: 1px solid #1E1E1E; */
-      background-color:
-        /* light-dark(hsla(0, 0%, 98%, 0.8), */
-        hsla(240, 2%, 8%, 0.8)
-        /* ) */
+      /* background-color: */
+      /* light-dark(hsla(0, 0%, 98%, 0.8), */
+      /* hsla(240, 2%, 8%, 0.8) */
+      /* ) */
       ;
+
+      color: hsl(0, 0%, 100%);
+      border: 1px solid var(--secondary-color);
 
       /* @media (hover: hover) and (pointer: fine) {
         &:hover {
