@@ -15,7 +15,7 @@ section.qna {
     flex-direction: column;
     justify-content: center;
     align-items: center; */
-    width: 64ch;
+    max-width: 64ch;
     text-align: center;
     /* background-color: red; */
 
@@ -228,6 +228,7 @@ section.qna {
       justify-content: center;
       gap: 0.5rem;
       margin-top: 0rem;
+      max-width: 32ch;
       /* background-color: green; */
 
       span {
