@@ -33,6 +33,8 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 })
 
+/* TODO WhatsApp customer */
+
 const sendEmail = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
@@ -47,7 +49,7 @@ const sendEmail = async (subject = "not provided (optional)", name = "not provid
   return transporter.sendMail({
     from: SMTP_FROM,
     to: NOTIFY_EMAIL,
-    replyTo: email,
+    ...(email && { cc: email, replyTo: email }), // Set cc and replyTo only if email is provided
     subject,
     html: `
         <span>Hello Elviro:</span>
@@ -61,6 +63,35 @@ const sendEmail = async (subject = "not provided (optional)", name = "not provid
         <span>Phone: <b>${phone}</b></span>
         <br/><br/>
         <span>Sent from Landing</span>`,
+  });
+};
+
+const sendEmailCustomer = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)") => {
+  const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
+  });
+
+  return transporter.sendMail({
+    from: SMTP_FROM,
+    to: email,
+    subject,
+    html: `
+        <span>Hello ${name}:</span>
+        <br/><br/>
+        <span>Thank you for contacting us.</span>
+        <br/>
+        <p><b>We have received your information and we will get back to you shortly (please expect to hear from us within 24 hours).</b></p>
+        <span>You should also receive a copy of your submission in your inbox.</span>
+        <br/><br/>
+        <span>Stellar Regards,</span>
+        <br/>
+        <span>Neza Startup Team</span>`,
   });
 };
 
@@ -139,6 +170,8 @@ app.post("/api/contact", async (req, res) => {
     await sendWhatsAppMessage(subject, name, email, phone, message);
 
     await postSMS(subject, name, email, phone, message);
+
+    await sendEmailCustomer(subject, name, email);
 
     /* const data = await response.json(); */
 
