@@ -33,6 +33,8 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 })
 
+/* TODO WhatsApp customer */
+
 const sendEmail = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
