@@ -213,13 +213,13 @@ const postSMS = async (subject = "not provided (optional)", name = "not provided
 }; */
 
 const ContactFormSchema = new mongoose.Schema({
-  subject: { type: String, required: true },
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: String, required: true },
-  message: { type: String, required: true },
+  subject: { type: String },
+  name: { type: String },
+  email: { type: String },
+  phone: { type: String },
+  message: { type: String },
   createdAt: { type: Date, default: Date.now }
-});
+}, { versionKey: false });
 
 const ContactForm = mongoose.model("ContactForm", ContactFormSchema, "ContactForm");
 
@@ -244,7 +244,7 @@ app.post("/api/contact", async (req, res) => {
 
     /* const data = await response.json(); */
 
-    res.status(200).json({
+    res.status(201).json({
       ContactForm: {
         message: "Contact form submission saved successfully",
       },
@@ -274,7 +274,7 @@ connectDB();
 const newsletterSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   createdAt: { type: Date, default: Date.now }
-});
+}, { versionKey: false });
 
 const Newsletter = mongoose.model("Newsletter", newsletterSchema, "Newsletter");
 
