@@ -1,6 +1,7 @@
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
+import mongoose from "mongoose";
 import morgan from "morgan";
 import nodemailer from "nodemailer";
 import twilio from "twilio";
@@ -235,6 +236,39 @@ app.post("/api/contact", async (req, res) => {
     res.status(500).json({ message: "Error sending email" });
   }
 })
+
+const connectDB = async (req, res) => {
+  try {
+    const connect = await mongoose.connect(
+      process.env.MONGODB_URI, { dbName: "Neza" });
+
+    console.log(`MongoDB Connected: ${connect.connection.name}`);
+  } catch (error) {
+    res.status(500).json({ error: "Error connecting to MongoDB", message: error.message });
+  }
+};
+
+connectDB();
+
+const newsletterSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  createdAt: { type: Date, default: Date.now }
+});
+
+const Newsletter = mongoose.model("Newsletter", newsletterSchema, "Newsletter");
+
+app.post("/api/newsletter", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const newSubscriber = new Newsletter({ email });
+    await newSubscriber.save();
+    res.status(201).json({ message: "Email added to newsletter successfully" });
+  } catch (error) {
+    console.error("Error adding email to newsletter:", error);
+    res.status(500).json({ message: "Error adding email to newsletter list" });
+  }
+});
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
