@@ -1,6 +1,31 @@
 import styles from "../styles/Newsletter.module.css";
 
 const Newsletter = () => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target.elements.email.value;
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      if (response.ok) {
+        alert("Email added to newsletter successfully!");
+        e.target.reset();
+      } else {
+        const errorData = await response.json();
+        alert(`Error adding email to newsletter: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error("Error adding email to newsletter:", error);
+      alert("An unexpected error occurred. Please try again later.");
+    }
+  };
+
   return (
     <section className={styles.newsletter} id="newsletter">
       <header className={styles.newsletterHeader}>
@@ -14,7 +39,7 @@ const Newsletter = () => {
           <span>Subscribe to our newsletter</span>
         </div>
 
-        <form className={styles.newsletterForm}>
+        <form className={styles.newsletterForm} onSubmit={handleSubmit}>
           <fieldset>
             <input type="email" placeholder="nevan.starton@example.com" required />
             <button type="submit">Subscribe</button>
