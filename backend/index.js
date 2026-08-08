@@ -212,6 +212,17 @@ const postSMS = async (subject = "not provided (optional)", name = "not provided
   });
 }; */
 
+const ContactFormSchema = new mongoose.Schema({
+  subject: { type: String, required: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  message: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
+
+const ContactForm = mongoose.model("ContactForm", ContactFormSchema, "ContactForm");
+
 app.post("/api/contact", async (req, res) => {
   const { subject, name, email, phone, message } = req.body;
 
@@ -226,14 +237,24 @@ app.post("/api/contact", async (req, res) => {
 
     await sendWhatsAppMessageCustomer(subject, name, phone);
 
+    const newContactForm = new ContactForm({ subject, name, email, phone, message });
+    await newContactForm.save();
+
     /* await postSMSCustomer(name, phone); */
 
     /* const data = await response.json(); */
 
-    res.status(200).json({ message: "Email, WhatsApp and SMS messages sent successfully. Customer notified"/* , data  */ });
+    res.status(200).json({
+      ContactForm: {
+        message: "Contact form submission saved successfully",
+      },
+      notifications: {
+        message: "Email, WhatsApp and SMS messages sent successfully. Customer notified"
+      }
+    });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ message: "Error sending email" });
+    console.error("Error processing contact form:", error);
+    res.status(500).json({ message: "Error processing contact form", error: error.message });
   }
 })
 
