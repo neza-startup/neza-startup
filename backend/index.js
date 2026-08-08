@@ -229,7 +229,7 @@ app.post("/api/contact", async (req, res) => {
 
     /* const data = await response.json(); */
 
-    res.status(200).json({ message: "Email, WhatsApp and SMS messages sent successfully"/* , data  */ });
+    res.status(200).json({ message: "Email, WhatsApp and SMS messages sent successfully. Customer notified"/* , data  */ });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Error sending email" });
