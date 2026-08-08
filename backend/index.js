@@ -149,6 +149,48 @@ const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "
   });
 };
 
+const sendWhatsAppMessageCustomer = async (subject = "not provided (optional)", name = "not provided (optional)", phone = "not provided (optional)") => {
+  const payload = {
+    messaging_product: "whatsapp",
+    to: phone,
+
+    /* contact_form_submission */
+
+    type: 'template',
+    template: {
+      name: "lead_customer_notification",
+      language: {
+        code: "en"
+      },
+      components: [
+        {
+          type: "body",
+          parameters: [
+
+            {
+              type: "text",
+              text: subject
+            },
+            {
+              type: "text",
+              text: name
+            }
+          ]
+        }
+      ]
+    }
+  };
+
+  return fetch(WHATSAPP_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${WHATSAPP_BEARER_TOKEN}`,
+    },
+    body: JSON.stringify(payload)
+  });
+};
+
 const postSMS = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
   const smsMessage = `New contact form submission:\n\nSubject: ${subject}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
 
@@ -159,7 +201,15 @@ const postSMS = async (subject = "not provided (optional)", name = "not provided
   });
 };
 
-/* TODO: notify the user of the successful submission also by email, WhatsApp, and SMS */
+/* const postSMSCustomer = async (name = "not provided (optional)", phone = "not provided (optional)") => {
+  const smsMessage = `Hello ${name},\n\nThank you for contacting us. We have received your information and will get back to you shortly.`;
+
+  return twilioClient.messages.create({
+    body: smsMessage,
+    from: TWILIO_PHONE_NUMBER,
+    to: phone
+  });
+}; */
 
 app.post("/api/contact", async (req, res) => {
   const { subject, name, email, phone, message } = req.body;
@@ -172,6 +222,10 @@ app.post("/api/contact", async (req, res) => {
     await postSMS(subject, name, email, phone, message);
 
     await sendEmailCustomer(subject, name, email);
+
+    await sendWhatsAppMessageCustomer(subject, name, phone);
+
+    /* await postSMSCustomer(name, phone); */
 
     /* const data = await response.json(); */
 
