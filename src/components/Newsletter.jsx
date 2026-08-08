@@ -1,10 +1,12 @@
+import { useState } from "react";
 import styles from "../styles/Newsletter.module.css";
 
 const Newsletter = () => {
 
+  const [email, setEmail] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.elements.email.value;
 
     try {
       const response = await fetch("/api/newsletter", {
@@ -15,7 +17,7 @@ const Newsletter = () => {
 
       if (response.ok) {
         alert("Email added to newsletter successfully!");
-        e.target.reset();
+        setEmail("");
       } else {
         const errorData = await response.json();
         alert(`Error adding email to newsletter: ${errorData.message}`);
@@ -41,7 +43,7 @@ const Newsletter = () => {
 
         <form className={styles.newsletterForm} onSubmit={handleSubmit}>
           <fieldset>
-            <input type="email" placeholder="nevan.starton@example.com" required />
+            <input type="email" placeholder="nevan.starton@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
             <button type="submit">Subscribe</button>
           </fieldset>
         </form>
