@@ -10,6 +10,7 @@ function Form() {
     email: '',
     phone: '',
     subject: '',
+    interest: '',
     message: '',
     budget: '',
     timeline: 'Up to 1 month',
@@ -44,10 +45,12 @@ function Form() {
           email: '',
           phone: '',
           subject: '',
+          interest: '',
           message: '',
           budget: '',
           timeline: '',
           link: '',
+          channel: '',
           comments: ''
         });
       } else {
