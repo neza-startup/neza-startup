@@ -150,10 +150,22 @@ const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "
   });
 };
 
-const sendWhatsAppMessageCustomer = async (subject = "not provided (optional)", name = "not provided (optional)", phone = "not provided (optional)") => {
+const formatMexicanPhone = (phone = "") => {
+  const cleanedPhone = String(phone).trim().replace(/\s+/g, "");
+
+  const withoutPrefix = cleanedPhone
+    .replace(/^\+52/, "")
+    .replace(/^52/, "");
+
+  return `+52${withoutPrefix}`;
+};
+
+const sendWhatsAppMessageCustomer = async (name = "not provided (optional)", phone = "not provided (optional)") => {
+  const phoneSanitized = formatMexicanPhone(phone);
+
   const payload = {
     messaging_product: "whatsapp",
-    to: phone,
+    to: phoneSanitized,
 
     /* contact_form_submission */
 
@@ -167,11 +179,6 @@ const sendWhatsAppMessageCustomer = async (subject = "not provided (optional)", 
         {
           type: "body",
           parameters: [
-
-            {
-              type: "text",
-              text: subject
-            },
             {
               type: "text",
               text: name
@@ -182,7 +189,7 @@ const sendWhatsAppMessageCustomer = async (subject = "not provided (optional)", 
     }
   };
 
-  return fetch(WHATSAPP_API_URL, {
+  const response = await fetch(WHATSAPP_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -190,9 +197,19 @@ const sendWhatsAppMessageCustomer = async (subject = "not provided (optional)", 
     },
     body: JSON.stringify(payload)
   });
+
+  const data = await response.json();
+  console.log("WhatsApp message to customer response:", data);
+
+  if (!response.ok) {
+    console.error("Error sending WhatsApp message to customer:", data);
+    throw new Error(data.error?.message || "Error sending WhatsApp message to customer");
+  }
+
+  return data;
 };
 
-const postSMS = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
+/* const postSMS = async (subject = "not provided (optional)", name = "not provided (optional)", email = "not provided (optional)", phone = "not provided (optional)", message = "not provided (optional)") => {
   const smsMessage = `New contact form submission:\n\nSubject: ${subject}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
 
   return twilioClient.messages.create({
@@ -200,7 +217,7 @@ const postSMS = async (subject = "not provided (optional)", name = "not provided
     from: TWILIO_PHONE_NUMBER,
     to: NOTIFY_PHONE_NUMBER
   });
-};
+}; */
 
 /* const postSMSCustomer = async (name = "not provided (optional)", phone = "not provided (optional)") => {
   const smsMessage = `Hello ${name},\n\nThank you for contacting us. We have received your information and will get back to you shortly.`;
@@ -231,11 +248,11 @@ app.post("/api/contact", async (req, res) => {
     /* const response =  */
     await sendWhatsAppMessage(subject, name, email, phone, message);
 
-    await postSMS(subject, name, email, phone, message);
+    /* await postSMS(subject, name, email, phone, message); */
 
     await sendEmailCustomer(subject, name, email);
 
-    await sendWhatsAppMessageCustomer(subject, name, phone);
+    await sendWhatsAppMessageCustomer(name, phone);
 
     const newContactForm = new ContactForm({ subject, name, email, phone, message });
     await newContactForm.save();
