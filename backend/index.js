@@ -319,7 +319,7 @@ const FormSchema = new mongoose.Schema({
   budget: { type: String },
   timeline: { type: String, enum: ['Up to 1 month', 'Between 1 and 3 months', 'From 3 to 6 months', 'Around 6 to 12 months', 'Over 1 year'], required: true },
   link: { type: String },
-  channel: { type: String, enum: ['social_media', 'referral', 'search_engine', 'advertisement', 'other', ''] },
+  channel: { type: String, enum: ['social_media', 'referral', 'search_engine', 'advertisement', 'contacted_by_us', 'other', ''] },
   comments: { type: String },
   createdAt: { type: Date, default: Date.now }
 }, { versionKey: false });
