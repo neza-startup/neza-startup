@@ -152,6 +152,7 @@ function Form() {
             <option value="social_media">Social Media</option>
             <option value="referral">Referral</option>
             <option value="search_engine">Search Engine</option>
+            <option value="contacted_by_us">Contacted by us</option>
             {/* <option value="advertisement">Advertising (e.g., billboards, posters, or screens)</option> */}
             <option value="other">Other</option>
           </select>
