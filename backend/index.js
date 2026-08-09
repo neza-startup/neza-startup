@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import nodemailer from "nodemailer";
 import twilio from "twilio";
+import formatMexicanPhone from "./utils/index.js";
 
 /* EMAIL */
 const SMTP_HOST = process.env.SMTP_HOST || 'smtp.mail.me.com';
@@ -150,22 +151,11 @@ const sendWhatsAppMessage = async (subject = "not provided (optional)", name = "
   });
 };
 
-const formatMexicanPhone = (phone = "") => {
-  const cleanedPhone = String(phone).trim().replace(/\s+/g, "");
-
-  const withoutPrefix = cleanedPhone
-    .replace(/^\+52/, "")
-    .replace(/^52/, "");
-
-  return `+52${withoutPrefix}`;
-};
-
 const sendWhatsAppMessageCustomer = async (name = "not provided (optional)", phone = "not provided (optional)") => {
-  const phoneSanitized = formatMexicanPhone(phone);
 
   const payload = {
     messaging_product: "whatsapp",
-    to: phoneSanitized,
+    to: phone,
 
     /* contact_form_submission */
 
@@ -243,18 +233,20 @@ const ContactForm = mongoose.model("ContactForm", ContactFormSchema, "ContactFor
 app.post("/api/contact", async (req, res) => {
   const { subject, name, email, phone, message } = req.body;
 
+  const phoneSanitized = formatMexicanPhone(phone);
+
   try {
-    await sendEmail(subject, name, email, phone, message);
+    await sendEmail(subject, name, email, phoneSanitized, message);
     /* const response =  */
-    await sendWhatsAppMessage(subject, name, email, phone, message);
+    await sendWhatsAppMessage(subject, name, email, phoneSanitized, message);
 
     /* await postSMS(subject, name, email, phone, message); */
 
     await sendEmailCustomer(subject, name, email);
 
-    await sendWhatsAppMessageCustomer(name, phone);
+    await sendWhatsAppMessageCustomer(name, phoneSanitized);
 
-    const newContactForm = new ContactForm({ subject, name, email, phone, message });
+    const newContactForm = new ContactForm({ subject, name, email, phone: phoneSanitized, message });
     await newContactForm.save();
 
     /* await postSMSCustomer(name, phone); */
@@ -329,8 +321,10 @@ const Form = mongoose.model("Form", FormSchema, "Form");
 app.post("/api/form", async (req, res) => {
   const { type, name, email, phone, subject, interest, message, budget, timeline, link, channel, comments } = req.body;
 
+  const phoneSanitized = formatMexicanPhone(phone);
+
   try {
-    const newFormSubmission = new Form({ type, name, email, phone, subject, interest, message, budget, timeline, link, channel, comments });
+    const newFormSubmission = new Form({ type, name, email, phone: phoneSanitized, subject, interest, message, budget, timeline, link, channel, comments });
     await newFormSubmission.save();
     res.status(201).json({ message: "Form submission saved successfully" });
   } catch (error) {
