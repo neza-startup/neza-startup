@@ -202,10 +202,10 @@ function Form() {
         <span>Almost there, you are one click away from turning your project into a reality!</span>
 
         <fieldset className={styles.fieldset}>
-          <label htmlFor="notify" className={styles.statusLabelName}>Send me a copy to my email and phone
+          <label htmlFor="notify" className={styles.statusLabelName}>Send me a copy to my email and phone:&nbsp;
             <input type="checkbox" id="notify" name="notify" onChange={handleChange} checked={formData.notify} className={styles.statusCheckbox} />
             <label htmlFor="notify" className={styles.statusLabel}></label>
-            <label className={styles.statusLabelText}>{formData.notify ? '(Yes)' : '(No)'} </label>
+            <label className={styles.statusLabelText/*  styles.checkboxLabel */}>&nbsp;{formData.notify ? '(Yes)' : '(No)'} </label>
           </label>
         </fieldset>
 
