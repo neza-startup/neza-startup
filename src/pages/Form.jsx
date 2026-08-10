@@ -4,6 +4,7 @@ import styles from '../styles/Form.module.css';
 function Form() {
 
   const formRef = useRef(null);
+  /* const [isCheckedSendNotification, setIsCheckedSendNotification] = useState(true); */
   const [formData, setFormData] = useState({
     type: 'individuals',
     name: '',
@@ -13,19 +14,28 @@ function Form() {
     interest: '',
     message: '',
     budget: '',
-    timeline: 'Up to 1 month',
+    timeline: 'up_to_1_month',
     link: '',
     channel: '',
-    comments: ''
+    comments: '',
+    notify: true
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prevData => ({
       ...prevData,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   }
+
+  /* const toggleSendNotification = () => {
+    setIsCheckedSendNotification(prevState => !prevState);
+    setFormData(prevData => ({
+      ...prevData,
+      notify: !prevData.notify
+    }));
+  } */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +50,7 @@ function Form() {
       if (response.ok) {
         alert('Form submitted successfully!');
         setFormData({
-          type: '',
+          type: 'individuals',
           name: '',
           email: '',
           phone: '',
@@ -48,10 +58,11 @@ function Form() {
           interest: '',
           message: '',
           budget: '',
-          timeline: '',
+          timeline: 'up_to_1_month',
           link: '',
           channel: '',
-          comments: ''
+          comments: '',
+          notify: true
         });
       } else {
         const errorData = await response.json();
@@ -81,7 +92,7 @@ function Form() {
 
           <label htmlFor="type">Type:</label>
           <select id="type" name="type" required value={formData.type} onChange={handleChange}>
-            <option value="individuals" selected>Individuals</option>
+            <option value="individuals">Individuals</option>
             <option value="business">Business</option>
           </select>
 
@@ -135,11 +146,11 @@ function Form() {
 
           <label htmlFor="timeline">Timeline:</label>
           <select id="timeline" name="timeline" value={formData.timeline} onChange={handleChange} required>
-            <option value="Up to 1 month">Up to 1 month</option>
-            <option value="Between 1 and 3 months">Between 1 and 3 months</option>
-            <option value="From 3 to 6 months">From 3 to 6 months</option>
-            <option value="Around 6 to 12 months">Around 6 to 12 months</option>
-            <option value="Over 1 year">Over 1 year</option>
+            <option value="up_to_1_month">Up to 1 month</option>
+            <option value="between_1_and_3_months">Between 1 and 3 months</option>
+            <option value="from_3_to_6_months">From 3 to 6 months</option>
+            <option value="around_6_to_12_months">Around 6 to 12 months</option>
+            <option value="over_1_year">Over 1 year</option>
           </select>
           {/* <input type="text" id="timeline" name="timeline" value={formData.timeline} onChange={handleChange} placeholder='e.g., 3 months' /> */}
 
@@ -190,7 +201,20 @@ function Form() {
 
         <span>Almost there, you are one click away from turning your project into a reality!</span>
 
-        <button type="submit">Submit</button>
+        <fieldset className={styles.fieldset}>
+          <label htmlFor="notify" className={styles.statusLabelName}>Send me a copy to my email and phone
+            <input type="checkbox" id="notify" name="notify" onChange={handleChange} checked={formData.notify} className={styles.statusCheckbox} />
+            <label htmlFor="notify" className={styles.statusLabel}></label>
+            <label className={styles.statusLabelText}>{formData.notify ? '(Yes)' : '(No)'} </label>
+          </label>
+        </fieldset>
+
+        <div className={styles.formActions}>
+          <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
+
+          <button type="submit">Submit</button>
+        </div>
+
       </form>
     </section>
   );
