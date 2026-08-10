@@ -6,13 +6,14 @@ const FormSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   subject: { type: String, required: true },
-  interest: { type: String, enum: ['marketing', 'software', 'both'] },
+  interest: { type: String, enum: ['marketing', 'software', 'both', ''] },
   message: { type: String, required: true },
   budget: { type: String },
-  timeline: { type: String, enum: ['Up to 1 month', 'Between 1 and 3 months', 'From 3 to 6 months', 'Around 6 to 12 months', 'Over 1 year'], required: true },
+  timeline: { type: String, enum: ['up_to_1_month', 'between_1_and_3_months', 'from_3_to_6_months', 'around_6_to_12_months', 'over_1_year'], required: true },
   link: { type: String },
   channel: { type: String, enum: ['social_media', 'referral', 'search_engine', 'advertisement', 'contacted_by_us', 'other', ''] },
   comments: { type: String },
+  notify: { type: Boolean/* , default: true */ },
   createdAt: { type: Date, default: Date.now }
 }, { versionKey: false });
 
