@@ -55,12 +55,38 @@ section.formContainer {
     }
   }
 
+
   hr {
     width: 100%;
     max-width: 32rem;
     border: none;
     border-top: 1px dashed #1E1E1E;
     margin: 1rem 0;
+    position: relative;
+  }
+
+  a.navbarLink {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    padding-left: 5rem;
+    text-align: left;
+
+    /* position: absolute;
+    top: 1rem;
+    left: 1rem; */
+
+    &:hover {
+      /* color: #1D4ED8; */
+      text-decoration: underline;
+    }
   }
 
   form {
@@ -116,23 +142,29 @@ section.formContainer {
           /* ) */
         ;
       }
-
-
     }
 
     fieldset.fieldset:last-of-type {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      /* display: flex;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: center !important; */
 
-      label.statusLabelName,
-      label.checkboxLabelName {
+      label.statusLabelName {
         display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
+        margin-bottom: 0rem;
+        min-width: 100%;
+
+        label.statusLabelText {
+          font-weight: 400;
+          margin-bottom: 0rem !important;
+        }
       }
 
-      input.statusCheckbox[type="checkbox"],
-      input.checkbox[type="checkbox"] {
+      input.statusCheckbox[type="checkbox"] {
         /* Use an accessible "visually-hidden" pattern instead of positioning offscreen
                    which can create horizontal scrollbars in some browsers. This keeps the
                    inputs available to screen readers but prevents them from affecting layout. */
@@ -153,23 +185,25 @@ section.formContainer {
         top: 0;
       }
 
-      label.statusLabel,
-      label.checkboxLabel {
+      label.statusLabel {
         position: relative;
-        display: inline-block;
+        display: flex;
         width: 4rem;
         height: 2rem;
         background-color: #ccc;
         border-radius: 1rem;
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center !important;
+        align-items: center !important;
+        line-height: 1;
+        display: inline-flex;
+        line-height: 1;
+        margin-bottom: 0rem !important;
       }
 
-      label.checkboxLabel.whatsapp {
-        background-color: #22C55E;
-      }
-
-      label.statusLabel::after,
-      label.checkboxLabel::after {
+      label.statusLabel::after {
         content: "";
         position: absolute;
         top: 0.2rem;
@@ -181,18 +215,13 @@ section.formContainer {
         transition: all 0.2s ease-in-out;
       }
 
-      input.statusCheckbox[type="checkbox"]:checked+label.statusLabel::after,
-      input.checkbox[type="checkbox"]:checked+label.checkboxLabel::after {
+      input.statusCheckbox[type="checkbox"]:checked+label.statusLabel::after {
         left: 2rem;
         background-color: hsl(0, 0%, 100%);
       }
 
       input.statusCheckbox[type="checkbox"]:checked+label.statusLabel {
         background-color: #22C55E;
-      }
-
-      input.checkbox[type="checkbox"]:checked:last-of-type+label.checkboxLabel {
-        background-color: #ccc;
       }
     }
 
@@ -279,7 +308,22 @@ section.formContainer {
 
 /* responsive design */
 @media only screen and (max-width: 768px) {
+
+  a.navbarLink {
+    padding-left: 0rem !important;
+  }
+
   section.formContainer {
+
+    fieldset:last-of-type {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+
+      label.statusLabelName {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
 
     div.formActions {
       padding-left: 0;
