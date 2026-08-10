@@ -83,6 +83,10 @@ function Form() {
         <p>Hello there! Thanks a lot for your interest. Please fill out our very short form carefully so we can understand better your needs and offer the most tailored solution for you, this help us prepare before our first meeting. If you have any questions while filling it out, feel free to contact us. It takes less than 5 minutes to complete!</p>
       </header>
 
+      <a href="/" /* target="_blank" */ rel="noopener noreferrer" className={styles.navbarLink}>
+        &#8592; Back to landing page
+      </a>
+
       <hr />
 
       <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
