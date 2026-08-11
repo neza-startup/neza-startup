@@ -1,5 +1,5 @@
 section.formContainer {
-  padding: 0rem 1rem;
+  /* padding: 0rem 1rem; */
   background-color: var(--primary-color);
   color: var(--secondary-color);
 
@@ -23,7 +23,7 @@ section.formContainer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem;
     /* background-color: #f5f5f5; */
     border: 1px solid #1E1E1E;
     background-color:
@@ -309,8 +309,14 @@ section.formContainer {
 /* responsive design */
 @media only screen and (max-width: 768px) {
 
+  /* header {
+    p {
+      font-size: 0.75rem !important;
+    }
+  } */
+
   a.navbarLink {
-    padding-left: 0rem !important;
+    padding-left: 1rem !important;
   }
 
   section.formContainer {

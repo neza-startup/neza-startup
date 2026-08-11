@@ -1,5 +1,5 @@
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendar, faEnvelope, faFile, faLink, faPaperPlane, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faComment, faEnvelope, faFile, faLink, faPaperPlane, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/Contact.module.css";
@@ -214,16 +214,16 @@ const Contact = () => {
           Other ways to connect:
         </span>
         <ul className={styles.contactList}>
-          <li><a href="mailto:info@neza.com">Chat with our sales team &#8599;{/* a sales man, an agent, representative */}</a></li>
+          <li><a href="mailto:info@neza.com"><FontAwesomeIcon icon={faComment} /> Chat with sales team &#8599;{/* a sales man, an agent, representative */}</a></li>
+          <li><a href="/form" /* target="_blank" */ rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Fill out full form &#8599;</a></li>
           <li><a href="tel:+527774447232"><FontAwesomeIcon icon={faPhone} /> +52 777 444 7232 &#8599;</a></li>
           <li><a href="mailto:contact@nezastartup.com"><FontAwesomeIcon icon={faEnvelope} /> contact@nezastartup.com &#8599;</a></li>
           <li><a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /> Link in bio &#8599;</a></li>
           <li><a href="https://www.instagram.com/neza.startup/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /> Instagram &#8599;</a></li>
           <li><a href="https://wa.me/527774447232" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} /> WhatsApp &#8599;</a></li>
           <li><a href="https://www.facebook.com/neza.startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} /> Facebook &#8599;</a></li>
-          {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
           <li><a href="https://calendly.com/neza-startup/meeting" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faCalendar} /> Calendly &#8599;</a></li>
-          <li><a href="/form" /* target="_blank" */ rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Form &#8599;</a></li>
+          {/* <li><a href="https://www.linkedin.com/company/neza-startup" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn &#8599;</a></li> */}
           <li>
             <span onClick={handleShare} className={styles.socialLink}>
               Share <FontAwesomeIcon icon={faShare} />

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Form.module.css';
 
 function Form() {
@@ -20,6 +20,11 @@ function Form() {
     comments: '',
     notify: true
   });
+
+  const [tabs, setTabs] = useState([
+    { id: 1, name: 'request', active: true },
+    { id: 2, name: 'review', active: false }
+  ]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -74,18 +79,130 @@ function Form() {
     }
   };
 
+  const setActiveTabFromURL = () => {
+    const params = new URLSearchParams(window.location.search);
+    const tabName = params.get("tab") || "request"; // Default to "Request" if no tab parameter is found
+
+    setTabs((prevTabs) =>
+      prevTabs.map((tab) => ({
+        ...tab,
+        active: tab.name === tabName,
+      }))
+    );
+  };
+
+  // Call setActiveTabFromURL when the component mounts
+  /* useState(() => {
+    setActiveTabFromURL();
+  }, []); */
+
+  /* on mount read URL plus listen back forward */
+  useEffect(() => {
+    setActiveTabFromURL();
+
+    window.addEventListener("popstate", setActiveTabFromURL);
+
+    return () => {
+      window.removeEventListener("popstate", setActiveTabFromURL);
+    };
+  }, []);
+
+  /* when the tabs state changes, update the URL to reflect the active tab */
+  useEffect(() => {
+    /* const activeTab = tabs.find(tab => tab.active);
+    if (activeTab) {
+      const params = new URLSearchParams(window.location.search);
+      params.set("tab", activeTab.name);
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState({}, '', newUrl);
+    } */
+
+    const activeTab = tabs.find((tab) => tab.active);
+    if (!activeTab) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentTab = params.get("tab");
+
+    if (currentTab !== activeTab.name) {
+      window.history.pushState(null, "", `?tab=${activeTab.name}`);
+    }
+  }, [tabs]);
+
+  /*  handle tab switching */
+  const handleTabClick = (tabId) => {
+    setTabs(prevTabs => prevTabs.map(tab => ({
+      ...tab,
+      active: tab.id === tabId
+    })));
+  }
+
   return (
     <section className={styles.formContainer}>
       <header>
         <h1>Neza Startup - Request Services Form</h1>
         <h2>The Star Marketing & Software Startup</h2>
         <hr />
-        <p>Hello there! Thanks a lot for your interest. Please fill out our very short form carefully so we can understand better your needs and offer the most tailored solution for you, this help us prepare before our first meeting. If you have any questions while filling it out, feel free to contact us. It takes less than 5 minutes to complete!</p>
+        <p>
+
+          Thank you for your interest, please fill out this short form (it takes less than 5 minutes to complete!). If you have any questions while filling it out, feel free to contact us.
+
+          {/* Thank you for being interested in our services.
+
+          Please fill out our short form carefully so we can understand better your needs and offer the most tailored solution for you.
+
+          this help us prepare before our first meeting. If you have any questions while filling it out, feel free to contact us.
+
+          It takes less than 5 minutes to complete! */}</p>
       </header>
 
       <a href="/" /* target="_blank" */ rel="noopener noreferrer" className={styles.navbarLink}>
         &#8592; Back to landing page
       </a>
+
+      <div className={styles.switchTab}>
+        {
+          tabs.map(tab => (
+            <button
+              key={tab.id}
+              className={`${styles.tab} ${tab.active ? styles.active : ''}`}
+              onClick={() => handleTabClick(tab.id)}
+            >
+              {tab.name}
+            </button>
+          ))
+        }
+      </div>
+
+      {/* <div className={styles.tabs}>
+        <button
+          className={`${styles.tab} ${formData.type === 'individuals' ? styles.active : ''}`}
+          onClick={() => setFormData(prevData => ({ ...prevData, type: 'individuals' }))}
+        >
+          Individuals
+        </button>
+        <button
+          className={`${styles.tab} ${formData.type === 'business' ? styles.active : ''}`}
+          onClick={() => setFormData(prevData => ({ ...prevData, type: 'business' }))}
+        >
+          Business
+        </button>
+      </div>
+
+      <hr /> */}
+
+      {/* tabs.find(tab => tab.id === activeTab)?.content */}
+      <div className={styles.content}>
+        {
+          tabs.find(tab => tab.active).name === 'request' && (
+            <p>We are excited to learn more about your project! Please fill out the form below with as much detail as possible. This will help us understand your needs and provide you with the best possible service.</p>
+          )
+        }
+        {
+          tabs.find(tab => tab.active).name === 'review' && (
+            <p>We are thrilled to have you here! Please fill out the form below with your information and project details. We will review your submission and get back to you as soon as possible.</p>
+          )
+        }
+      </div>
 
       <hr />
 
