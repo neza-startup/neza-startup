@@ -1,5 +1,5 @@
 section.formContainer {
-  padding: 0rem 1rem;
+  /* padding: 0rem 1rem; */
   background-color: var(--primary-color);
   color: var(--secondary-color);
 
@@ -23,7 +23,7 @@ section.formContainer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem;
     /* background-color: #f5f5f5; */
     border: 1px solid #1E1E1E;
     background-color:
@@ -55,7 +55,6 @@ section.formContainer {
     }
   }
 
-
   hr {
     width: 100%;
     max-width: 32rem;
@@ -86,6 +85,42 @@ section.formContainer {
     &:hover {
       /* color: #1D4ED8; */
       text-decoration: underline;
+    }
+  }
+
+  div.switchTab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    /* background-color: red; */
+
+    button.tabButton {
+      width: 100%;
+      max-width: 10rem;
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      color: light-dark(var(--details), var(--text-aux-color));
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.2s ease-in-out, color 0.2s ease-in-out;
+      /* border-bottom: 2px solid light-dark(var(--details), var(--text-aux-color)); */
+
+      &.activeTab {
+        border-bottom: 2px solid var(--secondary-color);
+        color: var(--secondary-color);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--text-color);
+        }
+      }
     }
   }
 
@@ -309,8 +344,14 @@ section.formContainer {
 /* responsive design */
 @media only screen and (max-width: 768px) {
 
+  /* header {
+    p {
+      font-size: 0.75rem !important;
+    }
+  } */
+
   a.navbarLink {
-    padding-left: 0rem !important;
+    padding-left: 1rem !important;
   }
 
   section.formContainer {
