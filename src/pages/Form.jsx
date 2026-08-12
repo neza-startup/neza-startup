@@ -177,7 +177,7 @@ function Form() {
               </>
             ) : (
               <>
-                We appreciate your feedback, please review your experience and evaluate our services. This will help us to improve{/*  and provide better solutions for you and other clients  */} in the future.
+                We appreciate your feedback, please review your experience and evaluate our services. This will help us to improve{/*  and provide better solutions for you and other clients  */} them in the future.
               </>
             )
           }
@@ -266,6 +266,11 @@ function Form() {
                       <option value="software">Web Application</option>
                       <option value="software">Dashboard</option>
                       <option value="software">Mobile Application</option>
+                    </optgroup>
+                    <optgroup label="Software - AI Solutions (Artificial Intelligence)">
+                      <option value="software"/* "ai" */>Chatbot</option>
+                      <option value="software"/* "ai" */>Automation/Workflow</option>
+                      <option value="software"/* "ai" */>Computer Vision</option>
                     </optgroup>
                     <optgroup label="Marketing">
                       <option value="marketing">Marketing Strategy</option>
@@ -366,7 +371,7 @@ function Form() {
                         </>
                       ) : (
                         <>
-                          Submit
+                          Submit&nbsp;
                           <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
                         </>
                       )
