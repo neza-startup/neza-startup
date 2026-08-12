@@ -267,6 +267,11 @@ function Form() {
                       <option value="software">Dashboard</option>
                       <option value="software">Mobile Application</option>
                     </optgroup>
+                    <optgroup label="Software - AI Solutions (Artificial Intelligence)">
+                      <option value="software"/* "ai" */>Chatbot</option>
+                      <option value="software"/* "ai" */>Automation/Workflow</option>
+                      <option value="software"/* "ai" */>Computer Vision</option>
+                    </optgroup>
                     <optgroup label="Marketing">
                       <option value="marketing">Marketing Strategy</option>
                       <option value="marketing">Social Media Management</option>
