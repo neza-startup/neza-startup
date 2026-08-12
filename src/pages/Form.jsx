@@ -1,9 +1,14 @@
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
+import logo from '../assets/logo.svg';
 import styles from '../styles/Form.module.css';
 
 function Form() {
 
   const formRef = useRef(null);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   /* const [isCheckedSendNotification, setIsCheckedSendNotification] = useState(true); */
   const [formData, setFormData] = useState({
     type: 'individuals',
@@ -34,6 +39,12 @@ function Form() {
     }));
   }
 
+  useEffect(() => {
+    if (formRef.current) {
+      setIsFormValid(formRef.current.checkValidity());
+    }
+  }, [formData]);
+
   /* const toggleSendNotification = () => {
     setIsCheckedSendNotification(prevState => !prevState);
     setFormData(prevData => ({
@@ -44,6 +55,8 @@ function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const response = await fetch('/api/form', {
@@ -69,6 +82,7 @@ function Form() {
           comments: '',
           notify: true
         });
+        /* setIsLoading(false); */
       } else {
         const errorData = await response.json();
         alert(`Error submitting form: ${errorData.message}`);
@@ -76,6 +90,8 @@ function Form() {
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An unexpected error occurred. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -138,6 +154,15 @@ function Form() {
 
   return (
     <section className={styles.formContainer}>
+      <nav className={styles.navbar}>
+        <a href="/" className={styles.navbarLink}>
+          &#8592; Back <span>to landing page</span>
+        </a>
+        <a href="/">
+          <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
+        </a>
+
+      </nav>
       <header>
         <h1>
           Neza Startup - {tabs.find(tab => tab.active)?.name === 'review' ? 'Review Services Form' : 'Request Services Form'}
@@ -166,10 +191,6 @@ function Form() {
 
           It takes less than 5 minutes to complete! */}</p>
       </header>
-
-      <a href="/" /* target="_blank" */ rel="noopener noreferrer" className={styles.navbarLink}>
-        &#8592; Back to landing page
-      </a>
 
       <div className={styles.switchTab}>
         {
@@ -336,7 +357,21 @@ function Form() {
                 <div className={styles.formActions}>
                   <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
 
-                  <button type="submit">Submit</button>
+                  <button type="submit" disabled={!isFormValid || isLoading}>
+                    {
+                      isLoading ? (
+                        <>
+                          Submitting...
+                          <span className={styles.loadingSpinner}></span>
+                        </>
+                      ) : (
+                        <>
+                          Submit
+                          <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
+                        </>
+                      )
+                    }
+                  </button>
                 </div>
 
               </form>
@@ -376,7 +411,7 @@ function Form() {
                 <div className={styles.formActions}>
                   <span className={styles.disclaimer}>By submit you are agree with our Terms and Conditions&#8599; and our Privacy Policy&#8599;.</span>
 
-                  <button type="submit">Submit</button>
+                  <button type="submit" disabled={!isFormValid || isLoading}>Submit</button>
                 </div>
               </form>
             </>
