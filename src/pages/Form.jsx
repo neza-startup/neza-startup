@@ -177,7 +177,7 @@ function Form() {
               </>
             ) : (
               <>
-                We appreciate your feedback, please review your experience and evaluate our services. This will help us to improve{/*  and provide better solutions for you and other clients  */} in the future.
+                We appreciate your feedback, please review your experience and evaluate our services. This will help us to improve{/*  and provide better solutions for you and other clients  */} them in the future.
               </>
             )
           }
@@ -366,7 +366,7 @@ function Form() {
                         </>
                       ) : (
                         <>
-                          Submit
+                          Submit&nbsp;
                           <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
                         </>
                       )

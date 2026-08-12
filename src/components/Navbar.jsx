@@ -8,7 +8,9 @@ const Navbar = () => {
       {/* <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
         <span className={styles.brandName}>Neza Startup</span> */}
       {/* <a href="/" rel='noopener noreferrer' className={styles.linkImage}> */}
-      <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
+      <a href="#hero">
+        <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
+      </a>
       {/* <span className={styles.brandName}>Neza Startup</span> */}
       {/* </a> */}
       {/*  </div> */}

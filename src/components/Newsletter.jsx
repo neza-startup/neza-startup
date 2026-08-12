@@ -43,7 +43,7 @@ const Newsletter = () => {
 
         <form className={styles.newsletterForm} onSubmit={handleSubmit}>
           <fieldset>
-            <input type="email" placeholder="nevan.starton@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="email" placeholder="johnappleseed@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
             <button type="submit">Subscribe</button>
           </fieldset>
         </form>
