@@ -5,6 +5,7 @@ import Hero from '../components/Hero.jsx'
 import LastCTA from '../components/LastCTA.jsx'
 import Navbar from '../components/Navbar.jsx'
 import Newsletter from '../components/Newsletter.jsx'
+import Product from '../components/Products.jsx'
 import QnA from '../components/Q&A.jsx'
 import SocialPath from '../components/SocialPath.jsx'
 import styles from '../styles/Landing.module.css'
@@ -16,6 +17,7 @@ function Landing() {
       <Navbar />
       <Hero />
       <BusinessSlider />
+      <Product />
       <Contact />
       <QnA />
       <Newsletter />
