@@ -47,9 +47,9 @@ const Services = () => {
         </div>
         <div className={styles.serviceItem}>
           <header>
-            <h3>Data Analytics</h3>
+            <h3>Data Analytics/Intelligence</h3>
           </header>
-          <p>We help businesses make sense of their data and turn it into actionable insights.</p>
+          <p>We help businesses make sense of their data and turn it into actionable and valuable insights.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
           <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
         </div>
@@ -61,16 +61,67 @@ const Services = () => {
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
           <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
         </div>
+        {/* <h3>Phases</h3> */}
+        {/* <div className={styles.serviceItem}>
+          <header>
+            <h3>Consulting</h3>
+          </header>
+          <p>We assess viability, identify opportunities, recommend services and tools, and provide expert guidance. */}{/* We provide expert consulting services to help businesses navigate challenges and achieve their goals. */}{/* </p> */}
+        {/* <FontAwesomeIcon icon={faStar} className={styles.icon} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
+        {/* </div> */}
+        {/* <div className={styles.serviceItem}>
+          <header>
+            <h3>Design */}{/*  and Development */}{/* </h3>
+          </header>
+          <p>We create visually appealing and user-friendly designs that help businesses establish a strong brand identity.</p> */}
+        {/* <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
+        {/* </div> */}
+        {/* <div className={styles.serviceItem}>
+          <header>
+            <h3>Project Management</h3>
+          </header>
+          <p>We provide comprehensive project management services to ensure that your projects are delivered on time, within budget, and to the highest quality standards.</p> */}
+        {/* <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
+        {/* <a href="/form" */}{/*"https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */}{/* >Contact us */}{/* Learn More */}{/* </a>
+        </div> */}
+        {/* <div className={styles.serviceItem}>
+          <header>
+            <h3>Testing and Quality Assurance</h3>
+          </header>
+          <p>We offer rigorous testing and quality assurance for reliable, high-performing standard products.</p> */}
+        {/* <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
+        {/* </div> */}
+        {/* <div className={styles.serviceItem}>
+          <header>
+            <h3>Deployment and Maintenance</h3>
+          </header>
+          <p>We provide ongoing support and maintenance for our products to ensure they continue to perform at their best.</p> */}
+        {/* <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
+        {/* <a href="/form" */}{/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */}{/* >Contact us */}{/* Learn More */}{/* </a>
+        </div> */}
       </div>
       <div className={styles.servicesModalities}>
         <h1>Our {/* Services  */}Modalities</h1>
-        <h2>Choose the modality that works best for you{/* We offer our services in various modalities to cater to the unique needs of our clients. */}</h2>
+        <h2>Find the modality that works best for you{/* We offer our services in various modalities to cater to the unique needs of our clients. */}</h2>
         <div className={styles.servicesModalitiesContainer}>
-          <span className={styles.serviceModality}>On-site <FontAwesomeIcon icon={faLocationDot} /></span>
+          <div className={styles.servicesModalitiesContent}>
+            <span className={styles.serviceModality}>On-site <FontAwesomeIcon icon={faLocationDot} /></span>
+            <p>Face-to-face interaction with our team</p>
+          </div>
           <hr className={styles.divider} />
-          <span className={styles.serviceModality}>Remote <FontAwesomeIcon icon={faLaptop} /></span>
+          <div className={styles.servicesModalitiesContent}>
+            <span className={styles.serviceModality}>Remote <FontAwesomeIcon icon={faLaptop} /></span>
+            <p>Collaborate with our team remotely, through virtual meetings and platforms</p>
+          </div>
           <hr className={styles.divider} />
-          <span className={styles.serviceModality}>Hybrid <FontAwesomeIcon icon={faBolt} /></span>
+          {/* <span className={styles.serviceModality}>Virtual <FontAwesomeIcon icon={faLaptop} /></span>
+          <p>Collaborate with our team through virtual meetings and online platforms</p>
+          <hr className={styles.divider} /> */}
+          <div className={styles.servicesModalitiesContent}>
+            <span className={styles.serviceModality}>Hybrid <FontAwesomeIcon icon={faBolt} /></span>
+            <p>Combine on-site and remote work for maximum flexibility</p>
+          </div>
         </div>
 
         {/* <ul>
