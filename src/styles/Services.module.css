@@ -12,6 +12,30 @@ section.services {
   }
 
   div.servicesContainer {
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      bottom: 0;
+      width: 6rem;
+      height: 10rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, var(--primary-color), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, var(--primary-color), transparent);
+    }
+
+    position: relative;
     display: flex;
     justify-content: center;
     /* background-color: hsla(240, 2%, 8%, 0.8); */
@@ -237,6 +261,7 @@ section.services {
   }
 
   div.servicesModalities {
+    position: relative;
     text-align: center;
     margin-top: 2rem;
     display: flex;
@@ -259,6 +284,29 @@ section.services {
   }
 
   div.servicesModalitiesContainer {
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5rem;
+      bottom: 0;
+      width: 6rem;
+      height: 10rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, var(--primary-color), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, var(--primary-color), transparent);
+    }
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -270,7 +318,7 @@ section.services {
     border-bottom: 1px dashed #1E1E1E;
     /* border-radius: 1.5rem; */
     padding: 1.5rem
-      /*  1rem */
+    /*  1rem */
     ;
     /* width: min(48ch, 100%); */
     /* background-color: hsla(240, 2%, 8%, 0.8); */
@@ -339,6 +387,30 @@ section.services {
   }
 
   div.contactSection {
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      bottom: 0;
+      width: 6rem;
+      height: 24rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, var(--primary-color), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, var(--primary-color), transparent);
+    }
+
+    position: relative;
     text-align: center;
     margin-top: 2rem;
     /* background-color: hsla(240, 2%, 8%, 0.8); */
@@ -394,6 +466,12 @@ section.services {
 @media only screen and (max-width: 768px) {
   section.services {
     div.servicesContainer {
+
+      &::before,
+      &::after {
+        width: 1rem;
+      }
+
       flex-direction: column;
       align-items: center;
       gap: 1rem;
@@ -425,13 +503,53 @@ section.services {
       }
     }
 
+    div.servicesModalities {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
     div.servicesModalitiesContainer {
+
+      &::before,
+      &::after {
+        top: 10rem;
+        bottom: 0;
+        width: 2rem;
+        height: 7rem;
+      }
+
+
       /* flex-direction: column; */
       flex-wrap: wrap;
 
       hr.divider {
         display: none;
       }
+    }
+
+    div.contactSection {
+
+      &::before,
+      &::after {
+        width: 2rem;
+      }
+
+      /* h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      } */
     }
   }
 }
