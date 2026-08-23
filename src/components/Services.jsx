@@ -1,4 +1,4 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faBolt, faLaptop, faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../styles/Services.module.css';
 
@@ -61,6 +61,30 @@ const Services = () => {
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
           <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
         </div>
+      </div>
+      <div className={styles.servicesModalities}>
+        <h1>Our {/* Services  */}Modalities</h1>
+        <h2>Choose the modality that works best for you{/* We offer our services in various modalities to cater to the unique needs of our clients. */}</h2>
+        <div className={styles.servicesModalitiesContainer}>
+          <span className={styles.serviceModality}>On-site <FontAwesomeIcon icon={faLocationDot} /></span>
+          <hr className={styles.divider} />
+          <span className={styles.serviceModality}>Remote <FontAwesomeIcon icon={faLaptop} /></span>
+          <hr className={styles.divider} />
+          <span className={styles.serviceModality}>Hybrid <FontAwesomeIcon icon={faBolt} /></span>
+        </div>
+
+        {/* <ul>
+          <li>Consulting</li>
+          <li>Project Management</li>
+          <li>Design and Development</li>
+          <li>Testing and Quality Assurance</li>
+          <li>Deployment and Maintenance</li>
+        </ul> */}
+      </div>
+      <div className={styles.contactSection}>
+        <h3>Interested in our services?</h3>
+        <p>Acquire the {/* right  */}services you need to grow your business.</p>
+        <a href="/form"/* "https://www.example.com/contact" target="_blank" rel="noopener noreferrer" */>Contact Us{/* Get in Touch */}</a>
       </div>
     </section>
   );
