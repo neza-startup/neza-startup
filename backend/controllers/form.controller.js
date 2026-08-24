@@ -3,12 +3,12 @@ import { sendEmail, sendEmailCustomer, sendWhatsAppMessage, sendWhatsAppMessageC
 import formatMexicanPhone from "../utils/index.js";
 
 export const postFormRequest = async (req, res) => {
-  const { type, name, email, phone, subject, interest, message, budget, timeline, link, channel, comments, notify } = req.body;
+  const { type, name, email, phone, subject, interest, message, budget, timeline, modality, link, channel, comments, notify } = req.body;
 
   const phoneSanitized = formatMexicanPhone(phone);
 
   try {
-    const newFormSubmission = new Form({ type, name, email, phone: phoneSanitized, subject, interest, message, budget, timeline, link, channel, comments, notify });
+    const newFormSubmission = new Form({ type, name, email, phone: phoneSanitized, subject, interest, message, budget, timeline, modality, link, channel, comments, notify });
     await newFormSubmission.save();
 
     await sendEmail(subject, name, email, phoneSanitized, message);

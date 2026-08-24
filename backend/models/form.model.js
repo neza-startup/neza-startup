@@ -10,6 +10,7 @@ const FormSchema = new mongoose.Schema({
   message: { type: String, required: true },
   budget: { type: String },
   timeline: { type: String, enum: ['up_to_1_month', 'between_1_and_3_months', 'from_3_to_6_months', 'around_6_to_12_months', 'over_1_year'], required: true },
+  modality: { type: String, enum: ['remote', 'on_site', 'hybrid', ''] },
   link: { type: String },
   channel: { type: String, enum: ['social_media', 'referral', 'search_engine', 'advertisement', 'contacted_by_us', 'other', ''] },
   comments: { type: String },

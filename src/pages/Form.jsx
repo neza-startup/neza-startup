@@ -77,6 +77,7 @@ function Form() {
           message: '',
           budget: '',
           timeline: 'up_to_1_month',
+          modality: '',
           link: '',
           channel: '',
           comments: '',
@@ -303,6 +304,14 @@ function Form() {
                     <option value="over_1_year">Over 1 year</option>
                   </select>
                   {/* <input type="text" id="timeline" name="timeline" value={formData.timeline} onChange={handleChange} placeholder='e.g., 3 months' /> */}
+
+                  <label htmlFor="modality">Modality (optional):</label>
+                  <select id="modality" name="modality" value={formData.modality} onChange={handleChange}>
+                    <option value="">-- Select a modality --</option>
+                    <option value="remote">Remote</option>
+                    <option value="on_site">On-site</option>
+                    <option value="hybrid">Hybrid</option>
+                  </select>
 
                   <label htmlFor="link">Link (optional):</label>
                   <input type="text" id="link" name="link" value={formData.link} onChange={handleChange} placeholder='e.g., https://example.com' />
