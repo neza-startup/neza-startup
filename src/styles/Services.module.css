@@ -557,6 +557,10 @@ section.services {
         font-size: 1.2rem;
       }
 
+      span.serviceModality {
+        font-size: 0.9rem;
+      }
+
       p {
         font-size: 0.9rem;
       }
