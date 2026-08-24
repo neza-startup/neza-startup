@@ -41,8 +41,51 @@ const Hero = () => {
       <h1>Neza Startup</h1>
       <h2>The Star Marketing & Software Startup</h2>
       <div className={styles.ctaContainer}>
-        <a href="https://drive.google.com/file/d/1bE1chIYiese2pCK1QOwGCmaivCRo6kPy/view?usp=sharing"/* "#contact" */ className={styles.cta}>View services <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> </a>
+        <a href="#services"/* "#contact" */ className={styles.cta}>View services <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> </a>
         <a href="#contact" className={styles.ctaAux}>Contact us <FontAwesomeIcon icon={faStar} /></a>
+      </div>
+      <div className={styles.servicesContainer}>
+        {/* <header className={styles.header}>
+          <h3 className={styles.topSkillsHeading}><FontAwesomeIcon icon={faStar} className={styles.icon} />Services</h3>
+          <a href="https://www.linkedin.com/services/page/94049531a961b25782/" target="_blank" rel="noopener noreferrer" className={styles.link}> */}
+        {/* {t("HonorsAndAwards.btn")} */}
+        {/* </a>
+        </header> */}
+        {/* <p>Details about services will go here.</p> */}
+        <ul className={styles.serviceList}>
+          {/* <li className={styles.serviceItem}>
+            Software Development */}
+          {/* <h4 className={styles.serviceTitle}>Web Development</h4>
+          <p className={styles.serviceDescription}>Building responsive and dynamic websites using modern technologies like React, Node.js, and more.</p> */}
+          {/* </li> */}
+          <li className={styles.serviceItem}>
+            Web Development
+            {/* <h4 className={styles.serviceTitle}>Web Development</h4>
+          <p className={styles.serviceDescription}>Building responsive and dynamic websites using modern technologies like React, Node.js, and more.</p> */}
+          </li>
+          {/* <li className={styles.serviceItem}>
+            Business Analytics
+          </li> */}
+          {/* <li className={styles.serviceItem}>
+            Graphic Design */}
+          {/* <h4 className={styles.serviceTitle}>UI/UX Design</h4>
+          <p className={styles.serviceDescription}>Designing intuitive user interfaces and engaging user experiences for web and mobile applications.</p> */}
+          {/* </li> */}
+          {/* <li className={styles.serviceItem}>
+          Mobile Application Development */}
+          {/* <h4 className={styles.serviceTitle}> App Development</h4>
+          <p className={styles.serviceDescription}>Creating user-friendly mobile applications for both Android and iOS platforms.</p> */}
+          {/* </li> */}
+          <li className={styles.serviceItem}>
+            Content Creation
+            {/*  <h4 className={styles.serviceTitle}>Backend Development</h4>
+          <p className={styles.serviceDescription}>Creating robust backend systems with Express.js, databases, and RESTful APIs.</p> */}
+          </li>
+          {/* <li className={styles.serviceItem}>
+          <h4 className={styles.serviceTitle}>Consulting</h4>
+          <p className={styles.serviceDescription}>Providing expert advice on web technologies, architecture, and best practices.</p>
+        </li> */}
+        </ul>
       </div>
       <div className={styles.ratingContainer}>
         <span className={styles.rating}>4.5/5{/*  Customer Satisfaction */}</span>
