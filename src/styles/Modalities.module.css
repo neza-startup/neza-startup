@@ -59,54 +59,41 @@ section.modalities {
     }
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: stretch;
+    gap: 1rem;
     margin-top: 1rem;
 
     border-top: 1px dashed #1E1E1E;
     border-bottom: 1px dashed #1E1E1E;
-    /* border-radius: 1.5rem; */
-    padding: 1.5rem
-    /*  1rem */
-    ;
-    /* width: min(48ch, 100%); */
-    /* background-color: hsla(240, 2%, 8%, 0.8); */
+    padding: 1.5rem;
     width: 100% !important;
 
     div.billingPlan,
     div.serviceModalities {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      width: 100%;
       gap: 1rem;
 
-      /* flex: 1 1 0; */
+      h3 {
+        flex: 0 0 100%;
+        text-align: center;
+        margin: 0;
+      }
     }
-
-    /* hr.divider {
-      border-bottom: 1px dashed #1E1E1E;
-      min-width: 80% !important;
-      height: 1px;
-      margin: 0;
-    } */
 
     hr.divider {
       align-self: center;
-      width: 4.5rem !important;
-      /* height: 1rem; */
-      /* margin: 0 5rem; */
-      border: 0;
-      border-left: 1px dashed #1E1E1E;
-
-      align-self: center;
-      /* height: 1rem; */
+      width: 80% !important;
+      height: 0;
       margin: 0;
       border: 0;
-      border-bottom: 1px dashed #1E1E1E;
-      width: 50% !important;
+      border-top: 1px dashed #1E1E1E;
     }
 
     div.servicesModalitiesContent {
@@ -115,13 +102,11 @@ section.modalities {
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-
       flex: 1 1 0;
+      min-width: 0;
 
       p {
         margin-bottom: 0rem !important;
-        /* max-width: 48ch;
-        text-align: center; */
       }
     }
 
@@ -149,7 +134,7 @@ section.modalities {
     hr.verticalDivider {
       align-self: center;
       width: 0;
-      height: 15rem
+      height: 4.5rem
         /* 4.5rem */
       ;
       margin: 0 3rem
@@ -339,6 +324,10 @@ section.modalities {
         align-items: stretch;
         width: 100%;
         gap: 0.5rem;
+
+        hr {
+          display: none;
+        }
 
         h3 {
           flex: 0 0 100%;
