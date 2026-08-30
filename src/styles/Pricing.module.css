@@ -15,9 +15,11 @@ section.pricing {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     gap: 1rem;
     flex-wrap: wrap;
+    /* align-items: stretch; */
+    /* width: 80%; */
 
     div.pricingCard {
       display: flex;
@@ -78,6 +80,17 @@ section.pricing {
         }
       }
 
+      button.toggleButton {
+        color: white;
+        border: none;
+        background-color: transparent;
+        /* padding: 0.5rem 1rem;
+        border-radius: 0.5rem; */
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
       a.ctaButton {
         background-color: white
           /* #0070F3 */
@@ -95,6 +108,7 @@ section.pricing {
         /* &:hover {
           background-color: #1D4ED8;
         } */
+        /* margin-top: auto; */
       }
 
       .starIcon {

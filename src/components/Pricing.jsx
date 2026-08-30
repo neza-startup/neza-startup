@@ -1,136 +1,169 @@
-import { faCircleCheck, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faCircleCheck, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import styles from '../styles/Pricing.module.css';
 
 const Pricing = () => {
+  const DEFAULT_VISIBLE_FEATURES = 8;
+
+  const pricingPlans = [
+    {
+      name: "Landing Page",
+      price: "Started From $599 USD",
+      features: [
+        "5w's Strategic Planning",
+        "Responsive Design",
+        "Mockup Design (UI/UX)",
+        "Hosting + Custom Domain",
+        "Vanilla, Libraries or Frameworks",
+        "Analytics Integration",
+        "Contact Form Integration",
+        "Social Media Links",
+        "Custom Graphics and Images"
+      ]
+    },
+    {
+      name: "Mobile Application",
+      price: "Started from $1599",
+      features: [
+        "Mockup Design (UI/UX)",
+        "iPhone and/or Android",
+        "Native or Cross-Platform",
+        "Application Stores Deployment",
+        "Responsive Design",
+        "Push Notifications",
+        "Backend/API Integration",
+        "Custom Graphics and Images"
+      ]
+    },
+    {
+      name: "Automation Chatbot",
+      price: "Started from $999 (or $19/month)",
+      features: [
+        "Automated Responses",
+        "Multi-Platform Integration",
+        "Natural Language Processing",
+        "Customizable Conversation Flows",
+        "Analytics and Reporting",
+        "Lead Generation and Qualification",
+        "24/7 Availability",
+        "Integration with CRM Systems",
+        "Personalized User Experience",
+        "Multi-Language Support",
+        "Real-time Updates",
+        "Knowledge Base (custom sources)",
+        "Responses restricted to certain topics",
+        "AI-Powered Recommendations"
+      ]
+    },
+    {
+      name: "Data Dashboard",
+      price: "Started from $899",
+      features: [
+        "Beautiful Data Visualization",
+        "Forecasting and Trend analysis",
+        "Interactive Dashboards",
+        "Advanced Segmentation",
+        "Data-Driven Decision-Making",
+        "Facts, Metrics and Insights",
+        "KPI's and Report Generation",
+        "Integration with Data Sources",
+        "Real-time Data Updates",
+        "Customizable Layouts and Reports",
+        "Data Export Options",
+        "Integration with Third-party Tools",
+        "User Access Control"
+      ]
+    },
+    {
+      name: "Content creation",
+      price: "Started from $199/month",
+      features: [
+        "Content Strategy",
+        "Copywriting",
+        "Graphic Design",
+        "Video Production",
+        "Photo Editing",
+        "Social Media Management",
+        "SEO Optimization",
+        "Email Marketing",
+        "Analytics and Reporting",
+        "Content Calendar Planning",
+        "Brand Voice and Messaging"
+      ]
+    },
+    {
+      name: "Custom service",
+      price: "Custom pricing",
+      features: [
+        "Custom Solutions",
+        "Requirement Analysis",
+        "Tailored to Your Needs",
+        "Flexible Pricing",
+        "Accurate pricing based on project scope and requirements",
+        "Dedicated Support",
+        "Scalable Solutions",
+        "Innovative Approaches",
+        "Collaborative Process",
+        "Results-Oriented"
+      ]
+    },
+    {
+      name: "All plans",
+      price: "Pricing for all services",
+      features: [
+        "API Development",
+        "Database Design",
+        "Cloud Integration",
+        "Security Audits",
+        "Performance Optimization",
+        "Maintenance & Support",
+        "Quality Assurance",
+        "Technical Consulting"
+      ]
+    }
+  ];
+
+  const [expandedCards, setExpandedCards] = useState({});
+
+  const toggleFeatures = (index) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
     <section className={styles.pricing} id="pricing">
       <header className={styles.header}>
-        <h1>Pricing</h1>
+        <h1>Pricing and Plans</h1>
         <h2>Stellar value and competitive prices for popular requests</h2>
       </header>
 
       <div className={styles.pricingContainer}>
-        <div className={styles.pricingCard}>
-          <h3>Landing Page</h3>
-          <p className={styles.price}>Started From $599 USD</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> 5w's Strategic Planning</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Responsive Design</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Mockup Design (UI/UX)</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Hosting + Custom Domain</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Vanilla, Libraries or Frameworks</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Analytics Integration</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Contact Form Integration</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Social Media Links</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Custom Graphics and Images</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
-
-        <div className={styles.pricingCard}>
-          <h3>Mobile Application</h3>
-          <p className={styles.price}>Started from $1599/month</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Mockup Design (UI/UX)</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> iPhone and/or Android</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Native or Cross-Platform</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Application Stores Deployment</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Responsive Design</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Push Notifications</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Backend/API Integration</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Custom Graphics and Images</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
-
-        <div className={styles.pricingCard}>
-          <h3>Automation Chatbot</h3>
-          <p className={styles.price}>Started from $999/month</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Automated Responses</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Multi-Platform Integration</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Natural Language Processing</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Customizable Conversation Flows</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Analytics and Reporting</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Lead Generation and Qualification</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> 24/7 Availability</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Integration with CRM Systems</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Personalized User Experience</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Multi-Language Support</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Real-time Updates</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Knowledge Base (custom sources)</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Responses restricted to certain topics</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> AI-Powered Recommendations</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
-
-        <div className={styles.pricingCard}>
-          <h3>Data Dashboard</h3>
-          <p className={styles.price}>Started from $899</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Beautiful Data Visualization</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Forecasting and Trend analysis</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Interactive Dashboards</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Advanced Segmentation</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Data-Driven Decision-Making</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Facts, Metrics and Insights</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> KPI's and Report Generation</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Integration with Data Sources</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Real-time Data Updates</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Customizable Layouts and Reports</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Data Export Options</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Integration with Third-party Tools</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> User Access Control</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
-
-        <div className={styles.pricingCard}>
-          <h3>Content creation</h3>
-          <p className={styles.price}>Started from $199/month</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Content Strategy</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Copywriting</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Graphic Design</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Video Production</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Photo Editing</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Social Media Management</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> SEO Optimization</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Email Marketing</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Analytics and Reporting</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Content Calendar Planning</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Brand Voice and Messaging</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
-
-        <div className={styles.pricingCard}>
-          <h3>Custom service</h3>
-          <p className={styles.price}>Custom pricing</p>
-          <ul className={styles.features}>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Custom Solutions</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} />  Requirement Analysis</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Tailored to Your Needs</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Flexible Pricing</li>
-            <li ><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} />  Accurate pricing based on project scope and requirements</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Dedicated Support</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Scalable Solutions</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Innovative Approaches</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Collaborative Process</li>
-            <li><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> Results-Oriented</li>
-          </ul>
-          <a href="/form" className={styles.ctaButton}>Contact us</a>
-          <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
-        </div>
+        {
+          pricingPlans.map((plan, index) => (
+            <div key={index} className={styles.pricingCard}>
+              <h3>{plan.name}</h3>
+              <p className={styles.price}>{plan.price}</p>
+              <ul className={styles.features}>
+                {plan.features.slice(0, expandedCards[index] ? plan.features.length : DEFAULT_VISIBLE_FEATURES).map((feature, featureIndex) => (
+                  <li key={featureIndex}><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> {feature}</li>
+                ))}
+              </ul>
+              {plan.features.length > DEFAULT_VISIBLE_FEATURES && (
+                <button onClick={() => toggleFeatures(index)} className={styles.toggleButton}>
+                  {expandedCards[index] ? 'Show Less' : 'Show More'}
+                  <FontAwesomeIcon icon={expandedCards[index] ? faChevronUp : faChevronDown} className={styles.toggleIcon} />
+                </button>
+              )}
+              <a href="/form" className={styles.ctaButton}>Contact us</a>
+              <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
+            </div>
+          ))
+        }
       </div>
-    </section>
+    </section >
   );
 };
 
