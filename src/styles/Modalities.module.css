@@ -325,6 +325,10 @@ section.modalities {
         width: 100%;
         gap: 0.5rem;
 
+        hr {
+          display: none;
+        }
+
         h3 {
           flex: 0 0 100%;
           text-align: center;
