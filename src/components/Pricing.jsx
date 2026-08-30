@@ -1,10 +1,10 @@
-import { faChevronDown, faChevronUp, faCircleCheck, faStar } from '@fortawesome/free-solid-svg-icons';
+import { /* faArrowDown, faAngleRight */ faChevronDown, faChevronUp, faCircleCheck, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import styles from '../styles/Pricing.module.css';
 
 const Pricing = () => {
-  const DEFAULT_VISIBLE_FEATURES = 8;
+  const DEFAULT_VISIBLE_FEATURES = 6;
 
   const pricingPlans = [
     {
@@ -120,7 +120,9 @@ const Pricing = () => {
         "Maintenance & Support",
         "Quality Assurance",
         "Technical Consulting"
-      ]
+      ],
+      link: "/form",
+      cta: "View All plans"
     }
   ];
 
@@ -146,7 +148,7 @@ const Pricing = () => {
             <div key={index} className={styles.pricingCard}>
               <h3>{plan.name}</h3>
               <p className={styles.price}>{plan.price}</p>
-              <ul className={styles.features}>
+              <ul className={`${styles.features} ${!expandedCards[index] && plan.features.length > DEFAULT_VISIBLE_FEATURES ? styles.fadeBottom : ''}`}>
                 {plan.features.slice(0, expandedCards[index] ? plan.features.length : DEFAULT_VISIBLE_FEATURES).map((feature, featureIndex) => (
                   <li key={featureIndex}><FontAwesomeIcon icon={faCircleCheck} className={styles.icon} /> {feature}</li>
                 ))}
@@ -157,8 +159,13 @@ const Pricing = () => {
                   <FontAwesomeIcon icon={expandedCards[index] ? faChevronUp : faChevronDown} className={styles.toggleIcon} />
                 </button>
               )}
-              <a href="/form" className={styles.ctaButton}>Contact us</a>
+              <a href={plan.link || "#contact"} className={styles.ctaButton}>{plan.cta || "Contact us"} {plan.cta ? <>&rarr;</> : null}</a>
               <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
+              {
+                plan.cta && (
+                  <a href="/form" className={styles.ctaButton}>View All Plans &rarr;</a>
+                )
+              }
             </div>
           ))
         }

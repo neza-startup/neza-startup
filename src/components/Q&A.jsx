@@ -1,4 +1,4 @@
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { /* faAngleRight,  */ faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import styles from '../styles/Q&A.module.css';
@@ -79,7 +79,7 @@ const QnA = () => {
       </div>
       <footer className={styles.footer}>
         <span>Have any other questions?</span>
-        <a href="#contact">Let us know!</a>
+        <a href="#contact">Let us know!{/* <FontAwesomeIcon icon={faAngleRight} className={styles.icon} /> */}</a>
         {canExpand ? (
           <button onClick={() => setShowAll((prev) => !prev)} className={styles.viewAllButton}>
             {showAll ? 'View less' : 'View all'}

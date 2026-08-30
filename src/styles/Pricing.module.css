@@ -64,7 +64,20 @@ section.pricing {
       ul.features {
         list-style-type: none;
         padding: 0;
+        position: relative;
         /* margin-bottom: 1rem; */
+
+        /* shadow at the bottom */
+
+        &.fadeBottom::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 8rem;
+          background: linear-gradient(to bottom, transparent, hsla(240, 2%, 8%, 0.3));
+        }
 
         /* que el */
 
@@ -128,6 +141,73 @@ section.pricing {
           /* #F59E0B */
         ;
         /* Color for the 5th card's star icon */
+      }
+    }
+
+    div.pricingCard:nth-child(7) {
+
+      header,
+      p,
+      a:first-of-type,
+      svg {
+        /* color: #FF6B00; */
+        pointer-events: none;
+        cursor: not-allowed;
+        filter: grayscale(1) brightness(0.9) !important;
+        opacity: 0.9 !important;
+        /* display: none; */
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-color: rgba(0, 0, 0, 0.1);
+
+
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+
+        z-index: 1;
+        pointer-events: none;
+        border-radius: 1rem;
+      }
+
+      /* .icon:nth-of-type(2) { */
+      /* color: #FF6B00; */
+      /* right: 3rem;
+                  color: #9D00FF;
+                  color: #0070F3;
+                } */
+
+      /* disabled appearance */
+      /* filter: grayscale(1) brightness(0.9);
+                opacity: 0.9; */
+
+      a:last-of-type {
+        /* pointer-events: none;
+                  cursor: not-allowed;
+                  opacity: 0.5; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* width: 100%;
+                  height: 100%; */
+        z-index: 2;
+
+        /* normal appearance - revert parent filters */
+        /* filter: grayscale(0) brightness(1);
+                  opacity: 1 !important; */
+        background-color: white;
+        color: black;
+
+        min-width: max-content;
+
+        /* svg {
+                    display: inline-block;
+                  } */
       }
     }
   }
