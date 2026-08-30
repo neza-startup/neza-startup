@@ -215,7 +215,7 @@ const Contact = () => {
         </span>
         <ul className={styles.contactList}>
           <li><a href="https://wa.me/527774447232" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faComment} /> Chat with sales team &#8599;{/* a sales man, an agent, representative */}</a></li>
-          <li><a href="/form" /* target="_blank" */ rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Fill out full form &#8599;</a></li>
+          <li><a href="/form" /* target="_blank" */ rel="noopener noreferrer"><FontAwesomeIcon icon={faFile} /> Fill out full form &rarr;</a></li>
           <li><a href="tel:+527774447232"><FontAwesomeIcon icon={faPhone} /> +52 777 444 7232 &#8599;</a></li>
           <li><a href="mailto:contact@nezastartup.com"><FontAwesomeIcon icon={faEnvelope} /> contact@nezastartup.com &#8599;</a></li>
           <li><a href="https://www.nezastartup.com/link-in-bio" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLink} /> Link in bio &#8599;</a></li>
