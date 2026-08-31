@@ -1,4 +1,4 @@
-import { /* faArrowDown, faAngleRight */ faChevronDown, faChevronUp, faCircleCheck, faStar } from '@fortawesome/free-solid-svg-icons';
+import { /* faArrowDown, faAngleRight, faCode */ faChevronDown, faChevronUp, faCircleCheck, faDashboard, faGlobe, faInfoCircle, faLaptop, faMobile, faRobot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import styles from '../styles/Pricing.module.css';
@@ -8,6 +8,8 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
+      tag: "Web Development",
+      icon: faGlobe,
       name: "Landing Page",
       price: "Started From $599 USD",
       features: [
@@ -23,8 +25,10 @@ const Pricing = () => {
       ]
     },
     {
+      tag: "Mobile Development",
+      icon: faMobile,
       name: "Mobile Application",
-      price: "Started from $1599",
+      price: "Started from $1599 USD",
       features: [
         "Mockup Design (UI/UX)",
         "iPhone and/or Android",
@@ -37,6 +41,9 @@ const Pricing = () => {
       ]
     },
     {
+      /* ML (Machine Learning) */
+      tag: "AI Solutions",
+      icon: faRobot,
       name: "Automation Chatbot",
       price: "Started from $999 (or $19/month)",
       features: [
@@ -57,8 +64,11 @@ const Pricing = () => {
       ]
     },
     {
+      tag: "Data Science",
+      icon: faDashboard,
       name: "Data Dashboard",
-      price: "Started from $899",
+      /* (or $29 USD/month) */
+      price: "Started from $899 USD",
       features: [
         "Beautiful Data Visualization",
         "Forecasting and Trend analysis",
@@ -76,8 +86,10 @@ const Pricing = () => {
       ]
     },
     {
+      tag: "Marketing",
+      icon: faStar,
       name: "Content creation",
-      price: "Started from $199/month",
+      price: "Started from $199 USD/month (or $25 USD one-time)",
       features: [
         "Content Strategy",
         "Copywriting",
@@ -93,6 +105,8 @@ const Pricing = () => {
       ]
     },
     {
+      tag: "Custom",
+      icon: faLaptop,
       name: "Custom service",
       price: "Custom pricing",
       features: [
@@ -109,6 +123,8 @@ const Pricing = () => {
       ]
     },
     {
+      tag: "All Services",
+      icon: faInfoCircle,
       name: "All plans",
       price: "Pricing for all services",
       features: [
@@ -146,6 +162,7 @@ const Pricing = () => {
         {
           pricingPlans.map((plan, index) => (
             <div key={index} className={styles.pricingCard}>
+              <span className={styles.tag}>{plan.tag} <FontAwesomeIcon icon={plan.icon} className={styles.icon} /></span>
               <h3>{plan.name}</h3>
               <p className={styles.price}>{plan.price}</p>
               <ul className={`${styles.features} ${!expandedCards[index] && plan.features.length > DEFAULT_VISIBLE_FEATURES ? styles.fadeBottom : ''}`}>
@@ -170,6 +187,8 @@ const Pricing = () => {
           ))
         }
       </div>
+
+      <span className={styles.disclaimer}><FontAwesomeIcon icon={faInfoCircle} /> * Price and delivery time may vary based on project complexity and requirements. We offer flexible payment options, free consultations and free trials (subject to availability and approbation, terms and conditions apply).</span>
     </section >
   );
 };
