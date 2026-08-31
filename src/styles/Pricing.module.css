@@ -114,6 +114,9 @@ section.pricing {
           .icon {
             margin-right: 0.5rem;
             flex-shrink: 0;
+            color: hsl(0, 0%, 100%, 0.7)
+              /* #0070F3 */
+            ;
           }
         }
       }
@@ -159,6 +162,14 @@ section.pricing {
     }
 
     div.pricingCard:nth-child(5) {
+
+      /* .icon {
+        color: #9D00FF !important */
+      /* #F59E0B */
+      /* ; */
+      /* Color for the 5th card's icon */
+      /* } */
+
       .starIcon {
         color: #9D00FF
           /* #F59E0B */
