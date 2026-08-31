@@ -275,6 +275,7 @@ section.services {
         /* color: #FF6B00; */
         pointer-events: none;
         cursor: not-allowed;
+        user-select: none !important;
         filter: grayscale(1) brightness(0.9) !important;
         opacity: 0.9 !important;
         /* display: none; */

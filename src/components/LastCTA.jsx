@@ -1,4 +1,4 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../styles/LastCTA.module.css";
 
@@ -12,7 +12,7 @@ const LastCTA = () => {
 
       <div className={styles.lastCTAContainer}>
         {/* <a href="/services" className={styles.servicesButton}>Explore Our Services</a> */}
-        <a href="#contact" className={styles.contactButton}>Contact Us Now</a>
+        <a href="#contact" className={styles.contactButton}>Contact Us Now<FontAwesomeIcon icon={faAngleRight} className={styles.icon} /></a>
         <a href="/form" className={styles.servicesButton}>Get custom price <FontAwesomeIcon icon={faStar} /></a>
       </div>
     </section>

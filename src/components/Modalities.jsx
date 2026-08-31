@@ -1,4 +1,4 @@
-import { faBolt, faCalendarDays, faCircleCheck, faLaptop, /*  faDiamond, faGem, faWandMagicSparkles, faArrowsRotate, */ faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faBolt, faCalendarDays, faCircleCheck, faLaptop, /*  faDiamond, faGem, faWandMagicSparkles, faArrowsRotate, */ faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../styles/Modalities.module.css';
 
@@ -63,7 +63,7 @@ const Modalities = () => {
       <div className={styles.contactSection}>
         <h3>Interested in our services?</h3>
         <p>Acquire the {/* right  */}services you need to grow your business.</p>
-        <a href="/form"/* "https://www.example.com/contact" target="_blank" rel="noopener noreferrer" */>Contact Us{/* Get in Touch */}</a>
+        <a href="#contact"/* "https://www.example.com/contact" target="_blank" rel="noopener noreferrer" */>Contact Us <FontAwesomeIcon icon={faArrowDown} className={styles.icon} />{/* Get in Touch */}</a>
       </div>
     </section>
   )

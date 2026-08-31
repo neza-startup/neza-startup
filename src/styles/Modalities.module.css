@@ -280,6 +280,19 @@ section.modalities {
       }
     }
 
+
+    div.billingPlan {
+      div.servicesModalitiesContent:is(:nth-of-type(2), :nth-of-type(3)) {
+        span.serviceModality {
+
+          font-size: 0.6rem;
+          /* var(--accent-color) */
+          ;
+        }
+      }
+    }
+
+
     div.servicesModalitiesContent {
       flex-direction: column !important;
       justify-content: center;
