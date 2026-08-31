@@ -76,7 +76,7 @@ section.pricing {
           left: 0;
           width: 100%;
           height: 8rem;
-          background: linear-gradient(to bottom, transparent, hsla(240, 2%, 8%, 0.3));
+          background: linear-gradient(to bottom, transparent, hsla(0, 0%, 7%, 0.3));
         }
 
         /* que el */
@@ -149,10 +149,12 @@ section.pricing {
       header,
       p,
       a:first-of-type,
-      svg {
+      svg,
+      button {
         /* color: #FF6B00; */
         pointer-events: none;
         cursor: not-allowed;
+        user-select: none !important;
         filter: grayscale(1) brightness(0.9) !important;
         opacity: 0.9 !important;
         /* display: none; */
