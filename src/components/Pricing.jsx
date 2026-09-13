@@ -188,6 +188,8 @@ const Pricing = () => {
         }
       </div>
 
+      {/* <span>No sure what service are you looking for? <a href="#contact">Contact us</a> for a free meeting consultation.</span> */}
+
       <span className={styles.disclaimer}><FontAwesomeIcon icon={faInfoCircle} /> * Price and delivery time may vary based on project complexity and requirements. We offer flexible payment options, free consultations and free trials (subject to availability and approbation, terms and conditions apply).</span>
     </section >
   );

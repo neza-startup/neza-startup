@@ -20,6 +20,18 @@ const Products = () => {
           <p>Your page with all your links, centralizing your digital presence in one place.</p>
           <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
         </div>
+        <div className={styles.productItem}>
+          <h3>{/* —  */}myCustomLinks{/*  — */}</h3>
+          <span>“Business banner maps”</span>
+          <p>Create and manage your business banner maps with ease.</p>
+          <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
+        </div>
+        {/* <div className={styles.productItem}>
+          <h3>myCustomLinks</h3>
+          <span>“Business physical cards”</span>
+          <p>Create and manage your business physical cards with ease.</p>
+          <a href="#contact">More info</a>
+        </div> */}
       </div>
     </section>
   );
