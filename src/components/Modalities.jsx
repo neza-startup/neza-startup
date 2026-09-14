@@ -1,4 +1,4 @@
-import { faArrowDown, faBolt, faCalendarDays, faCircleCheck, faLaptop, /*  faDiamond, faGem, faWandMagicSparkles, faArrowsRotate, */ faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faBolt, faCalendarDays, faCircleCheck, faGem, faLaptop, /*  faDiamond, faGem, faWandMagicSparkles, faArrowsRotate, */ faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../styles/Modalities.module.css';
 
@@ -26,6 +26,11 @@ const Modalities = () => {
             <div className={styles.servicesModalitiesContent}>
               <span className={styles.serviceModality}>{/* Monthly  */}Subscription <FontAwesomeIcon icon={faCalendarDays} /></span>
               <p>{/* Receive services on a monthly basis with a fixed fee */}Services delivered weekly, bi-weekly, or monthly for a fixed fee{/* Services provided on a defined weekly, bi-weekly, or monthly basis. */}{/* recurrent and planned/scheduled */}</p>
+            </div>
+            <hr className={styles.verticalDivider} />
+            <div className={styles.servicesModalitiesContent}>
+              <span className={styles.serviceModality}>Fee <FontAwesomeIcon icon={faGem} /></span>
+              <p>A strategic growth partnership with a fee for the services provided.</p>
             </div>
             {/* </div> */}
           </div>

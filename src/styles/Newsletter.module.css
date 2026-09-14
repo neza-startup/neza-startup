@@ -38,7 +38,8 @@ section.newsletter {
     align-items: center;
     /* text-align: left; */
     padding: 2rem;
-    width: 48rem;
+    /* width: 48rem; */
+    width: min(48rem, 100%);
     border-radius: 1rem;
     gap: 1rem;
 
@@ -133,6 +134,112 @@ section.newsletter {
       } */
     }
   }
+
+  div.ArticleCards {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+    width: 65vw;
+    margin-bottom: 1rem;
+    scroll-snap-type: x mandatory; */
+
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    width: min(80vw, 75rem);
+    overflow-x: auto;
+    padding: 0 0 1rem;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+
+    div.ArticleCard {
+      /* display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 16rem;
+      flex: 0 0 100%;
+      scroll-snap-align: start; */
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0.5rem;
+
+      flex: 0 0 calc((100% - 2rem) / 3.45);
+      min-width: 0;
+
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
+      img {
+        width: 16rem;
+        height: auto;
+        border-radius: 1rem;
+        aspect-ratio: 6/7 !important;
+        object-fit: cover;
+        object-position: center;
+        border: 1px solid #1E1E1E;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        text-align: left;
+        width: 100%;
+        /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; */
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: var(--secondary-color);
+        text-align: center;
+        text-align: left;
+      }
+    }
+
+  }
+
+  div.articleButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+    /* margin-top: 1rem; */
+
+    width: 100%;
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 100%;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+
+      /* &:hover {
+        background-color: var(--secondary-color);
+      } */
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
 }
 
 /* responsive design */
@@ -163,6 +270,26 @@ section.newsletter {
           button {
             width: 100%;
           }
+        }
+      }
+
+    }
+
+    div.ArticleCards {
+      justify-content: center;
+      padding: 0 1rem 1rem;
+
+      div.ArticleCard {
+        /* max-width: 100%;
+        width: 100%; */
+
+        flex: 0 0 85%;
+        max-width: none;
+        scroll-snap-align: start;
+
+        img {
+          width: 100%;
+          height: auto;
         }
       }
     }

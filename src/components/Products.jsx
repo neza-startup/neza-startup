@@ -21,8 +21,8 @@ const Products = () => {
           <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
         </div>
         <div className={styles.productItem}>
-          <h3>{/* —  */}myCustomLinks{/*  — */}</h3>
-          <span>“Business banner maps”</span>
+          <h3>{/* —  */}myBannerMaps{/*  — */}</h3>
+          <span>“Desk Business banner maps”</span>
           <p>Create and manage your business banner maps with ease.</p>
           <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
         </div>
