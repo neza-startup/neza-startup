@@ -276,7 +276,7 @@ section.newsletter {
     }
 
     div.ArticleCards {
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0 1rem 1rem;
 
       div.ArticleCard {
@@ -284,7 +284,7 @@ section.newsletter {
         width: 100%; */
 
         flex: 0 0 85%;
-        max-width: none;
+        /* max-width: none; */
         scroll-snap-align: start;
 
         img {
