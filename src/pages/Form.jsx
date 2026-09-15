@@ -432,6 +432,8 @@ function Form() {
           )
         }
       </div>
+
+      // TODO: add the side panel navigation
     </section>
   );
 }

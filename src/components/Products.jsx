@@ -26,6 +26,12 @@ const Products = () => {
           <p>Create and manage your business banner maps with ease.</p>
           <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
         </div>
+        <div className={styles.productItem}>
+          <h3>{/* —  */}myFidelityCards{/*  — */}</h3>
+          <span>“Digital loyalty cards"</span>
+          <p>Reward your customers and keep your business connected with the community.</p>
+          <a href="#contact"/* "https://mycustomlinks.nezastartup.com" target="_blank" rel="noopener noreferrer" */>More info{/* Visit myCustomLinks */}</a>
+        </div>
         {/* <div className={styles.productItem}>
           <h3>myCustomLinks</h3>
           <span>“Business physical cards”</span>

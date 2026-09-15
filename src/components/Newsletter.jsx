@@ -174,6 +174,9 @@ const Newsletter = () => {
         <button className={styles.prevButton} onClick={() => { scrollCards(-1); }} disabled={false /* isFirstStep */}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
+        <a href="/blog" className={styles.cta}>
+          View all articles &rarr;
+        </a>
         <button className={styles.nextButton} onClick={() => { scrollCards(1); }} disabled={false /* isLastStep */}>
           <FontAwesomeIcon icon={faChevronRight} />
         </button>

@@ -214,18 +214,26 @@ section.newsletter {
 
   div.articleButtons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 6rem;
     /* margin-top: 1rem; */
 
     width: 100%;
 
     button {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem
+        /* 1rem */
+      ;
       border-radius: 100%;
       border: none;
       background-color: var(--primary-color);
+      border: 1px solid #1E1E1E;
+      background-color:
+        /* light-dark(hsla(0, 0%, 98%, 0.8), */
+        hsla(240, 2%, 8%, 0.8)
+        /* ) */
+      ;
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
@@ -237,6 +245,38 @@ section.newsletter {
       &:disabled {
         background-color: #ccc;
         cursor: not-allowed;
+      }
+    }
+  }
+
+  a.cta {
+    text-decoration: none;
+    color: var(--text-primary);
+    /* font-weight: 600; */
+    /* font-size: 1.1rem; */
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #131314;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border: 1px solid #1E1E1E;
+    background-color:
+      /* light-dark(hsla(0, 0%, 98%, 0.8), */
+      hsla(240, 2%, 8%, 0.8)
+      /* ) */
+    ;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+
+    @media(hover: hover) and (pointer: fine) {
+      &:hover {
+        /*color: var(--accent-color);*/
+        text-decoration: underline;
       }
     }
   }
@@ -291,6 +331,18 @@ section.newsletter {
           width: 100%;
           height: auto;
         }
+      }
+    }
+
+    div.articleButtons {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 3rem;
+
+      a.cta {
+        /* justify-self: flex-start; */
+        order: -1;
+        margin: auto;
       }
     }
   }
