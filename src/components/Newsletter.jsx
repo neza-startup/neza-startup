@@ -160,6 +160,7 @@ const Newsletter = () => {
           </fieldset>
         </form>
       </div>
+      <h3>Latest Articles</h3>
       <div ref={cardsRef} className={styles.ArticleCards}>
         {articles.map((article, index) => (
           <div key={index} className={styles.ArticleCard}>

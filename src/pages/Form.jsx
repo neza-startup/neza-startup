@@ -1,7 +1,6 @@
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
-import logo from '../assets/logo.svg';
 import styles from '../styles/Form.module.css';
 
 function Form() {
@@ -155,15 +154,14 @@ function Form() {
 
   return (
     <section className={styles.formContainer}>
-      <nav className={styles.navbar}>
+      {/* <nav className={styles.navbar}>
         <a href="/" className={styles.navbarLink}>
           &#8592; Back <span>to landing page</span>
         </a>
         <a href="/">
           <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
         </a>
-
-      </nav>
+      </nav> */}
       <header>
         <h1>
           Neza Startup - {tabs.find(tab => tab.active)?.name === 'review' ? 'Review Services Form' : 'Request Services Form'}

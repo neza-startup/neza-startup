@@ -135,6 +135,11 @@ section.newsletter {
     }
   }
 
+  h3 {
+    text-align: left;
+    width: 100%;
+  }
+
   div.ArticleCards {
     /* display: flex;
     flex-direction: row;
@@ -147,7 +152,6 @@ section.newsletter {
     margin-bottom: 1rem;
     scroll-snap-type: x mandatory; */
 
-    margin-top: 1rem;
     display: flex;
     align-items: flex-start;
     gap: 1rem;

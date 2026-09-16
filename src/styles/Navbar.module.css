@@ -30,6 +30,47 @@ nav.navbar {
   /* position: fixed; */
   /* top: 0; */
 
+  a.navbarLink {
+
+    /* capitalize */
+    text-transform: capitalize;
+
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    /* border-bottom: 1px solid var(--accent-color); */
+    font-weight: bold;
+
+    grid-column: 1
+      /*  / 2 */
+    ;
+    justify-self: start;
+    text-align: left;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* gap: 0.5rem; */
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration: underline;
+        /* border-bottom: 1px solid var(--accent-color);
+            */
+      }
+    }
+
+    position: absolute;
+    left: 2rem;
+
+    img.icon {
+      height: 1.5rem;
+      width: auto;
+      margin-right: 0.5rem;
+    }
+  }
+
   img.logo {
     height: 1.5rem;
     width: auto;
