@@ -11,7 +11,7 @@ const Navbar = () => {
     return null;
   } */
 
-  const pathname = window.location.pathname;
+  const pathname = `/home${window.location.pathname}`;
 
   return (
     <nav className={styles.navbar}>
@@ -20,7 +20,7 @@ const Navbar = () => {
         isNotRoot && (
           <a href="/" className={styles.navbarLink}>
             <img src={icon} alt="Back to landing page" className={styles.icon} />
-            {/* &#8592;  */}/home{pathname}
+            {/* &#8592;  */}{pathname}
           </a>
         )
       }
