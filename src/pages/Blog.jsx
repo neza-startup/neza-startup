@@ -16,11 +16,16 @@ function Blog() {
     let result = [...articles];
 
     if (filter !== "all") {
-      result = result.filter((article) =>
-        article.date.startsWith(filter) ||
-        article.author.some((articleAuthor) => articleAuthor.name === filter) ||
-        article.hashtags.some((hashtag) => hashtag === filter)
-      );
+      result = result.filter((article) => {
+        if (filter === "trending") return article.trending;
+        if (filter === "featured") return article.featured;
+
+        return (
+          article.date.startsWith(filter) ||
+          article.author.some((articleAuthor) => articleAuthor.name === filter) ||
+          article.hashtags.some((hashtag) => hashtag === filter)
+        );
+      });
     }
 
     const normalizeText = (value) =>
@@ -195,6 +200,10 @@ function Blog() {
                 <label htmlFor="filterSelect" className={styles.filterLabel}>Filter by:</label>
                 <select id='filterSelect' name='filterSelect' className={styles.filterSelect} value={currentFilter} onChange={(e) => filterWatches(e.target.value)}>
                   <option value="all">All</option>
+                  <optgroup label="Status">
+                    <option value="trending">Trending</option>
+                    <option value="featured">Featured</option>
+                  </optgroup>
                   <optgroup label="Authors">
                     {/* Gets the authors, removes duplicates, and converts the Set (collection of unique values) into an array. */}
                     {
