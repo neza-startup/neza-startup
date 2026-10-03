@@ -35,7 +35,7 @@ div.paginationButtons input[type="number"] {
 
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: light-dark(#f8f9fa, #1f2937);
+  background-color: light-dark(#f8f9fa, hsla(240, 2%, 8%, 0.8));
   color: light-dark(#333, #fff);
   border: none;
   border-radius: 1rem;
@@ -43,14 +43,25 @@ div.paginationButtons input[type="number"] {
   transition: background-color 0.3s ease;
   font-weight: 600;
 
-  background-color: light-dark(#f8f9fa, #1f2937);
+  background-color: light-dark(#f8f9fa, hsla(240, 2%, 8%, 0.8));
   color: light-dark(#333, #fff);
+  border: 1px solid #1E1E1E;
+  background-color:
+    /* light-dark(hsla(0, 0%, 98%, 0.8), */
+    hsla(240, 2%, 8%, 0.8)
+    /* ) */
+  ;
+  color: white;
 
   &:hover {
     background-color: light-dark(#e2e8f0, #374151);
     /* #2563EB */
     ;
   }
+}
+
+div.pages {
+  font-weight: 600;
 }
 
 .paginationButtons button,
@@ -89,6 +100,16 @@ div.paginationButtons input[type="number"] {
     background-color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
+
+  background-color: light-dark(#f8f9fa, hsla(240, 2%, 8%, 0.8));
+  color: light-dark(#333, #fff);
+  border: 1px solid #1E1E1E;
+  background-color:
+    /* light-dark(hsla(0, 0%, 98%, 0.8), */
+    hsla(240, 2%, 8%, 0.8)
+    /* ) */
+  ;
+  color: white;
 }
 
 .paginationButtons button:hover {

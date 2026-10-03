@@ -11,7 +11,7 @@ const Navbar = () => {
     return null;
   } */
 
-  const pathname = `/home${window.location.pathname}`;
+  const pathname = `home${window.location.pathname}`;
 
   return (
     <nav className={styles.navbar}>
