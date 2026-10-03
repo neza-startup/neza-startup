@@ -1,175 +1,19 @@
 import { useState } from "react";
-import author from "../assets/author.png";
-import icon from "../assets/icon.svg";
+import { Link } from "react-router-dom";
 import PaginationButtons from "../components/PaginationButtons";
 import usePagination from "../components/usePagination";
+import useArticles from "../context/useArticles.js";
 import styles from "../styles/Blog.module.css";
-import design from "/public/design.png";
 
 function Blog() {
-  const articlesCatalog = [
-    {
-      title: "Latest News",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Stay updated with the latest news and offers from Neza Startup.",
-      image: design,
-      alt: "Newsletter Image 1",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-01",
-      readTime: "5"
-    },
-    {
-      title: "Exclusive Offers",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "Val Smith",
-          img: author
-        }
-      ],
-      description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
-      image: design,
-      alt: "Newsletter Image 2",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-02",
-      readTime: "3"
-    },
-    {
-      title: "Community Updates",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "Val Smith",
-          img: author
-        }
-      ],
-      description: "Be part of our community and receive updates on events, workshops, and more.",
-      image: design,
-      alt: "Newsletter Image 3",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-03",
-      readTime: "4"
-    },
-    {
-      title: "Latest News 4",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Stay updated with the latest news and offers from Neza Startup.",
-      image: design,
-      alt: "Newsletter Image 1",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-04",
-      readTime: "5"
-    },
-    {
-      title: "Exclusive Offers 5",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
-      image: design,
-      alt: "Newsletter Image 2",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-05",
-      readTime: "3"
-    },
-    {
-      title: "Community Updates 6",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Be part of our community and receive updates on events, workshops, and more.",
-      image: design,
-      alt: "Newsletter Image 3",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-06",
-      readTime: "4"
-    },
-    {
-      title: "Latest News 7",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Stay updated with the latest news and offers from Neza Startup.",
-      image: design,
-      alt: "Newsletter Image 1",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-07",
-      readTime: "5"
-    },
-    {
-      title: "Exclusive Offers 8",
-      author: [
-        {
-          "name": "Neza Startup",
-          img: icon
-        },
-        {
-          "name": "John Doe",
-          img: author
-        }
-      ],
-      description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
-      image: design,
-      alt: "Newsletter Image 2",
-      hashtags: ["#technology", "#marketing", "#digital"],
-      date: "2027-01-08",
-      readTime: "3"
-    },
-  ];
-  const articles = articlesCatalog;
+  const { articles } = useArticles();
   const [recordsPerPage, setRecordsPerPage] = useState(3);
-
   const [currentFilter, setCurrentFilter] = useState("all");
   const [currentOrder, setCurrentOrder] = useState("none");
   const [searchTerm, setSearchTerm] = useState("");
 
   const getFilteredAndSortedArticles = (filter, order, term) => {
-    let result = [...articlesCatalog];
+    let result = [...articles];
 
     if (filter !== "all") {
       result = result.filter((article) =>
@@ -449,9 +293,12 @@ function Blog() {
   <span>{/* Save: *\/}Save this article to your reading list.</span>
 */}
 
-            <a href="/blog" className={styles.readMoreLink}>
+            <Link
+              to={`/blog/article/${article.id}`}
+              className={styles.readMoreLink}
+            >
               Read More &rarr;
-            </a>
+            </Link>
           </div>
         ))}
       </div>

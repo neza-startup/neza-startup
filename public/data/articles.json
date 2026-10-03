@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "title": "Latest News",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Stay updated with the latest news and offers from Neza Startup.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 1",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-01",
+    "readTime": "5"
+  },
+  {
+    "id": 2,
+    "title": "Exclusive Offers",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "Valeria Carillo",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 2",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-02",
+    "readTime": "3"
+  },
+  {
+    "id": 3,
+    "title": "Community Updates",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "Valeria Carillo",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Be part of our community and receive updates on events, workshops, and more.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 3",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-03",
+    "readTime": "4"
+  },
+  {
+    "id": 4,
+    "title": "Latest News 4",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Stay updated with the latest news and offers from Neza Startup.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 1",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-04",
+    "readTime": "5"
+  },
+  {
+    "id": 5,
+    "title": "Exclusive Offers 5",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 2",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-05",
+    "readTime": "3"
+  },
+  {
+    "id": 6,
+    "title": "Community Updates 6",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Be part of our community and receive updates on events, workshops, and more.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 3",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-06",
+    "readTime": "4"
+  },
+  {
+    "id": 7,
+    "title": "Latest News 7",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Stay updated with the latest news and offers from Neza Startup.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 1",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digitalgrowth"
+    ],
+    "date": "2026-01-07",
+    "readTime": "5"
+  },
+  {
+    "id": 8,
+    "title": "Exclusive Offers 8",
+    "author": [
+      {
+        "name": "Neza Startup",
+        "img": "/assets/icon.svg"
+      },
+      {
+        "name": "John Doe",
+        "img": "/assets/author.png"
+      }
+    ],
+    "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
+    "image": "/design.png",
+    "alt": "Newsletter Image 2",
+    "hashtags": [
+      "#technology",
+      "#marketing",
+      "#digital"
+    ],
+    "date": "2027-01-08",
+    "readTime": "3"
+  }
+]
