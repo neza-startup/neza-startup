@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import usePagination from "../components/usePagination"; */
 import { faChevronLeft, faChevronRight, /* faRotateLeft, faRotateRight */ } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from "react-router-dom";
 import styles from "../styles/Newsletter.module.css";
 import design from "/public/design.png";
 
@@ -175,9 +176,9 @@ const Newsletter = () => {
         <button className={styles.prevButton} onClick={() => { scrollCards(-1); }} disabled={false /* isFirstStep */}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
-        <a href="/blog" className={styles.cta}>
+        <Link to="/blog" className={styles.cta}>
           View all articles &rarr;
-        </a>
+        </Link>
         <button className={styles.nextButton} onClick={() => { scrollCards(1); }} disabled={false /* isLastStep */}>
           <FontAwesomeIcon icon={faChevronRight} />
         </button>

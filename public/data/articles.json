@@ -5,11 +5,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Stay updated with the latest news and offers from Neza Startup.",
@@ -29,11 +29,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "Valeria Carillo",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
@@ -53,11 +53,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "Valeria Carillo",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Be part of our community and receive updates on events, workshops, and more.",
@@ -77,11 +77,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Stay updated with the latest news and offers from Neza Startup.",
@@ -101,11 +101,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
@@ -125,11 +125,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Be part of our community and receive updates on events, workshops, and more.",
@@ -149,11 +149,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Stay updated with the latest news and offers from Neza Startup.",
@@ -173,11 +173,11 @@
     "author": [
       {
         "name": "Neza Startup",
-        "img": "/assets/icon.svg"
+        "img": "icon.svg"
       },
       {
         "name": "John Doe",
-        "img": "/assets/author.png"
+        "img": "author.png"
       }
     ],
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
