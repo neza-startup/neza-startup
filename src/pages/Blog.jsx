@@ -25,6 +25,7 @@ function Blog() {
       alt: "Newsletter Image 1",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
       date: "2026-01-01",
+      readTime: "5"
     },
     {
       title: "Exclusive Offers",
@@ -34,7 +35,7 @@ function Blog() {
           img: icon
         },
         {
-          "name": "John Doe",
+          "name": "Val Smith",
           img: author
         }
       ],
@@ -42,7 +43,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 2",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-02"
+      date: "2026-01-02",
+      readTime: "3"
     },
     {
       title: "Community Updates",
@@ -52,7 +54,7 @@ function Blog() {
           img: icon
         },
         {
-          "name": "John Doe",
+          "name": "Val Smith",
           img: author
         }
       ],
@@ -60,7 +62,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 3",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-03"
+      date: "2026-01-03",
+      readTime: "4"
     },
     {
       title: "Latest News 4",
@@ -78,7 +81,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 1",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-04"
+      date: "2026-01-04",
+      readTime: "5"
     },
     {
       title: "Exclusive Offers 5",
@@ -96,7 +100,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 2",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-05"
+      date: "2026-01-05",
+      readTime: "3"
     },
     {
       title: "Community Updates 6",
@@ -114,7 +119,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 3",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-06"
+      date: "2026-01-06",
+      readTime: "4"
     },
     {
       title: "Latest News 7",
@@ -132,7 +138,8 @@ function Blog() {
       image: design,
       alt: "Newsletter Image 1",
       hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2026-01-07"
+      date: "2026-01-07",
+      readTime: "5"
     },
     {
       title: "Exclusive Offers 8",
@@ -149,23 +156,96 @@ function Blog() {
       description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
       image: design,
       alt: "Newsletter Image 2",
-      hashtags: ["#technology", "#marketing", "#digitalgrowth"],
-      date: "2027-01-08"
+      hashtags: ["#technology", "#marketing", "#digital"],
+      date: "2027-01-08",
+      readTime: "3"
     },
   ];
-  const [articles, setArticles] = useState(articlesCatalog);
+  const articles = articlesCatalog;
   const [recordsPerPage, setRecordsPerPage] = useState(3);
 
-  const { maxPage, page, isDataGreaterThanPageSize, isFirstStep, isLastStep, next, previous, reset, goTo, pageValues } = usePagination({ values: articles, pageSize: recordsPerPage });
-
-  const showItemsPerPage = (items) => {
-    setRecordsPerPage(items);
-    reset();
-  };
-
+  const [currentFilter, setCurrentFilter] = useState("all");
+  const [currentOrder, setCurrentOrder] = useState("none");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const searchArticles = (term) => {
+  const getFilteredAndSortedArticles = (filter, order, term) => {
+    let result = [...articlesCatalog];
+
+    if (filter !== "all") {
+      result = result.filter((article) =>
+        article.date.startsWith(filter) ||
+        article.author.some((articleAuthor) => articleAuthor.name === filter) ||
+        article.hashtags.some((hashtag) => hashtag === filter)
+      );
+    }
+
+    const normalizeText = (value) =>
+      String(value ?? "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    const searchWords = normalizeText(term)
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+
+    if (searchWords.length > 0) {
+      result = result.filter((article) => {
+        const searchableText = normalizeText(
+          `${article.title} ${article.description} ${article.date} ${article.hashtags.join(" ")} ${article.author.map((author) => author.name).join(" ")}`
+        );
+
+        return searchWords.some((word) =>
+          searchableText.includes(word)
+        );
+      });
+    }
+
+    if (order === "asc") {
+      result.sort(
+        (a, b) =>
+          new Date(b.date) - new Date(a.date)
+      );
+    } else if (order === "desc") {
+      result.sort(
+        (a, b) =>
+          new Date(a.date) - new Date(b.date)
+      );
+    } else if (order === "a-z") {
+      result.sort(
+        (a, b) =>
+          a.title.localeCompare(b.title)
+      );
+    } else if (order === "z-a") {
+      result.sort(
+        (a, b) =>
+          b.title.localeCompare(a.title)
+      );
+    } else if (order === "shortest") {
+      result.sort(
+        (a, b) =>
+          a.readTime - b.readTime
+      );
+    } else if (order === "longest") {
+      result.sort(
+        (a, b) =>
+          b.readTime - a.readTime
+      );
+    }
+
+    return result;
+  };
+
+  const currentArticles = getFilteredAndSortedArticles(
+    currentFilter,
+    currentOrder,
+    searchTerm
+  );
+
+  const { maxPage, page, isDataGreaterThanPageSize, isFirstStep, isLastStep, next, previous, reset, goTo, pageValues } = usePagination({ values: currentArticles, pageSize: recordsPerPage });
+
+  /* const searchArticles = (term) => {
     setSearchTerm(term);
     const searchTerms = term.toLowerCase().trim().split(/\s+/).filter(Boolean);
     const filteredArticles = articlesCatalog.filter((article) => {
@@ -182,7 +262,27 @@ function Blog() {
 
     setArticles(filteredArticles);
     reset();
+  }; */
+
+  const filterWatches = (filter) => {
+    setCurrentFilter(filter);
+    reset();
   };
+
+  const orderWatchesByPrice = (order) => {
+    setCurrentOrder(order);
+    reset();
+  };
+
+  const showItemsPerPage = (items) => {
+    setRecordsPerPage(items);
+    reset();
+  };
+
+  const searchArticles = (term) => {
+    setSearchTerm(term);
+    reset();
+  }
 
   return (
     <section className={styles.blog} id="blog">
@@ -200,9 +300,10 @@ function Blog() {
           </div>
 
           <div className={styles.headerControls}>
-            <div className={styles.searchContainer}>
-              <label htmlFor="searchInput" className={styles.searchLabel}>Search:</label>
-              <input type="text" id='searchInput' name='searchInput' className={styles.searchInput} placeholder='Title, authors, description, date, hashtags or time...' value={searchTerm} /* onChange={(e) => {
+            <div className={styles.search}>
+              <div className={styles.searchContainer}>
+                <label htmlFor="searchInput" className={styles.searchLabel}>Search:</label>
+                <input type="text" id='searchInput' name='searchInput' className={styles.searchInput} placeholder='Title, authors, description, date, hashtags or time...' value={searchTerm} /* onChange={(e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredWatches = watchCatalog.filter((watch) =>
               watch.name.toLowerCase().includes(searchTerm)
@@ -218,6 +319,21 @@ function Blog() {
               setWatches(filteredWatches);
               reset();
             }} */ onChange={(e) => { searchArticles(e.target.value); }} />
+              </div>
+
+              {(
+                currentFilter !== "all" ||
+                currentOrder !== "none" ||
+                searchTerm.trim() !== ""
+              ) && (
+                  <div className={styles.resultsContainer}>
+                    <span>
+                      Results: <span>{pageValues.length}</span> {" "}
+                      {pageValues.length === 1 ? "article" : "articles"} of{" "}<span>
+                        {articles.length}</span> articles in total.
+                    </span>
+                  </div>
+                )}
             </div>
 
             <div className={styles.showItemsContainer/* headerControls */}>
@@ -227,6 +343,60 @@ function Blog() {
                 <option value={6}>6</option>
                 <option value={articles.length}>All</option>
               </select>
+            </div>
+
+            {/* select filter by article */}
+            <div className={styles.filterAndOrderContainer}>
+              <div className={styles.filterContainer}>
+                <label htmlFor="filterSelect" className={styles.filterLabel}>Filter by:</label>
+                <select id='filterSelect' name='filterSelect' className={styles.filterSelect} value={currentFilter} onChange={(e) => filterWatches(e.target.value)}>
+                  <option value="all">All</option>
+                  <optgroup label="Authors">
+                    {/* Gets the authors, removes duplicates, and converts the Set (collection of unique values) into an array. */}
+                    {
+                      [...new Set(articles.flatMap((article) => article.author.map((author) => author.name)))].map((authorName) => (
+                        <option key={authorName} value={authorName}>{authorName}</option>
+                      ))
+                    }
+                  </optgroup>
+                  <optgroup label="Dates">
+                    {/* Gets the years, removes duplicates, and converts the Set into an array. */}
+                    {
+                      [...new Set(articles.map((article) => article.date.slice(0, 4)))].map((year) => (
+                        <option key={year} value={year}>{year}</option>
+                      ))
+                    }
+                  </optgroup>
+                  <optgroup label="Hashtags">
+                    {/* Gets the hashtags, removes duplicates, and converts the Set into an array. */}
+                    {
+                      [...new Set(articles.flatMap((article) => article.hashtags))].map((hashtag) => (
+                        <option key={hashtag} value={hashtag}>{hashtag}</option>
+                      ))
+                    }
+                  </optgroup>
+                </select>
+              </div>
+
+              {/* select order by time and title */}
+              <div className={styles.orderContainer}>
+                <label htmlFor="orderSelect" className={styles.orderLabel}>Order by:</label>
+                <select id='orderSelect' name='orderSelect' className={styles.orderSelect} value={currentOrder} onChange={(e) => orderWatchesByPrice(e.target.value)}>
+                  <option value="none">None</option>
+                  <optgroup label="Time">
+                    <option value="asc">Most Recent</option>
+                    <option value="desc">Least Recent</option>
+                  </optgroup>
+                  <optgroup label="Title">
+                    <option value="a-z">A-Z</option>
+                    <option value="z-a">Z-A</option>
+                  </optgroup>
+                  <optgroup label="Reading Time">
+                    <option value="shortest">Shortest</option>
+                    <option value="longest">Longest</option>
+                  </optgroup>
+                </select>
+              </div>
             </div>
           </div>
         </header>
@@ -251,7 +421,7 @@ function Blog() {
             </span>
             <p>{article.description}</p>
             <span className={styles.hashtags}>{/* Hashtags:  */}{article.hashtags.join(" ")}</span>
-            <span>{/* Published on:  */}{article.date} · {/* - |Read time:  */}5 min read</span>
+            <span>{/* Published on:  */}{article.date} · {/* - |Read time:  */}{article.readTime} min read</span>
 
             {/*
   <span>{/* Comments: *\/}10 comments</span>
