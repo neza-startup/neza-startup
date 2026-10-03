@@ -1,16 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PaginationButtons from "../components/PaginationButtons";
 import usePagination from "../components/usePagination";
-import useArticles from "../context/useArticles.js";
 import styles from "../styles/Blog.module.css";
 
 function Blog() {
-  const { articles } = useArticles();
+  const [articles, setArticles] = useState([]);
   const [recordsPerPage, setRecordsPerPage] = useState(3);
   const [currentFilter, setCurrentFilter] = useState("all");
   const [currentOrder, setCurrentOrder] = useState("none");
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch("/data/articles.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch articles");
+        }
+
+        setArticles(await response.json());
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
 
   const getFilteredAndSortedArticles = (filter, order, term) => {
     let result = [...articles];
@@ -295,6 +311,7 @@ function Blog() {
 
             <Link
               to={`/blog/article/${article.id}`}
+              state={{ article }}
               className={styles.readMoreLink}
             >
               Read More &rarr;
