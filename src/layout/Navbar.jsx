@@ -1,27 +1,35 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import logo from '../assets/logo.svg';
 import styles from '../styles/Navbar.module.css';
 
 const Navbar = () => {
+  const { pathname: currentPath } = useLocation();
+  const navigate = useNavigate();
+
+  const goBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
 
   /* if we are not in root */
-  const isNotRoot = window.location.pathname !== '/';
+  const isNotRoot = currentPath !== '/';
 
   /* if (isNotRoot) {
     return null;
   } */
 
-  const pathname = `home${window.location.pathname}`;
+  const pathname = `home${currentPath}`;
 
   return (
     <nav className={styles.navbar}>
 
       {
         isNotRoot && (
-          <a href="/" className={styles.navbarLink}>
+          <Link to="/blog" onClick={goBack} className={styles.navbarLink}>
             <img src={icon} alt="Back to landing page" className={styles.icon} />
             {/* &#8592;  */}{pathname}
-          </a>
+          </Link>
         )
       }
 
@@ -29,9 +37,9 @@ const Navbar = () => {
       {/* <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
         <span className={styles.brandName}>Neza Startup</span> */}
       {/* <a href="/" rel='noopener noreferrer' className={styles.linkImage}> */}
-      <a href="/#hero">
+      <Link to="/">
         <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
-      </a>
+      </Link>
       {/* <span className={styles.brandName}>Neza Startup</span> */}
       {/* </a> */}
       {/*  </div> */}

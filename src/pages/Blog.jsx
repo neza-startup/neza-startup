@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PaginationButtons from "../components/PaginationButtons";
-import usePagination from "../components/usePagination";
+import PaginationButtons from "../components/PaginationButtons.jsx";
 import useArticles from "../hooks/useArticles.js";
+import usePagination from "../hooks/usePagination.jsx";
 import styles from "../styles/Blog.module.css";
 
 function Blog() {
