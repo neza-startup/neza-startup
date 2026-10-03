@@ -53,7 +53,7 @@ article.article {
     }
 
     span.authorName {
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
@@ -65,7 +65,7 @@ article.article {
     gap: 1rem;
 
     span span {
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
