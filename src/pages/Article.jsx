@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useArticles from "../context/useArticles.js";
+import useArticles from "../hooks/useArticles.js";
 import styles from "../styles/Article.module.css";
 
 const Article = ({ title, content, author, date }) => {

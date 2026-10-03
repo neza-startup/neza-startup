@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ArticleContext from "./articleContextValue";
+import ArticleContext from "../context/articleContextValue";
 
 export default function useArticles() {
   const context = useContext(ArticleContext);
