@@ -1,11 +1,34 @@
-import { useParams } from "react-router-dom";
-import useArticles from "../context/useArticles.js";
+import { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import styles from "../styles/Article.module.css";
 
 const Article = ({ title, content, author, date }) => {
+  const { state } = useLocation();
   const { articleId } = useParams();
-  const { articles } = useArticles();
-  const article = articles.find(({ id }) => id === Number(articleId));
+  const [article, setArticle] = useState(state?.article ?? null);
+
+  useEffect(() => {
+    if (state?.article) {
+      setArticle(state.article);
+      return;
+    }
+
+    const fetchArticle = async () => {
+      try {
+        const response = await fetch("/data/articles.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch articles");
+        }
+
+        const articles = await response.json();
+        setArticle(articles.find(({ id }) => id === Number(articleId)));
+      } catch (error) {
+        console.error("Error fetching article:", error);
+      }
+    };
+
+    fetchArticle();
+  }, [articleId, state]);
 
   const articleAuthors = article?.author ?? (author ? [{ name: author }] : []);
 
