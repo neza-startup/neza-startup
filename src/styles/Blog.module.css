@@ -281,6 +281,10 @@ section.blog {
         gap: 0.5rem;
         font-size: 0.875rem;
 
+        span.authorName {
+          font-weight: 600;
+        }
+
         img.authorImage {
           width: 2rem;
           height: 2rem;

@@ -1,3 +1,5 @@
+import { faArrowTrendUp, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PaginationButtons from "../components/PaginationButtons.jsx";
@@ -268,13 +270,32 @@ function Blog() {
               {article.author.map((author, index) => (
                 <span key={index}>
                   {index > 0 && index === article.author.length - 1 && "and "}
-                  {author.name}
+
+                  <span className={styles.authorName}>
+                    {author.name}
+                  </span>
                 </span>
               ))}
             </span>
             <p>{article.description}</p>
             <span className={styles.hashtags}>{/* Hashtags:  */}{article.hashtags.join(" ")}</span>
             <span>{/* Published on:  */}{article.date} · {/* - |Read time:  */}{article.readTime} min read</span>
+
+            {
+              (article.trending || article.featured) && (
+                <div className={styles.articleStatus}>
+                  {article.trending && <span className={styles.trending}><FontAwesomeIcon icon={faArrowTrendUp} /> Trending</span>}
+                  &nbsp;
+                  {article.featured && <span className={styles.featured}><FontAwesomeIcon icon={faStar} /> Featured</span>}
+                </div>
+              )}
+
+            {/* <div className={styles.articleStats}> */}
+            {/* <span className={styles.comments}>{article.comments} comments</span>
+              <span className={styles.likes}>{article.likes} likes</span>
+              <span className={styles.shares}>{article.shares} shares</span> */}
+            {/* <span className={styles.views}>{article.views} views</span>
+            </div> */}
 
             {/*
   <span>{/* Comments: *\/}10 comments</span>

@@ -1,3 +1,5 @@
+import { faArrowTrendUp, faEye, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useParams } from "react-router-dom";
 import LastCTA from "../components/LastCTA.jsx";
 import useArticles from "../hooks/useArticles.js";
@@ -13,13 +15,14 @@ const Article = () => {
   return (
     <article className={styles.article}>
       <header>
+
         {article?.image && <img src={article.image} alt={article.alt} />}
         <h1>{article?.title ?? `Article ${articleId ?? ""}`}</h1>
-      </header>
 
-      <p className={styles.description}>
-        {article?.description}
-      </p>
+        <p className={styles.description}>
+          {article?.description}
+        </p>
+      </header>
 
       {article?.author && (
         <div className={styles.author}>
@@ -34,10 +37,10 @@ const Article = () => {
                 />
               )}
               <span className={styles.authorName}>
-                {articleAuthor.name}
+                &nbsp;{articleAuthor.name}
               </span>
               {index < articleAuthors.length - 2 && <span>, </span>}
-              {index === articleAuthors.length - 2 && articleAuthors.length > 1 && <span> and </span>}
+              {index === articleAuthors.length - 2 && articleAuthors.length > 1 && <span>&nbsp;and </span>}
             </span>
           ))}
         </div>
@@ -47,6 +50,7 @@ const Article = () => {
         <span>Published on: <span>{article?.date}</span></span>
         <span>Read time: <span>{article?.readTime && `${article.readTime} min read`}</span></span>
       </div>
+
       {/* {article?.date && <p className={styles.date}>{article.date}</p>}
       {article?.readTime && <p className={styles.readTime}>{article.readTime} min read</p>}
       {article?.hashtags && <p className={styles.hashtags}>{article.hashtags.join(" ")}</p>}
@@ -69,11 +73,26 @@ const Article = () => {
         <div className={styles.articleInfo}>
           <h3>Hashtags</h3>
           {article?.hashtags && <span className={styles.hashtags}>{article.hashtags.join(" ")}</span>}
-
-          <p className={styles.views}>
-            {article?.views && `${article.views} views`}
-          </p>
         </div>
+
+        <div className={styles.articleStats}>
+          {/* <span className={styles.comments}>{article.comments} comments</span>
+          <span className={styles.likes}>{article.likes} likes</span>
+          <span className={styles.shares}>{article.shares} shares</span> */}
+          <span className={styles.views}>
+            <FontAwesomeIcon icon={faEye} className={styles.eyeIcon} />&nbsp;
+            {article?.views && `${article.views} views`}
+          </span>
+        </div>
+
+        {
+          (article.trending || article.featured) && (
+            <div className={styles.articleStatus}>
+              {article.trending && <span className={styles.trending}><FontAwesomeIcon icon={faArrowTrendUp} /> Trending</span>}
+              &nbsp;
+              {article.featured && <span className={styles.featured}><FontAwesomeIcon icon={faStar} /> Featured</span>}
+            </div>
+          )}
 
         <div className={styles.latestArticles}>
           <h3>Latest Articles</h3>
