@@ -63,7 +63,13 @@ const Article = () => {
         {article?.content && article.content.map((section, index) => (
           <div key={index}>
             {section.paragraph1 && <p>{section.paragraph1}</p>}
+            {section.paragraph1 && section.paragraph2 && article.image && (
+              <img src={article.image} alt={article.alt} className={styles.contentImage} />
+            )}
             {section.paragraph2 && <p>{section.paragraph2}</p>}
+            {section.paragraph2 && section.paragraph3 && article.image && (
+              <img src={article.image} alt={article.alt} className={styles.contentImage} />
+            )}
             {section.paragraph3 && <p>{section.paragraph3}</p>}
           </div>
         ))}
@@ -95,15 +101,18 @@ const Article = () => {
           )}
 
         <div className={styles.latestArticles}>
-          <h3>Latest Articles</h3>
+          <h2>Latest Articles</h2>
           <ul>
             {articles
               .filter(({ id }) => id !== Number(articleId))
               .sort((a, b) => new Date(b.date) - new Date(a.date))
               .slice(0, 2)
-              .map(({ id, title }) => (
+              .map(({ id, title, description }) => (
                 <li key={id}>
-                  <Link to={`/blog/article/${id}`}>{title}</Link>
+                  <img src={articles.find(article => article.id === id)?.image} alt={articles.find(article => article.id === id)?.alt} className={styles.latestArticleImage} />
+                  <h3 className={styles.latestArticleTitle}>{title}</h3>
+                  <p className={styles.latestArticleDescription}>{description}</p>
+                  <Link to={`/blog/article/${id}`} className={styles.latestArticleLink}>Read More &rarr;</Link>
                 </li>
               ))}
           </ul>
