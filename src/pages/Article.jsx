@@ -14,10 +14,13 @@ const Article = () => {
 
   return (
     <article className={styles.article}>
-      <header>
+      <header className={styles.header}>
+        <title>{`Neza Blog - ${article?.title}`}</title>
+        <meta name="description" content={article?.description} />
 
+        <h1>Neza Blog</h1>
         {article?.image && <img src={article.image} alt={article.alt} />}
-        <h1>{article?.title ?? `Article ${articleId ?? ""}`}</h1>
+        <h1>{article?.title}</h1>
 
         <p className={styles.description}>
           {article?.description}

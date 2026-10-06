@@ -17,10 +17,14 @@ article.article {
   justify-content: center;
   gap: 1rem;
 
-  header {
+  header.header {
     text-align: left;
     width: 100%;
     max-width: 64ch;
+
+    h1:first-of-type {
+      margin-bottom: 1rem;
+    }
 
     img {
       width: 100%;
