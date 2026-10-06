@@ -24,6 +24,7 @@ article.article {
 
     h1:first-of-type {
       margin-bottom: 1rem;
+      /* font-size: 3rem; */
     }
 
     img {
@@ -85,6 +86,33 @@ article.article {
     span span {
       font-weight: 600;
     }
+
+    span.shares {
+      font-weight: 600;
+
+      /* border: 1px solid #1E1E1E; */
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+
+      button.shareButton {
+        background-color: transparent;
+        border: none;
+        color: var(--text-primary);
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+
+        @media(hover: hover) and (pointer: fine) {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 
   div.content div {
@@ -138,11 +166,63 @@ article.article {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+
+      span.hashtags {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+
+        span.hashtag {
+          font-weight: 600;
+          color: var(--accent-color);
+          text-decoration: underline;
+          color: #888888;
+          font-weight: 500;
+        }
+      }
     }
 
-    span.views {
-      font-weight: 600;
+    div.articleStats {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+
+      span.views {
+        font-weight: 600;
+      }
+
+      span.shares {
+        font-weight: 600;
+
+        border: 1px solid #1E1E1E;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        background-color: hsla(240, 2%, 8%, 0.8);
+        color: white;
+
+        button.shareButton {
+          background-color: transparent;
+          border: none;
+          color: var(--text-primary);
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 0;
+          margin: 0;
+
+          @media(hover: hover) and (pointer: fine) {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
     }
+
 
     div.latestArticles {
       display: flex;

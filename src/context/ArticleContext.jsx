@@ -3,6 +3,8 @@ import ArticleContext from "./articleContextValue";
 
 export function ArticleProvider({ children }) {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -15,6 +17,9 @@ export function ArticleProvider({ children }) {
         setArticles(await response.json());
       } catch (error) {
         console.error("Error fetching articles:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -22,7 +27,7 @@ export function ArticleProvider({ children }) {
   }, []);
 
   return (
-    <ArticleContext.Provider value={{ articles }}>
+    <ArticleContext.Provider value={{ articles, loading, error }}>
       {children}
     </ArticleContext.Provider>
   );
