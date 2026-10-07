@@ -43,7 +43,7 @@ const Navbar = () => {
         isNotRoot && (
           currentPath === "/blog" ? (
             <HashLink smooth to="/#newsletter" className={styles.navbarLink}>
-              <img src={icon} alt="Back to newsletter" className={styles.icon} />
+              <img src={icon} alt="Back to landing page newsletter section" className={styles.icon} />
               {pathname}
             </HashLink>
           ) : (
@@ -59,9 +59,9 @@ const Navbar = () => {
       {/* <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
         <span className={styles.brandName}>Neza Startup</span> */}
       {/* <a href="/" rel='noopener noreferrer' className={styles.linkImage}> */}
-      <Link to="/">
+      <HashLink to="/#hero" smooth className={styles.linkImage}>
         <img src={logo} alt="Neza Startup Logo" className={styles.logo} />
-      </Link>
+      </HashLink>
       {/* <span className={styles.brandName}>Neza Startup</span> */}
       {/* </a> */}
       {/*  </div> */}
