@@ -326,7 +326,7 @@ function Blog() {
             <Link
               to={`/blog/article/${article.id}`}
               className={styles.readMoreLink}
-              state={{ from: 'blog' }}
+            /* state={{ from: 'blog' }} */
             >
               Read More &rarr;
             </Link>
