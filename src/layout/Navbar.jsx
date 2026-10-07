@@ -1,15 +1,30 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { HashLink } from "react-router-hash-link";
 import icon from '../assets/icon.svg';
 import logo from '../assets/logo.svg';
 import styles from '../styles/Navbar.module.css';
 
 const Navbar = () => {
-  const { pathname: currentPath } = useLocation();
+  const { pathname: currentPath, state } = useLocation();
   const navigate = useNavigate();
 
   const goBack = (event) => {
     event.preventDefault();
-    navigate(-1);
+
+    /* If we have a previous location saved, go back there. */
+    if (state?.from === 'article') {
+      navigate(-1);
+      return;
+    }
+
+    /* If we are directly on an article, go back to the Blog. */
+    if (currentPath.startsWith('/blog/article/')) {
+      navigate('/blog');
+      return;
+    }
+
+    /*  Default fallback. */
+    navigate('/');
   };
 
   /* if we are not in root */
@@ -26,10 +41,17 @@ const Navbar = () => {
 
       {
         isNotRoot && (
-          <Link to="/blog" onClick={goBack} className={styles.navbarLink}>
-            <img src={icon} alt="Back to landing page" className={styles.icon} />
-            {/* &#8592;  */}{pathname}
-          </Link>
+          currentPath === "/blog" ? (
+            <HashLink smooth to="/#newsletter" className={styles.navbarLink}>
+              <img src={icon} alt="Back to newsletter" className={styles.icon} />
+              {pathname}
+            </HashLink>
+          ) : (
+            <Link onClick={goBack} className={styles.navbarLink}>
+              <img src={icon} alt="Go back" className={styles.icon} />
+              {pathname}
+            </Link>
+          )
         )
       }
 

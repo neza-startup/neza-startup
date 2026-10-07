@@ -184,7 +184,7 @@ const Article = () => {
                   <img src={articles.find(article => article.id === id)?.image} alt={articles.find(article => article.id === id)?.alt} className={styles.latestArticleImage} />
                   <h3 className={styles.latestArticleTitle}>{title}</h3>
                   <p className={styles.latestArticleDescription}>{description}</p>
-                  <Link to={`/blog/article/${id}`} className={styles.latestArticleLink}>Read More &rarr;</Link>
+                  <Link to={`/blog/article/${id}`} className={styles.latestArticleLink} state={{ from: 'article' }}>Read More &rarr;</Link>
                 </li>
               ))}
           </ul>

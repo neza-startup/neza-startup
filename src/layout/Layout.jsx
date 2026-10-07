@@ -4,18 +4,27 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const ScrollToHash = () => {
-  const { hash } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (!hash) return;
 
     const scrollToTarget = () => {
       const target = document.getElementById(hash.slice(1));
-      target?.scrollIntoView({ behavior: "smooth" });
+      if (!target) return;
+
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: "auto",
+      });
     };
 
-    requestAnimationFrame(scrollToTarget);
-  }, [hash]);
+    const frame = requestAnimationFrame(() => {
+      requestAnimationFrame(scrollToTarget);
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, hash]);
 
   return null;
 };
