@@ -56,7 +56,7 @@ const Article = () => {
   };
 
   return (
-    <article className={styles.article}>
+    <article className={styles.article} id="article">
       <header className={styles.header}>
         <title>{`Neza Blog - ${article?.title}`}</title>
         <meta name="description" content={article?.description} />

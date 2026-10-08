@@ -4,11 +4,13 @@ import usePagination from "../components/usePagination"; */
 import { faChevronLeft, faChevronRight, /* faRotateLeft, faRotateRight */ } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import useArticles from "../hooks/useArticles.js";
 import styles from "../styles/Newsletter.module.css";
-import design from "/public/design.png";
 
 const Newsletter = () => {
 
+  const { articles, loading, error } = useArticles();
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
@@ -33,51 +35,6 @@ const Newsletter = () => {
       alert("An unexpected error occurred. Please try again later.");
     }
   };
-
-  const articles = [
-    {
-      id: 1,
-      title: "Latest News",
-      description: "Stay updated with the latest news and offers from Neza Startup.",
-      image: design,
-      alt: "Newsletter Image 1"
-    },
-    {
-      id: 2,
-      title: "Exclusive Offers",
-      description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
-      image: design,
-      alt: "Newsletter Image 2"
-    },
-    {
-      id: 3,
-      title: "Community Updates",
-      description: "Be part of our community and receive updates on events, workshops, and more.",
-      image: design,
-      alt: "Newsletter Image 3"
-    },
-    {
-      id: 4,
-      title: "Latest News 4",
-      description: "Stay updated with the latest news and offers from Neza Startup.",
-      image: design,
-      alt: "Newsletter Image 1"
-    },
-    {
-      id: 5,
-      title: "Exclusive Offers 5",
-      description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
-      image: design,
-      alt: "Newsletter Image 2"
-    },
-    {
-      id: 6,
-      title: "Community Updates 6",
-      description: "Be part of our community and receive updates on events, workshops, and more.",
-      image: design,
-      alt: "Newsletter Image 3"
-    }
-  ];
 
   /* const recordsPerPage = 3;
 
@@ -147,6 +104,18 @@ const Newsletter = () => {
     });
   }; */
 
+  if (loading) {
+    return <p>Loading articles...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading articles: {error.message}</p>;
+  }
+
+  if (!articles || articles.length === 0) {
+    return <p>No articles found.</p>;
+  }
+
   return (
     <section className={styles.newsletter} id="newsletter">
       <header className={styles.newsletterHeader}>
@@ -171,11 +140,11 @@ const Newsletter = () => {
       <div ref={cardsRef} className={styles.ArticleCards}>
         {articles.map((article, index) => (
           <div key={index} className={styles.ArticleCard}>
-            <Link to={`/blog/article/${article.id}`} className={styles.latestArticleLink} state={{ from: 'article' }}>
+            <HashLink smooth to={`/blog/article/${article.id}#article`} className={styles.latestArticleLink} state={{ from: 'article' }}>
               <img src={article.image} alt={article.alt} />
               <h3>{article.title}</h3>
               <p>{article.description}</p>
-            </Link>
+            </HashLink>
           </div>
         ))}
 
