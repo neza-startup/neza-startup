@@ -1,6 +1,7 @@
 import { /* faArrowDown, faAngleRight, faCode */ faChevronDown, faChevronUp, faCircleCheck, faDashboard, faGlobe, faInfoCircle, faLaptop, faMobile, faRobot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/Pricing.module.css';
 
 const Pricing = () => {
@@ -180,7 +181,7 @@ const Pricing = () => {
               <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
               {
                 plan.cta && (
-                  <a href="/form" className={styles.ctaButton}>View All Plans &rarr;</a>
+                  <Link to="/form" className={styles.ctaButton}>View All Plans &rarr;</Link>
                 )
               }
             </div>

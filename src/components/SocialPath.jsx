@@ -1,6 +1,7 @@
 import { faFacebook, faGithub, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCalendar, faEnvelope, faFile, faLink, faPhone, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import styles from '../styles/SocialPath.module.css';
 
 const SocialPath = () => {
@@ -22,9 +23,9 @@ const SocialPath = () => {
 
   return (
     <div className={styles.socialPath}>
-      <a href="/link-in-bio" target="_self" rel="noopener noreferrer" className={styles.socialLink}>
+      <Link to="/link-in-bio" className={styles.socialLink}>
         <FontAwesomeIcon icon={faLink} className={styles.icon} />
-      </a>
+      </Link>
       <a href="https://wa.me/527774447232" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />
       </a>
@@ -46,9 +47,9 @@ const SocialPath = () => {
       <a href="https://github.com/neza-startup" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
         <FontAwesomeIcon icon={faGithub} className={styles.icon} />
       </a>
-      <a href="/form" /* target="_blank" */ rel="noopener noreferrer" className={styles.socialLink}>
+      <Link to="/form" className={styles.socialLink}>
         <FontAwesomeIcon icon={faFile} className={styles.icon} />
-      </a>
+      </Link>
       <span onClick={handleShare} className={styles.socialLink}>
         <FontAwesomeIcon icon={faShare} className={styles.icon} />
       </span>

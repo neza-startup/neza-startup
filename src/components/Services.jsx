@@ -1,5 +1,6 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import styles from '../styles/Services.module.css';
 
 const Services = () => {
@@ -27,7 +28,7 @@ const Services = () => {
           </header>
           <p>We create responsive and user-friendly websites that help businesses establish a strong online presence.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</Link>
         </div>
         <div className={styles.serviceItem}>
           <header>
@@ -35,7 +36,7 @@ const Services = () => {
           </header>
           <p>We develop mobile applications for iOS and Android platforms, providing seamless user experiences.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</Link>
         </div>
         <div className={styles.serviceItem}>
           <header>
@@ -43,7 +44,7 @@ const Services = () => {
           </header>
           <p>We provide cutting-edge AI solutions to help businesses automate processes and gain valuable insights from their data.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</Link>
         </div>
         <div className={styles.serviceItem}>
           <header>
@@ -51,7 +52,7 @@ const Services = () => {
           </header>
           <p>We help businesses make sense of their data and turn it into actionable and valuable insights.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</Link>
         </div>
         <div className={styles.serviceItem}>
           <header>
@@ -59,7 +60,7 @@ const Services = () => {
           </header>
           <p>We offer digital marketing services to help businesses reach their target audience and grow their brand.</p>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us{/* Learn More */}</Link>
         </div>
         <div className={styles.serviceItem}>
           <header>
@@ -68,9 +69,9 @@ const Services = () => {
           </header>
           <p>Browse our full range of services to find the perfect solution for your business needs.</p>
           {/* <FontAwesomeIcon icon={faStar} className={styles.icon} /> */}
-          <a href="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us &rarr;{/* Learn More */}</a>
+          <Link to="/form"/* "https://www.example.com/web-development" target="_blank" rel="noopener noreferrer" */>Contact us &rarr;{/* Learn More */}</Link>
 
-          <a href="/form">View All Services &rarr;</a>
+          <Link to="/form">View All Services &rarr;</Link>
         </div>
         {/* <div className={styles.serviceItem}>
           <header>

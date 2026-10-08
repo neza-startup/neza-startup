@@ -1,7 +1,6 @@
 import { faAngleRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import styles from "../styles/LastCTA.module.css";
 
 const LastCTA = () => {
@@ -15,10 +14,10 @@ const LastCTA = () => {
 
       <div className={styles.lastCTAContainer}>
         {/* <a href="/services" className={styles.servicesButton}>Explore Our Services</a> */}
-        <HashLink smooth to="/#contact" className={styles.contactButton}>
+        <a href="/#contact" className={styles.contactButton}>
           Contact Us Now
           <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />
-        </HashLink>
+        </a>
         <Link to="/form" className={styles.servicesButton}>Get custom price <FontAwesomeIcon icon={faStar} /></Link>
       </div>
     </section>
