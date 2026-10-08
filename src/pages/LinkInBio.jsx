@@ -8,6 +8,8 @@ import styles from '../styles/LinkInBio.module.css';
 function LinkInBio() {
   return (
     <div className={styles.linkInBio}>
+      <title>Neza Startup - Link in Bio</title>
+      <meta name="description" content="All the links to our social media, website, and contact information." />
       <header>
         {/* <img src={banner} alt="Banner" className={styles.banner} /> */}
         <img src={icon} alt="Icon" className={styles.icon} />

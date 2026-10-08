@@ -137,6 +137,8 @@ function Blog() {
 
   return (
     <section className={styles.blog} id="blog">
+      <title>Blog - Neza Startup</title>
+      <meta name="description" content="Discover articles on technology, marketing, and digital growth. Stay updated with the latest news and insights from Neza Startup." />
       <header className={styles.blogHeader}>
         <h1>Blog</h1>
         <h2>Discover articles on technology, marketing, and digital growth.</h2>

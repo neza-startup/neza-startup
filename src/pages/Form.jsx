@@ -154,6 +154,8 @@ function Form() {
 
   return (
     <section className={styles.formContainer}>
+      <title>Neza Startup - Form</title>
+      <meta name="description" content="Fill out our form to request or review our services." />
       {/* <nav className={styles.navbar}>
         <a href="/" className={styles.navbarLink}>
           &#8592; Back <span>to landing page</span>
