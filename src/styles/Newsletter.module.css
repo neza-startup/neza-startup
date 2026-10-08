@@ -195,22 +195,27 @@ section.newsletter {
         border: 1px solid #1E1E1E;
       }
 
-      h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-        text-align: left;
-        width: 100%;
-        /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      a.latestArticleLink {
+        text-decoration: none !important;
+        color: var(--secondary-color) !important;
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: center;
+          text-align: left;
+          width: 100%;
+          /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent; */
-      }
+        }
 
-      p {
-        font-size: 0.875rem;
-        color: var(--secondary-color);
-        text-align: center;
-        text-align: left;
+        p {
+          font-size: 0.875rem;
+          color: var(--secondary-color);
+          text-align: center;
+          text-align: left;
+        }
       }
     }
 

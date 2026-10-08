@@ -36,36 +36,42 @@ const Newsletter = () => {
 
   const articles = [
     {
+      id: 1,
       title: "Latest News",
       description: "Stay updated with the latest news and offers from Neza Startup.",
       image: design,
       alt: "Newsletter Image 1"
     },
     {
+      id: 2,
       title: "Exclusive Offers",
       description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
       image: design,
       alt: "Newsletter Image 2"
     },
     {
+      id: 3,
       title: "Community Updates",
       description: "Be part of our community and receive updates on events, workshops, and more.",
       image: design,
       alt: "Newsletter Image 3"
     },
     {
+      id: 4,
       title: "Latest News 4",
       description: "Stay updated with the latest news and offers from Neza Startup.",
       image: design,
       alt: "Newsletter Image 1"
     },
     {
+      id: 5,
       title: "Exclusive Offers 5",
       description: "Get access to exclusive offers and promotions by subscribing to our newsletter.",
       image: design,
       alt: "Newsletter Image 2"
     },
     {
+      id: 6,
       title: "Community Updates 6",
       description: "Be part of our community and receive updates on events, workshops, and more.",
       image: design,
@@ -165,9 +171,11 @@ const Newsletter = () => {
       <div ref={cardsRef} className={styles.ArticleCards}>
         {articles.map((article, index) => (
           <div key={index} className={styles.ArticleCard}>
-            <img src={article.image} alt={article.alt} />
-            <h3>{article.title}</h3>
-            <p>{article.description}</p>
+            <Link to={`/blog/article/${article.id}`} className={styles.latestArticleLink} state={{ from: 'article' }}>
+              <img src={article.image} alt={article.alt} />
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+            </Link>
           </div>
         ))}
 
