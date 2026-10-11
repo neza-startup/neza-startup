@@ -15,13 +15,7 @@
     "description": "Stay updated with the latest news and offers from Neza Startup.",
     "image": "/design.png",
     "alt": "Newsletter Image 1",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -49,13 +43,7 @@
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
     "image": "/design.png",
     "alt": "Newsletter Image 2",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -83,13 +71,7 @@
     "description": "Be part of our community and receive updates on events, workshops, and more.",
     "image": "/design.png",
     "alt": "Newsletter Image 3",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc.nisl aliquam.nisl, eget aliquam.nunc.nisl eget.nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -117,13 +99,7 @@
     "description": "Stay updated with the latest news and offers from Neza Startup.",
     "image": "/design.png",
     "alt": "Newsletter Image 1",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -151,13 +127,7 @@
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
     "image": "/design.png",
     "alt": "Newsletter Image 2",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -185,13 +155,7 @@
     "description": "Be part of our community and receive updates on events, workshops, and more.",
     "image": "/design.png",
     "alt": "Newsletter Image 3",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -219,13 +183,7 @@
     "description": "Stay updated with the latest news and offers from Neza Startup.",
     "image": "/design.png",
     "alt": "Newsletter Image 1",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",
@@ -253,13 +211,7 @@
     "description": "Get access to exclusive offers and promotions by subscribing to our newsletter.",
     "image": "/design.png",
     "alt": "Newsletter Image 2",
-    "content": [
-      {
-        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.",
-        "paragraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc.nisl aliquam.nisl, eget aliquam.niscnsl egest.nunc."
-      }
-    ],
+    "content": "## Introduction\n\nLorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam _tincidunt_, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Main Content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt [blog](/blog), nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n## Conclusion\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.\n\n* Sed euismod,\n\n* nunc ut aliquam tincidunt,\n\n* nunc nisl aliquam nisl,\n\n* eget aliquam nunc nisl eget nunc.",
     "hashtags": [
       "#technology",
       "#marketing",

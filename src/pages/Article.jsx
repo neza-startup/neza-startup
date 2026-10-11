@@ -1,5 +1,6 @@
 import { faArrowTrendUp, faEye, faShare, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactMarkdown from 'react-markdown';
 import { Link, useParams } from "react-router-dom";
 import LastCTA from "../components/LastCTA.jsx";
 import useArticles from "../hooks/useArticles.js";
@@ -121,19 +122,13 @@ const Article = () => {
       </div> */}
 
       <div className={styles.content}>
-        {article?.content && article.content.map((section, index) => (
-          <div key={index}>
-            {section.paragraph1 && <p>{section.paragraph1}</p>}
-            {section.paragraph1 && section.paragraph2 && article.image && (
-              <img src={article.image} alt={article.alt} className={styles.contentImage} />
-            )}
-            {section.paragraph2 && <p>{section.paragraph2}</p>}
-            {section.paragraph2 && section.paragraph3 && article.image && (
-              <img src={article.image} alt={article.alt} className={styles.contentImage} />
-            )}
-            {section.paragraph3 && <p>{section.paragraph3}</p>}
+        {article?.content && (
+          <div className={styles.markdownContent}>
+            <ReactMarkdown>
+              {article.content}
+            </ReactMarkdown>
           </div>
-        ))}
+        )}
       </div>
 
       <footer>
