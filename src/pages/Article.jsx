@@ -122,6 +122,8 @@ const Article = () => {
         <p>{article?.description ?? content}</p>
       </div> */}
 
+      <hr className={styles.divider} />
+
       <div className={styles.content}>
         {article?.content && (
           <div className={styles.markdownContent}>
@@ -131,6 +133,8 @@ const Article = () => {
           </div>
         )}
       </div>
+
+      <hr className={styles.divider} />
 
       <footer>
         <div className={styles.articleInfo}>
@@ -167,6 +171,8 @@ const Article = () => {
             {article?.featured && <span className={styles.featured}><FontAwesomeIcon icon={faStar} /> Featured</span>}
           </div>
         )}
+
+        <hr className={styles.divider} />
 
         <div className={styles.latestArticles}>
           <h2>Latest Articles</h2>

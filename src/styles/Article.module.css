@@ -115,6 +115,15 @@ article.article {
     }
   }
 
+  hr.divider {
+    width: 100%;
+    max-width: 64ch;
+    border: none;
+    border-top: 1px solid #1E1E1E;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
   div.content div {
     display: flex;
     flex-direction: column;
@@ -159,7 +168,7 @@ article.article {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 1rem;
-    margin-top: 2rem;
+    /* margin-top: 1rem; */
 
     div.articleInfo {
       display: flex;
@@ -223,6 +232,13 @@ article.article {
       }
     }
 
+    div.articleStats {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
     div.latestArticles {
       display: flex;
@@ -230,7 +246,7 @@ article.article {
       justify-content: flex-start;
       align-items: flex-start;
       gap: 1rem;
-      margin: 2rem 0 2rem 0;
+      margin: 1rem 0 2rem 0;
 
       ul {
         list-style-type: none;

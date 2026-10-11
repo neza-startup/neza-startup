@@ -25,9 +25,9 @@ export const getArticleById = async (req, res) => {
 };
 
 export const postArticle = async (req, res) => {
-  const { id, title, authors, description, content, date, hashtags, readTime, views, trending, featured } = req.body;
+  const { id, title, authors, description, image, alt, content, date, hashtags, readTime, views, trending, featured } = req.body;
   try {
-    const newArticle = new Article({ id, title, authors, description, content, date, hashtags, readTime, views, trending, featured });
+    const newArticle = new Article({ id, title, authors, description, image, alt, content, date, hashtags, readTime, views, trending, featured });
     await newArticle.save();
     res.status(201).json(newArticle);
   } catch (error) {
