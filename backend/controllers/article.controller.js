@@ -25,9 +25,9 @@ export const getArticleById = async (req, res) => {
 };
 
 export const postArticle = async (req, res) => {
-  const { id, title, content, author, publishedDate } = req.body;
+  const { id, title, authors, description, content, date, hashtags, readTime, views, trending, featured } = req.body;
   try {
-    const newArticle = new Article({ id, title, content, author, publishedDate });
+    const newArticle = new Article({ id, title, authors, description, content, date, hashtags, readTime, views, trending, featured });
     await newArticle.save();
     res.status(201).json(newArticle);
   } catch (error) {
@@ -38,11 +38,11 @@ export const postArticle = async (req, res) => {
 
 export const updateArticle = async (req, res) => {
   const { id } = req.params;
-  const { title, content, author, publishedDate } = req.body;
+  const { title, content, authors, publishedDate } = req.body;
   try {
     const updatedArticle = await Article.findOneAndUpdate(
       { id },
-      { title, content, author, publishedDate },
+      { title, content, authors, publishedDate },
       { new: true }
     );
     if (!updatedArticle) {

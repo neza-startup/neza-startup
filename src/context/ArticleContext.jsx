@@ -9,7 +9,7 @@ export function ArticleProvider({ children }) {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch("/data/articles.json");
+        const response = await fetch("/api/article");
         if (!response.ok) {
           throw new Error("Failed to fetch articles");
         }

@@ -9,9 +9,9 @@ import styles from "../styles/Article.module.css";
 const Article = () => {
   const { articleId } = useParams();
   const { articles, loading, error } = useArticles();
-  const article = articles.find(({ id }) => id === Number(articleId));
+  const article = articles.find(({ id }) => id === String(articleId));
 
-  const articleAuthors = article?.author ?? [];
+  const articleAuthors = article?.authors ?? [];
 
   if (loading) {
     return (
@@ -80,14 +80,14 @@ const Article = () => {
         </p>
       </header>
 
-      {article?.author && (
-        <div className={styles.author}>
+      {article?.authors && (
+        <div className={styles.authors}>
           <span>By </span>
           {articleAuthors.map((articleAuthor, index) => (
             <span key={`${articleAuthor.name}-${index}`} className={styles.authorNameBlock}>
-              {articleAuthor.img && (
+              {articleAuthor.image && (
                 <img
-                  src={articleAuthor.img}
+                  src={articleAuthor.image}
                   alt={articleAuthor.name}
                   className={styles.authorImage}
                 />
@@ -171,7 +171,7 @@ const Article = () => {
           <h2>Latest Articles</h2>
           <ul>
             {articles
-              .filter(({ id }) => id !== Number(articleId))
+              .filter(({ id }) => id !== String(articleId))
               .sort((a, b) => new Date(b.date) - new Date(a.date))
               .slice(0, 2)
               .map(({ id, title, description }) => (

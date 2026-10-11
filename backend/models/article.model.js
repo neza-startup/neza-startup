@@ -3,10 +3,22 @@ import moongose from 'mongoose';
 const ArticleSchema = new moongose.Schema({
   id: { type: String, required: true, unique: true },
   title: { type: String },
-  authors: { type: [String], required: true, default: ['Neza Startup'] },
+  authors: [
+    {
+      name: {
+        type: String,
+        required: true,
+        default: "Neza Startup"
+      },
+      image: {
+        type: String,
+        default: "/icon.svg"
+      }
+    }
+  ],
   description: { type: String },
-  heroImage: { type: String },
-  alt: { type: String },
+  image: { type: String, required: true, default: "/design.png" },
+  imageAlt: { type: String },
   content: { type: String },
   date: { type: Date, default: Date.now },
   hashtags: { type: [String] },

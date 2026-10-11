@@ -37,7 +37,7 @@ article.article {
     }
   }
 
-  div.author {
+  div.authors {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

@@ -273,7 +273,7 @@ section.blog {
         border: 1px solid #1E1E1E;
       }
 
-      span.author {
+      span.authors {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;

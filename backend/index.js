@@ -3,6 +3,7 @@ import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import connectDB from "./db.js";
+import articleRoutes from "./routes/article.js";
 import contactRoutes from "./routes/contact.js";
 import formRoutes from "./routes/form.js";
 import newsletterRoutes from "./routes/newsletter.js";
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use('/api', contactRoutes);
 app.use('/api', formRoutes);
 app.use('/api', newsletterRoutes);
+app.use('/api', articleRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

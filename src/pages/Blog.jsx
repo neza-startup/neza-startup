@@ -24,7 +24,7 @@ function Blog() {
 
         return (
           article.date.startsWith(filter) ||
-          article.author.some((articleAuthor) => articleAuthor.name === filter) ||
+          article.authors.some((articleAuthor) => articleAuthor.name === filter) ||
           article.hashtags.some((hashtag) => hashtag === filter)
         );
       });
@@ -44,7 +44,7 @@ function Blog() {
     if (searchWords.length > 0) {
       result = result.filter((article) => {
         const searchableText = normalizeText(
-          `${article.title} ${article.description} ${article.date} ${article.hashtags.join(" ")} ${article.author.map((author) => author.name).join(" ")}`
+          `${article.title} ${article.description} ${article.date} ${article.hashtags.join(" ")} ${article.authors.map((authors) => authors.name).join(" ")}`
         );
 
         return searchWords.some((word) =>
@@ -105,7 +105,7 @@ function Blog() {
         article.description,
         article.date,
         article.hashtags.join(" "),
-        article.author.map((author) => author.name).join(" "),
+        article.authors.map((authors) => authors.name).join(" "),
       ].join(" ").toLowerCase();
 
       return searchTerms.length === 0 || searchTerms.some((searchTerm) => searchableContent.includes(searchTerm));
@@ -211,7 +211,7 @@ function Blog() {
                   <optgroup label="Authors">
                     {/* Gets the authors, removes duplicates, and converts the Set (collection of unique values) into an array. */}
                     {
-                      [...new Set(articles.flatMap((article) => article.author.map((author) => author.name)))].map((authorName) => (
+                      [...new Set(articles.flatMap((article) => article.authors.map((authors) => authors.name)))].map((authorName) => (
                         <option key={authorName} value={authorName}>{authorName}</option>
                       ))
                     }
@@ -262,19 +262,19 @@ function Blog() {
           <div key={index} className={styles.ArticleCard}>
             <img src={article.image} alt={article.alt} />
             <h3>{article.title}</h3>
-            <span className={styles.author}>
+            <span className={styles.authors}>
               {/* Author:  */}
               {
-                article.author.map((author, index) => (
-                  <img key={index} src={author.img} alt={author.name} className={styles.authorImage} />
+                article.authors.map((authors, index) => (
+                  <img key={index} src={authors.image} alt={authors.name} className={styles.authorImage} />
                 ))
               }
-              {article.author.map((author, index) => (
+              {article.authors.map((authors, index) => (
                 <span key={index}>
-                  {index > 0 && index === article.author.length - 1 && "and "}
+                  {index > 0 && index === article.authors.length - 1 && "and "}
 
                   <span className={styles.authorName}>
-                    {author.name}
+                    {authors.name}
                   </span>
                 </span>
               ))}
@@ -315,7 +315,7 @@ function Blog() {
   <span>{/* Print: *\/}Print this article for offline reading.</span>
   <span>{/* Email: *\/}Email this article to a friend.</span>
   <span>{/* Save: *\/}Save this article to your reading list.</span>
-  <span>{/* Follow: *\/}Follow the author for more articles.</span>
+  <span>{/* Follow: *\/}Follow the authors for more articles.</span>
   <span>{/* Rate: *\/}Rate this article and provide feedback.</span>
   <span>{/* Discuss: *\/}Join the discussion in the comments section.</span>
   <span>{/* Recommend: *\/}Recommend this article to others.</span>
