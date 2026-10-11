@@ -5,11 +5,12 @@ import { Link, useParams } from "react-router-dom";
 import LastCTA from "../components/LastCTA.jsx";
 import useArticles from "../hooks/useArticles.js";
 import styles from "../styles/Article.module.css";
+import formatDate from "../utils/index.js";
 
 const Article = () => {
   const { articleId } = useParams();
   const { articles, loading, error } = useArticles();
-  const article = articles.find(({ id }) => id === String(articleId));
+  const article = articles.find(({ id }) => String(id) === String(articleId));
 
   const articleAuthors = article?.authors ?? [];
 
@@ -103,7 +104,7 @@ const Article = () => {
       )}
 
       <div className={styles.articleInfo}>
-        <span>Published on: <span>{article?.date}</span></span>
+        <span>Published on: <span>{formatDate(article?.date)}</span></span>
         <span>Read time: <span>{article?.readTime && `${article.readTime} min read`}</span></span>
         <span className={styles.shares}>
           <FontAwesomeIcon icon={faShare} className={styles.shareIcon} />&nbsp;

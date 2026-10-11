@@ -6,6 +6,7 @@ import PaginationButtons from "../components/PaginationButtons.jsx";
 import useArticles from "../hooks/useArticles.js";
 import usePagination from "../hooks/usePagination.jsx";
 import styles from "../styles/Blog.module.css";
+import formatDate from "../utils/index.js";
 
 function Blog() {
   const { articles } = useArticles();
@@ -281,7 +282,7 @@ function Blog() {
             </span>
             <p>{article.description}</p>
             <span className={styles.hashtags}>{/* Hashtags:  */}{article.hashtags.join(" ")}</span>
-            <span>{/* Published on:  */}{article.date} · {/* - |Read time:  */}{article.readTime} min read</span>
+            <span>{/* Published on:  */}{formatDate(article.date)} · {/* - |Read time:  */}{article.readTime} min read</span>
 
             {
               (article.trending || article.featured) && (
