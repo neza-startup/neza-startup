@@ -36,11 +36,11 @@ const Editor = ({ title, setTitle, description, setDescription, hashtags, setHas
           <label htmlFor="image">Image URL:</label>
           <input type="text" id="image" name="image" placeholder="Enter image URL" />
 
-          <label htmlFor="hashtags">Hashtags (comma-separated):</label>
-          <input type="text" id="hashtags" name="hashtags" value={hashtags} onChange={(event) => setHashtags(event.target.value)} placeholder="#hashtag1, #hashtag2" />
-
           <label htmlFor="readTime">Read Time:</label>
           <input type="text" id="readTime" name="readTime" value={readTime} onChange={(event) => setReadTime(event.target.value)} placeholder="e.g., 5 min read" />
+
+          <label htmlFor="hashtags">Hashtags (comma-separated):</label>
+          <input type="text" id="hashtags" name="hashtags" value={hashtags} onChange={(event) => setHashtags(event.target.value)} placeholder="#hashtag1, #hashtag2" />
 
           <label htmlFor="trending">Trending:</label>
           <input type="checkbox" id="trending" name="trending" checked={trending} onChange={(event) => setTrending(event.target.checked)} />
