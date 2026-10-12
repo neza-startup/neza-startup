@@ -7,6 +7,57 @@ div.preview {
   /* border: 1px solid #1E1E1E;
   padding: 1rem; */
 
+  div.mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    h2 {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    div.buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+
+
+      button.editSaveButton {
+        padding: 0.4rem 0.8rem;
+        border: 1px solid #1E1E1E;
+        border-radius: 0.5rem;
+        background-color: hsla(240, 2%, 8%, 0.8);
+        color: var(--secondary-color);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      button.post {
+        padding: 0.4rem 0.8rem;
+        border: 1px solid #1E1E1E;
+        border-radius: 0.5rem;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.9rem;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
   div.previewContent {
     width: 100%;
     padding: 1rem 2rem 1rem 2rem;
@@ -19,6 +70,18 @@ div.preview {
     /* ; */
     font-size: 1rem;
     overflow-wrap: break-word;
+
+    button.editSaveButton {
+      align-self: flex-end;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #1E1E1E;
+      border-radius: 0.25rem;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
 
     h2,
     h3,
@@ -59,6 +122,54 @@ div.preview {
 
       h1 {
         font-size: 2rem;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      input {
+        width: fit-content;
+        margin: 0 0 0.5rem;
+        padding: 0;
+        border: none;
+        border: 1px dashed #1E1E1E;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        background-color: transparent;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: normal;
+        outline: none;
+      }
+
+      input.descriptionInput {
+        width: 100%;
+        margin: 0 0 0.5rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px dashed #1E1E1E;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+
+      p.description {
+        margin: 0 0 0.5rem;
+      }
+
+      input.imageInput {
+        width: 100%;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+
+      img {
+        width: 100%;
+        max-height: 24rem;
+        margin-bottom: 0.5rem;
+        object-fit: cover;
       }
 
       div.authors {
@@ -112,6 +223,20 @@ div.preview {
           font-weight: 600;
         }
 
+        input.readTimeInput {
+          width: 2.5rem;
+          margin: 0;
+          padding: 0.125rem 0.25rem;
+          border: 1px dashed #1E1E1E;
+          border-radius: 0.5rem;
+          background-color: transparent;
+          color: inherit;
+          font: inherit;
+          font-weight: 600;
+          text-align: center;
+          outline: none;
+        }
+
         span.shares {
           font-weight: 600;
 
@@ -142,6 +267,19 @@ div.preview {
       margin: 1rem 0;
     }
 
+    textarea.contentInput {
+      width: 100%;
+      min-height: 16rem;
+      padding: 0.75rem;
+      border: 1px dashed #1E1E1E;
+      border-radius: 0.25rem;
+      background-color: transparent;
+      color: inherit;
+      font: inherit;
+      line-height: 1.5;
+      resize: vertical;
+    }
+
     footer {
       display: flex;
       flex-direction: column;
@@ -154,6 +292,24 @@ div.preview {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+
+        label {
+          font-weight: 600;
+        }
+
+        input.hashtagsInput {
+          width: 32ch;
+          margin: 0 0 0.5rem;
+          padding: 0.25rem 0.5rem;
+          border: 1px dashed #1E1E1E;
+          border-radius: 0.5rem;
+          background-color: transparent;
+          color: inherit;
+          font: inherit;
+          outline: none;
+          color: #888888;
+          font-weight: 500;
+        }
 
         span.hashtags {
           display: flex;
@@ -202,6 +358,25 @@ div.preview {
             padding: 0;
             margin: 0;
           }
+        }
+      }
+
+      div.articleStatus {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+
+        label.statusToggle {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          cursor: pointer;
+        }
+
+        label.statusToggle input {
+          width: auto;
+          margin: 0;
         }
       }
 

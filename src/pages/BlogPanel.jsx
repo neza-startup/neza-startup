@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Editor from '../components/Editor';
 import Preview from '../components/Preview';
 import styles from '../styles/BlogPanel.module.css';
 
 const BlogPanel = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
   const [hashtags, setHashtags] = useState('');
   const [readTime, setReadTime] = useState('');
   const [trending, setTrending] = useState(false);
@@ -21,8 +21,7 @@ const BlogPanel = () => {
       </div> */}
 
       <div className={styles.editorPreviewContainer}>
-        <Editor title={title} setTitle={setTitle} description={description} setDescription={setDescription} hashtags={hashtags} setHashtags={setHashtags} readTime={readTime} setReadTime={setReadTime} trending={trending} setTrending={setTrending} featured={featured} setFeatured={setFeatured} />
-        <Preview title={title} description={description} hashtags={hashtags} readTime={readTime} trending={trending} featured={featured} />
+        <Preview title={title} setTitle={setTitle} description={description} setDescription={setDescription} image={image} setImage={setImage} hashtags={hashtags} setHashtags={setHashtags} readTime={readTime} setReadTime={setReadTime} trending={trending} setTrending={setTrending} featured={featured} setFeatured={setFeatured} />
       </div>
     </section>
   );
