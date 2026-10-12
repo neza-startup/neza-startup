@@ -79,40 +79,40 @@ const Article = () => {
         <p className={styles.description}>
           {article?.description}
         </p>
-      </header>
 
-      {article?.authors && (
-        <div className={styles.authors}>
-          <span>By </span>
-          {articleAuthors.map((articleAuthor, index) => (
-            <span key={`${articleAuthor.name}-${index}`} className={styles.authorNameBlock}>
-              {articleAuthor.image && (
-                <img
-                  src={articleAuthor.image}
-                  alt={articleAuthor.name}
-                  className={styles.authorImage}
-                />
-              )}
-              <span className={styles.authorName}>
-                &nbsp;{articleAuthor.name}
+        {article?.authors && (
+          <div className={styles.authors}>
+            <span>By </span>
+            {articleAuthors.map((articleAuthor, index) => (
+              <span key={`${articleAuthor.name}-${index}`} className={styles.authorNameBlock}>
+                {articleAuthor.image && (
+                  <img
+                    src={articleAuthor.image}
+                    alt={articleAuthor.name}
+                    className={styles.authorImage}
+                  />
+                )}
+                <span className={styles.authorName}>
+                  &nbsp;{articleAuthor.name}
+                </span>
+                {index < articleAuthors.length - 2 && <span>, </span>}
+                {index === articleAuthors.length - 2 && articleAuthors.length > 1 && <span>&nbsp;and </span>}
               </span>
-              {index < articleAuthors.length - 2 && <span>, </span>}
-              {index === articleAuthors.length - 2 && articleAuthors.length > 1 && <span>&nbsp;and </span>}
-            </span>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
-      <div className={styles.articleInfo}>
-        <span>Published on: <span>{formatDate(article?.date)}</span></span>
-        <span>Read time: <span>{article?.readTime && `${article.readTime} min read`}</span></span>
-        <span className={styles.shares}>
-          <FontAwesomeIcon icon={faShare} className={styles.shareIcon} />&nbsp;
-          <button onClick={handleShare} className={styles.shareButton}>
-            Share
-          </button>
-        </span>
-      </div>
+        <div className={styles.articleInfo}>
+          <span>Published on: <span>{formatDate(article?.date)}</span></span>
+          <span>Read time: <span>{article?.readTime && `${article.readTime} min read`}</span></span>
+          <span className={styles.shares}>
+            <FontAwesomeIcon icon={faShare} className={styles.shareIcon} />&nbsp;
+            <button onClick={handleShare} className={styles.shareButton}>
+              Share
+            </button>
+          </span>
+        </div>
+      </header>
 
       {/* {article?.date && <p className={styles.date}>{article.date}</p>}
       {article?.readTime && <p className={styles.readTime}>{article.readTime} min read</p>}

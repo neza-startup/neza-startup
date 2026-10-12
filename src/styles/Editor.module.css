@@ -21,6 +21,11 @@ div.editor {
         font-size: 1.2rem;
       }
 
+      label {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
       input {
         width: 100%;
         padding: 0.5rem;

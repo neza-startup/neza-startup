@@ -1,0 +1,222 @@
+div.preview {
+  width: 100%;
+  /* max-width: 600px; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* border: 1px solid #1E1E1E;
+  padding: 1rem; */
+
+  div.previewContent {
+    width: 100%;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #1E1E1E;
+    /* background-color: */
+    /* light-dark(hsla(0, 0%, 98%, 0.8), */
+    /* hsla(240, 2%, 8%, 0.8) */
+    /* ) */
+    /* ; */
+    font-size: 1rem;
+    overflow-wrap: break-word;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* a {
+      color: var(--primary-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    } */
+
+    header.previewHeader {
+      text-align: left;
+      width: 100%;
+      /* max-width: 64ch; */
+      display: flex;
+      flex-direction: column;
+      /* gap: 1rem; */
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      div.authors {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        width: 64ch;
+
+        img.authorImage {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          aspect-ratio: 1/1 !important;
+          object-fit: contain !important;
+          object-position: center;
+          position: relative;
+          z-index: 2;
+          background-color: var(--primary-color);
+          border: 1px solid #1E1E1E;
+
+          /* border inside FFFFFF 25% */
+          /* border: 2px solid hsla(0, 0%, 100%, 0.25); */
+        }
+
+        span {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          /* gap: 0.5rem; */
+        }
+
+        span.authorName {
+          font-weight: 600;
+        }
+      }
+
+      div.articleInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+        color: var(--secondary-color);
+        gap: 0.5rem;
+
+        span span {
+          font-weight: 600;
+        }
+
+        span.shares {
+          font-weight: 600;
+
+          /* border: 1px solid #1E1E1E; */
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.5rem;
+          background-color: var(--secondary-color);
+          color: var(--primary-color);
+
+          button.shareButton {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: not-allowed;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    hr.divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid #1E1E1E;
+      margin: 1rem 0;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1rem;
+
+      div.articleInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        span.hashtags {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 0.5rem;
+
+          span.hashtag {
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: underline;
+            color: #888888;
+            font-weight: 500;
+          }
+        }
+      }
+
+      div.articleStats {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+
+        span.views {
+          font-weight: 600;
+        }
+
+        span.shares {
+          font-weight: 600;
+
+          border: 1px solid #1E1E1E;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.5rem;
+          background-color: hsla(240, 2%, 8%, 0.8);
+          color: white;
+
+          button.shareButton {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: not-allowed;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+
+      div.articleStats {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        } */
+    }
+  }
+}
