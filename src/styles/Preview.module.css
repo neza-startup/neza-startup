@@ -267,17 +267,24 @@ div.preview {
       margin: 1rem 0;
     }
 
-    textarea.contentInput {
-      width: 100%;
-      min-height: 16rem;
-      padding: 0.75rem;
-      border: 1px dashed #1E1E1E;
-      border-radius: 0.25rem;
-      background-color: transparent;
-      color: inherit;
-      font: inherit;
-      line-height: 1.5;
-      resize: vertical;
+
+    div.markdownContent {
+      label {
+        font-weight: 600;
+      }
+
+      textarea.contentInput {
+        width: 100%;
+        min-height: 16rem;
+        padding: 0.75rem;
+        border: 1px dashed #1E1E1E;
+        border-radius: 0.25rem;
+        background-color: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: 1.5;
+        resize: vertical;
+      }
     }
 
     footer {

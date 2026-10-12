@@ -107,13 +107,16 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
 
         <div className={styles.markdownContent}>
           {isEditing ? (
-            <textarea
-              id="preview-content"
-              className={styles.contentInput}
-              value={markdown}
-              onChange={(event) => setMarkdown(event.target.value)}
-              placeholder="Write your article in Markdown..."
-            />
+            <>
+              <label htmlFor="content">Content:</label>
+              <textarea
+                id="content"
+                className={styles.contentInput}
+                value={markdown}
+                onChange={(event) => setMarkdown(event.target.value)}
+                placeholder="Write your article in Markdown..."
+              />
+            </>
           ) : <ReactMarkdown>{markdown}</ReactMarkdown>}
         </div>
 
@@ -128,7 +131,7 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
               type="text"
               value={hashtags}
               onChange={(event) => setHashtags(event.target.value)}
-              placeholder="#hashtag1 #hashtag2 #hashtag3"
+              placeholder="#technology #marketing #digitalgrowth"
             />}
             {!isEditing && hashtagList.length > 0 && <span className={styles.hashtags}>{
               hashtagList.map((hashtag, index) => (
@@ -156,26 +159,28 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
           </div>
 
           <div className={styles.articleStatus}>
-            <label className={styles.statusToggle} htmlFor="preview-trending">
-              <input
-                id="preview-trending"
-                type="checkbox"
-                checked={trending}
-                disabled={!isEditing}
-                onChange={(event) => setTrending(event.target.checked)}
-              />
-              <span className={styles.trending}><FontAwesomeIcon icon={faArrowTrendUp} /> Trending</span>
-            </label>
-            <label className={styles.statusToggle} htmlFor="preview-featured">
-              <input
-                id="preview-featured"
-                type="checkbox"
-                checked={featured}
-                disabled={!isEditing}
-                onChange={(event) => setFeatured(event.target.checked)}
-              />
-              <span className={styles.featured}><FontAwesomeIcon icon={faStar} /> Featured</span>
-            </label>
+            {(isEditing || trending) && (
+              <label className={styles.statusToggle} htmlFor="trending">
+                {isEditing && <input
+                  id="trending"
+                  type="checkbox"
+                  checked={trending}
+                  onChange={(event) => setTrending(event.target.checked)}
+                />}
+                <span className={styles.trending}><FontAwesomeIcon icon={faArrowTrendUp} /> Trending</span>
+              </label>
+            )}
+            {(isEditing || featured) && (
+              <label className={styles.statusToggle} htmlFor="featured">
+                {isEditing && <input
+                  id="featured"
+                  type="checkbox"
+                  checked={featured}
+                  onChange={(event) => setFeatured(event.target.checked)}
+                />}
+                <span className={styles.featured}><FontAwesomeIcon icon={faStar} /> Featured</span>
+              </label>
+            )}
           </div>
         </footer>
       </div >
