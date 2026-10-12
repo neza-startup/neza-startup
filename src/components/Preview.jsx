@@ -88,7 +88,7 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
 
           <div className={styles.articleInfo}>
             <span>Published on: <span>{formatDate(new Date().toLocaleDateString())}</span></span>
-            <span>Read time: {isEditing && <input
+            <span>Read time: <span>{isEditing ? <input
               id="preview-read-time"
               className={styles.readTimeInput}
               type="text"
@@ -96,7 +96,7 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
               onChange={(event) => setReadTime(event.target.value)}
               placeholder="5"
               aria-label="Read time in minutes"
-            />} {!isEditing && readTime} min read</span>
+            /> : readTime} min read</span></span>
             <span className={styles.shares}>
               <FontAwesomeIcon icon={faShare} className={styles.shareIcon} />&nbsp;
               <button className={styles.shareButton}>
