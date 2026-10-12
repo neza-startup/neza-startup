@@ -292,6 +292,7 @@ div.preview {
       textarea.contentInput {
         width: 100%;
         min-height: 16rem;
+        min-height: 50vh;
         padding: 0.75rem;
         border: 1px dashed #1E1E1E;
         border-radius: 0.25rem;
@@ -300,6 +301,20 @@ div.preview {
         font: inherit;
         line-height: 1.5;
         resize: vertical;
+
+        /* width: 100%;
+            min-height: 50vh;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #1E1E1E;
+            color: var(--secondary-color);
+            background-color: */
+        /* light-dark(hsla(0, 0%, 98%, 0.8), */
+        /* hsla(240, 2%, 8%, 0.8) */
+        /* ) */
+        /* ;
+            resize: vertical; */
       }
     }
 
