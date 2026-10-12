@@ -26,6 +26,22 @@ div.preview {
       align-items: center;
       gap: 0.5rem;
 
+      button.cancelChangesButton {
+        padding: 0.4rem 0.8rem;
+        border: 1px solid #1E1E1E;
+        border-radius: 0.5rem;
+        background-color: hsla(240, 2%, 8%, 0.8);
+        color: var(--secondary-color);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.9rem;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
 
       button.editSaveButton {
         padding: 0.4rem 0.8rem;

@@ -29,6 +29,9 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
         <h2>{isEditing ? 'Editing' : 'Preview'}</h2>
 
         <div className={styles.buttons}>
+          <button className={styles.cancelChangesButton} onClick={() => setIsEditing(false)} disabled={!isEditing}>
+            Cancel
+          </button>
           <button className={styles.editSaveButton} onClick={() => setIsEditing((editing) => !editing)}>
             {isEditing ? 'Save' : 'Edit'}
           </button>
