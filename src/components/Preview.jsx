@@ -4,9 +4,9 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import useMarkdown from '../hooks/useMarkdown';
 import styles from '../styles/Preview.module.css';
-import formatDate from '../utils/index.js';
+import { calculateReadTime, charactersCount, formatDate, wordsCount } from '../utils/index.js';
 
-const Preview = ({ title, setTitle, description, setDescription, image, setImage, hashtags, setHashtags, readTime, setReadTime, trending, setTrending, featured, setFeatured }) => {
+const Preview = ({ title, setTitle, description, setDescription, image, setImage, hashtags, setHashtags, trending, setTrending, featured, setFeatured }) => {
   const { markdown, setMarkdown } = useMarkdown();
   const [isEditing, setIsEditing] = useState(true);
   const hashtagList = Array.isArray(hashtags)
@@ -88,15 +88,7 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
 
           <div className={styles.articleInfo}>
             <span>Published on: <span>{formatDate(new Date().toLocaleDateString())}</span></span>
-            <span>Read time: <span>{isEditing ? <input
-              id="preview-read-time"
-              className={styles.readTimeInput}
-              type="text"
-              value={readTime}
-              onChange={(event) => setReadTime(event.target.value)}
-              placeholder="5"
-              aria-label="Read time in minutes"
-            /> : readTime} min read</span></span>
+            <span>Read time: <span>{calculateReadTime(markdown)} min read</span></span>
             <span className={styles.shares}>
               <FontAwesomeIcon icon={faShare} className={styles.shareIcon} />&nbsp;
               <button className={styles.shareButton}>
@@ -121,6 +113,8 @@ const Preview = ({ title, setTitle, description, setDescription, image, setImage
               />
             </>
           ) : <ReactMarkdown>{markdown}</ReactMarkdown>}
+
+          <span className={styles.wordsCharsCount}> {wordsCount(markdown)} words, {charactersCount(markdown)} characters</span>
         </div>
 
         <hr className={styles.divider} />

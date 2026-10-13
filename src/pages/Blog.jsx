@@ -6,7 +6,7 @@ import PaginationButtons from "../components/PaginationButtons.jsx";
 import useArticles from "../hooks/useArticles.js";
 import usePagination from "../hooks/usePagination.jsx";
 import styles from "../styles/Blog.module.css";
-import formatDate from "../utils/index.js";
+import { formatDate } from "../utils/index.js";
 
 function Blog() {
   const { articles } = useArticles();

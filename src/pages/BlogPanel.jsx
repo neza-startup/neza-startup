@@ -7,7 +7,6 @@ const BlogPanel = () => {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [hashtags, setHashtags] = useState('');
-  const [readTime, setReadTime] = useState('');
   const [trending, setTrending] = useState(false);
   const [featured, setFeatured] = useState(false);
 
@@ -21,7 +20,7 @@ const BlogPanel = () => {
       </div> */}
 
       <div className={styles.editorPreviewContainer}>
-        <Preview title={title} setTitle={setTitle} description={description} setDescription={setDescription} image={image} setImage={setImage} hashtags={hashtags} setHashtags={setHashtags} readTime={readTime} setReadTime={setReadTime} trending={trending} setTrending={setTrending} featured={featured} setFeatured={setFeatured} />
+        <Preview title={title} setTitle={setTitle} description={description} setDescription={setDescription} image={image} setImage={setImage} hashtags={hashtags} setHashtags={setHashtags} trending={trending} setTrending={setTrending} featured={featured} setFeatured={setFeatured} />
       </div>
     </section>
   );
